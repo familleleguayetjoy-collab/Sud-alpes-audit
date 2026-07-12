@@ -96,6 +96,35 @@
     if (articles.some((article) => article.id === initialId)) openArticle(initialId);
   }
 
+  const rotateEl = document.querySelector('[data-rotate-words]');
+  if (rotateEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const words = rotateEl.dataset.rotateWords.split(',');
+    let i = 0;
+    setInterval(() => {
+      rotateEl.style.opacity = '0';
+      rotateEl.style.transform = 'translateY(8px)';
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        rotateEl.textContent = words[i];
+        rotateEl.style.transform = 'translateY(-8px)';
+        requestAnimationFrame(() => {
+          rotateEl.style.opacity = '1';
+          rotateEl.style.transform = 'translateY(0)';
+        });
+      }, 320);
+    }, 2800);
+  }
+
+  document.querySelectorAll('[data-glow-card]').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--gx', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--gy', `${event.clientY - rect.top}px`);
+      card.classList.add('glow-active');
+    });
+    card.addEventListener('pointerleave', () => card.classList.remove('glow-active'));
+  });
+
   const cookiePanel = document.querySelector('[data-cookie-panel]');
   document.querySelectorAll('[data-cookie-settings]').forEach((button) => button.addEventListener('click', () => {
     if (cookiePanel) cookiePanel.hidden = false;

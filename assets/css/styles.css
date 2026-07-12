@@ -462,8 +462,10 @@ p{color:var(--muted)}
   box-shadow:none;
 }
 .btn:hover{transform:none}
-.btn-primary{background:#151518;color:#fff;border-color:#151518;box-shadow:none}
-.btn-primary:hover{background:var(--green-deep);border-color:var(--green-deep);box-shadow:none}
+.btn-primary{position:relative;overflow:hidden;isolation:isolate;background:#151518;color:#fff;border-color:#151518;box-shadow:none;transition:border-color .4s ease}
+.btn-primary::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(130% 180% at 18% 120%,#d3283c 0%,#8c0f1c 30%,#151518 60%);transition:opacity .5s ease}
+.btn-primary:hover{border-color:var(--green-deep);box-shadow:none}
+.btn-primary:hover::before{opacity:1}
 .btn-secondary{border-color:#aaa49b;color:var(--ink);background:transparent}
 .btn-secondary:hover{background:transparent;border-color:var(--green-deep);color:var(--green-deep)}
 .btn-light{background:#fff;color:#111;border-color:#fff}
@@ -549,6 +551,7 @@ p{color:var(--muted)}
 .hero-copy .eyebrow:before{background:#b51422}
 .hero-copy h1{color:#fff;max-width:850px}
 .hero-copy h1 em{font-weight:400;color:#cbbd9f}
+.rotate-word{display:inline-block;transition:opacity .32s ease,transform .32s ease}
 .hero-lead{color:#b9b8b5;max-width:760px;font-size:1.12rem;line-height:1.85}
 .hero-home .btn-primary{background:#fff;border-color:#fff;color:#121214}
 .hero-home .btn-primary:hover{background:var(--green-deep);border-color:var(--green-deep);color:#fff}
@@ -1067,6 +1070,19 @@ p{color:var(--muted)}
 .case-points{display:grid;gap:10px;margin-top:16px}
 .case-points span{display:flex;gap:10px;align-items:flex-start;color:#22333c;font-size:.93rem}
 .case-points span:before{content:"";width:8px;height:8px;border-radius:50%;background:#b51422;margin-top:8px;flex:none}
+.advantage-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#26282e;margin-top:44px}
+.advantage-card{position:relative;background:#111318;color:#f2efe9;padding:44px 40px;overflow:hidden;isolation:isolate}
+.advantage-card .advantage-index{position:absolute;top:30px;right:34px;font-family:"Iowan Old Style",Baskerville,serif;font-size:.85rem;color:#57554e;z-index:1}
+.advantage-card .icon-box{background:transparent;border-color:rgba(255,255,255,.22);color:#d9c6a8;margin-bottom:28px;position:relative;z-index:1}
+.advantage-card h3{color:#fff;font-family:"Iowan Old Style",Baskerville,"Times New Roman",serif;font-weight:400;font-size:1.55rem;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;max-width:23ch;position:relative;z-index:1}
+.advantage-card p{color:#aaa9a6;font-size:.94rem;line-height:1.72;max-width:40ch;margin:0;position:relative;z-index:1}
+.advantage-card::before,.advantage-card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:0}
+.advantage-card::before{background:radial-gradient(380px circle at var(--gx,50%) var(--gy,50%),rgba(181,20,34,.22),transparent 62%)}
+.advantage-card::after{background:radial-gradient(240px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.08),transparent 70%);mix-blend-mode:screen}
+.advantage-card.glow-active::before,.advantage-card.glow-active::after{opacity:1}
+@media(max-width:900px){.advantage-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.advantage-card{padding:32px 26px}}
+
 .team-story{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;margin:0 0 26px}
 .team-story-card{border:1px solid var(--line);padding:30px;background:#fff;box-shadow:var(--shadow-soft)}
 .team-story-copy h3{font-size:1.4rem;margin:0 0 12px;color:#111318}
