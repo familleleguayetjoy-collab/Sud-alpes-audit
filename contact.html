@@ -77,8 +77,8 @@
 </div>
 </div>
 
-<form class="contact-form" action="merci.html" method="post">
-<!-- À brancher sur un service d'envoi (Formspree, Netlify Forms, ou back-end de l'hébergeur) avant mise en ligne. -->
+<form class="contact-form" name="contact" method="post" action="merci.html" data-netlify="true" netlify-honeypot="site_web">
+<input type="hidden" name="form-name" value="contact"/>
 <div class="form-row">
 <label>Prénom<input autocomplete="given-name" name="prenom" required="" type="text"/></label>
 <label>Nom<input autocomplete="family-name" name="nom" required="" type="text"/></label>
