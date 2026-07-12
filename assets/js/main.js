@@ -100,13 +100,16 @@
   if (countEls.length && 'IntersectionObserver' in window) {
     const animateCount = (el) => {
       const target = parseFloat(el.dataset.countTo);
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const prefix = el.dataset.prefix || '';
       const suffix = el.dataset.suffix || '';
       const duration = 1300;
       const start = performance.now();
       const step = (now) => {
         const p = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * eased) + suffix;
+        const value = (target * eased).toFixed(decimals).replace('.', ',');
+        el.textContent = prefix + value + suffix;
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -120,6 +123,44 @@
       });
     }, { threshold: 0.4 });
     countEls.forEach((el) => countObserver.observe(el));
+  }
+
+  const charts = document.querySelectorAll('[data-chart]');
+  if (charts.length && 'IntersectionObserver' in window) {
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('grown');
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    charts.forEach((chart) => chartObserver.observe(chart));
+  }
+
+  const scrollProgress = document.createElement('div');
+  scrollProgress.className = 'scroll-progress';
+  document.body.appendChild(scrollProgress);
+  const updateScrollProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    scrollProgress.style.width = `${Math.min(pct, 100)}%`;
+  };
+  updateScrollProgress();
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+  const heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const offset = Math.min(window.scrollY, 500) * 0.06;
+        heroVisual.style.transform = `translateY(${offset}px)`;
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
   const rotateEl = document.querySelector('[data-rotate-words]');
