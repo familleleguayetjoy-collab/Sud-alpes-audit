@@ -200,8 +200,13 @@ p{color:var(--muted)}
 .locations-section{background:var(--paper)}
 .locations-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;align-items:center}
 .location-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.location-cards article{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;gap:18px}
-.location-cards article>div{display:flex;flex-direction:column}
+.location-cards article{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease}
+.location-cards article:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+.location-photo{height:160px;overflow:hidden}
+.location-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.location-cards article:hover .location-photo img{transform:scale(1.06)}
+.location-body{display:flex;gap:18px;padding:24px}
+.location-body>div{display:flex;flex-direction:column}
 .location-cards span{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
 .location-cards h3{margin:7px 0 12px}
 .location-cards p{font-size:.83rem}
