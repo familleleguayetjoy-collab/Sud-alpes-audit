@@ -512,6 +512,7 @@ p{color:var(--muted)}
   backdrop-filter:blur(20px);
   border-bottom:1px solid #ddd8d0;
 }
+.site-header.nav-open{backdrop-filter:none}
 .site-header.scrolled{background:rgba(255,255,255,.985);box-shadow:0 12px 36px rgba(0,0,0,.055)}
 .nav-wrap{min-height:94px}
 .brand{gap:15px}

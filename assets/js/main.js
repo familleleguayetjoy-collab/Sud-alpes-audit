@@ -8,6 +8,7 @@
     if (!toggle || !nav) return;
     toggle.classList.remove('open');
     nav.classList.remove('open');
+    header?.classList.remove('nav-open');
     toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
@@ -17,6 +18,7 @@
       const isOpen = !nav.classList.contains('open');
       toggle.classList.toggle('open', isOpen);
       nav.classList.toggle('open', isOpen);
+      header?.classList.toggle('nav-open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
