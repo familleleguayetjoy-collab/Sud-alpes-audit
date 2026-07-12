@@ -96,6 +96,32 @@
     if (articles.some((article) => article.id === initialId)) openArticle(initialId);
   }
 
+  const countEls = document.querySelectorAll('[data-count-to]');
+  if (countEls.length && 'IntersectionObserver' in window) {
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.countTo);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1300;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    countEls.forEach((el) => countObserver.observe(el));
+  }
+
   const rotateEl = document.querySelector('[data-rotate-words]');
   if (rotateEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const words = rotateEl.dataset.rotateWords.split(',');
