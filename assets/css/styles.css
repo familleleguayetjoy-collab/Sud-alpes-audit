@@ -1252,3 +1252,11 @@ p{color:var(--muted)}
 .values-grid article::after,.article-grid-large article::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:0;background:radial-gradient(280px circle at var(--gx,50%) var(--gy,50%),rgba(181,20,34,.08),transparent 72%)}
 .values-grid article.glow-active::after,.article-grid-large article.glow-active::after{opacity:1}
 .values-grid article>*,.article-grid-large article>*{position:relative;z-index:1}
+
+/* Home page: one full-screen "zone" at a time, snapping cleanly to the next on scroll */
+@media (min-width:900px){
+  html.snap-home{scroll-snap-type:y mandatory}
+  html.snap-home .hero{min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always}
+  html.snap-home main>section:not(.hero){min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){html.snap-home{scroll-snap-type:none}}
