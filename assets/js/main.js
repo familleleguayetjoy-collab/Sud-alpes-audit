@@ -38,16 +38,17 @@
   });
 
   const revealItems = document.querySelectorAll('.reveal');
-  revealItems.forEach((item) => item.classList.add('visible'));
-  if ('IntersectionObserver' in window) {
+  const siblingIndex = (el) => Array.from(el.parentElement?.querySelectorAll(':scope > .reveal') || []).indexOf(el);
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${Math.min(siblingIndex(entry.target), 5) * 65}ms`;
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     revealItems.forEach((item) => observer.observe(item));
   } else {
     revealItems.forEach((item) => item.classList.add('visible'));
@@ -62,6 +63,38 @@
       card.hidden = category !== 'all' && card.dataset.category !== category;
     });
   }));
+
+  const expertiseAccordion = document.querySelector('[data-expertise-accordion]');
+  if (expertiseAccordion) {
+    const articles = Array.from(expertiseAccordion.querySelectorAll('article'));
+    const navLinks = Array.from(document.querySelectorAll('[data-expertise-nav] a'));
+    const openArticle = (id, { scroll } = {}) => {
+      articles.forEach((article) => {
+        const isTarget = article.id === id;
+        article.classList.toggle('open', isTarget);
+        article.querySelector('button')?.setAttribute('aria-expanded', String(isTarget));
+      });
+      navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+      if (scroll) {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+    articles.forEach((article) => {
+      article.querySelector('button')?.addEventListener('click', () => {
+        openArticle(article.classList.contains('open') ? '' : article.id);
+      });
+    });
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        openArticle(id, { scroll: true });
+        history.replaceState(null, '', `#${id}`);
+      });
+    });
+    const initialId = location.hash ? location.hash.slice(1) : articles[0]?.id;
+    if (articles.some((article) => article.id === initialId)) openArticle(initialId);
+  }
 
   const cookiePanel = document.querySelector('[data-cookie-panel]');
   document.querySelectorAll('[data-cookie-settings]').forEach((button) => button.addEventListener('click', () => {
