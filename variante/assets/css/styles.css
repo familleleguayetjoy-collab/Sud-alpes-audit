@@ -1297,11 +1297,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     radial-gradient(52% 44% at -10% 32%,rgba(65,84,102,.10),transparent 62%),
     linear-gradient(180deg,#f8fafc 0%,#edf2f7 100%)}
 
-/* Sections claires : nappes qui s'estompent — la transition entre parties devient fluide */
-.section-soft{background:linear-gradient(180deg,rgba(231,237,244,0) 0%,#e7edf4 16%,#e7edf4 84%,rgba(231,237,244,0) 100%)}
-.locations-section{background:linear-gradient(180deg,rgba(232,237,243,0) 0%,#e6ecf3 18%,#e6ecf3 100%)}
-.case-section{background:linear-gradient(180deg,#eaeff5 0%,#e2e9f1 100%)}
-.related-section{background:linear-gradient(180deg,#e9eef4 0%,#e2e9f0 100%)}
+/* Sections claires : véritable dégradé diagonal (pas un aplat gris) + estompage en haut/bas
+   pour que la transition entre parties reste fluide */
+.section-soft{background:
+  linear-gradient(180deg,rgba(238,242,247,0) 0%,rgba(238,242,247,1) 10%,rgba(238,242,247,1) 90%,rgba(238,242,247,0) 100%),
+  linear-gradient(148deg,#eef2f7 0%,#e5ebf2 38%,#dbe3ec 72%,#d3dce6 100%)}
+.locations-section{background:
+  linear-gradient(180deg,rgba(238,242,247,0) 0%,rgba(238,242,247,1) 12%,rgba(238,242,247,1) 100%),
+  linear-gradient(155deg,#f0f3f8 0%,#e6ecf3 40%,#dae2ec 75%,#cfd9e4 100%)}
+.case-section{background:linear-gradient(155deg,#eef1f6 0%,#e3e9f0 45%,#d5dee9 100%)}
+.related-section{background:linear-gradient(155deg,#ecf0f5 0%,#e0e7ee 50%,#d2dbe6 100%)}
 
 /* Surfaces sombres : dégradés profonds + aurores en dérive lente */
 @keyframes auroraDrift{from{transform:translate3d(-3%,-2%,0) scale(1)}to{transform:translate3d(3%,3%,0) scale(1.07)}}
