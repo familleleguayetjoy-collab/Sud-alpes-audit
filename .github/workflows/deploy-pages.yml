@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/website-design-variant-xtv7gy]
   workflow_dispatch:
 
 permissions:
