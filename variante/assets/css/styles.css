@@ -1563,3 +1563,49 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
   transform:none;display:inline-flex;align-items:center;overflow:visible}
 .sector-grid .sector-tile h3 a{display:inline}
 .sector-grid .sector-tile a::after{display:none}
+
+/* ============================================================
+   V8 — en-tête dégradé mouvant, cartes situations, snap pages,
+   photo cabinet, cartes flottantes du hero
+   ============================================================ */
+
+/* (5) EN-TÊTE : dégradé clair qui bouge lentement + filet or (fini le blanc plat) */
+.site-header{
+  background:linear-gradient(100deg,#e9f0f8 0%,#f6f9fc 26%,#e4ecf5 50%,#f6f9fc 74%,#e9f0f8 100%);
+  background-size:220% 100%;
+  animation:hdrShift 18s ease-in-out infinite;
+  border-bottom:1px solid rgba(200,165,122,.30);
+  backdrop-filter:blur(14px);
+}
+.site-header.scrolled{box-shadow:0 10px 34px rgba(15,30,46,.10)}
+@keyframes hdrShift{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+@media(prefers-reduced-motion:reduce){.site-header{animation:none}}
+
+/* (2) SITUATIONS : cartes en dégradé gris/bleu clair, coins arrondis, images non arrondies */
+.case-card{background:linear-gradient(158deg,#eef3f9 0%,#dde7f1 58%,#cbd8e6 100%);
+  border:1px solid #cbd8e6;border-radius:var(--radius);overflow:hidden}
+.case-card .case-photo{border-radius:0;margin:0;height:210px}
+
+/* (3) PAGES INTERNES : plus de snap qui saute au milieu — défilement normal */
+@media (min-width:900px){
+  html:not(.snap-home){scroll-snap-type:none}
+  html:not(.snap-home) main>section{scroll-snap-align:none;scroll-snap-stop:normal}
+}
+
+/* (4) PHOTO PAGE (cabinet, etc.) : s'étire jusqu'en bas de la colonne texte */
+.page-hero-grid{align-items:stretch}
+.page-photo{height:auto;min-height:440px}
+.page-hero-grid>.reveal{align-self:center}
+
+/* (1) CARTES FLOTTANTES DU HERO : deux cartes ancrées au dashboard,
+   empilées, qui se croisent (l'une passe devant l'autre) en boucle */
+.hero-visual:before{display:none}
+.dashboard-main{position:relative}
+.dash-float{position:absolute;min-width:200px;padding:12px 15px}
+.dash-float-one{left:-36px;right:auto;top:auto;bottom:82px;animation:floatDeckA 8s ease-in-out infinite}
+.dash-float-two{left:-6px;right:auto;top:auto;bottom:12px;animation:floatDeckB 8s ease-in-out infinite}
+@keyframes floatDeckA{0%,100%{transform:translate(0,0);z-index:5}50%{transform:translate(26px,42px);z-index:7}}
+@keyframes floatDeckB{0%,100%{transform:translate(0,0);z-index:7}50%{transform:translate(-26px,-42px);z-index:5}}
+@media(prefers-reduced-motion:reduce){.dash-float-one,.dash-float-two{animation:none}
+  .dash-float-one{bottom:82px}.dash-float-two{bottom:12px}}
+@media(max-width:640px){.dash-float{display:none}}
