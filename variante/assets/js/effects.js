@@ -42,30 +42,7 @@
 
   if (reduce || !fine) return; // le reste = pointeur fin uniquement
 
-  /* ---------- 2. Curseur personnalisé (anneau qui suit, blend difference) ---------- */
-  const ring = document.createElement('div');
-  ring.className = 'cursor-ring';
-  document.body.appendChild(ring);
-  let rx = window.innerWidth / 2, ry = window.innerHeight / 2, tx = rx, ty = ry, shown = false;
-  window.addEventListener('pointermove', (e) => {
-    tx = e.clientX; ty = e.clientY;
-    if (!shown) { shown = true; ring.style.opacity = '1'; }
-  }, { passive: true });
-  window.addEventListener('pointerdown', () => ring.classList.add('down'));
-  window.addEventListener('pointerup', () => ring.classList.remove('down'));
-  document.addEventListener('mouseleave', () => { ring.style.opacity = '0'; shown = false; });
-  const interactive = 'a,button,input,select,textarea,label,[data-glow-card],.resource-filter button';
-  document.querySelectorAll(interactive).forEach((el) => {
-    el.addEventListener('pointerenter', () => ring.classList.add('hover'));
-    el.addEventListener('pointerleave', () => ring.classList.remove('hover'));
-  });
-  (function loop() {
-    rx = lerp(rx, tx, 0.2); ry = lerp(ry, ty, 0.2);
-    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-    requestAnimationFrame(loop);
-  })();
-
-  /* ---------- 3. Boutons magnétiques ---------- */
+  /* ---------- 2. Boutons magnétiques ---------- */
   document.querySelectorAll('.btn').forEach((btn) => {
     const strength = 0.28, radius = 90;
     btn.addEventListener('pointermove', (e) => {
@@ -79,7 +56,7 @@
     btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
   });
 
-  /* ---------- 4. Relief 3D des cartes ---------- */
+  /* ---------- 3. Relief 3D des cartes ---------- */
   document.querySelectorAll('.service-card,.value-card,.benefit-grid article').forEach((card) => {
     card.style.transformStyle = 'preserve-3d';
     card.addEventListener('pointermove', (e) => {

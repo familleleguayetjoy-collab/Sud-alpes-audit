@@ -1448,14 +1448,118 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .rw-host .rw-in{display:inline-block;transform:translateY(110%);transition:transform .72s cubic-bezier(.16,.8,.3,1)}
 .rw-host .rw.in .rw-in{transform:none}
 
-/* Curseur personnalisé : anneau qui suit, inversion via blend difference */
-.cursor-ring{position:fixed;top:0;left:0;width:32px;height:32px;border:1.4px solid #fff;border-radius:50%;
-  pointer-events:none;z-index:9999;mix-blend-mode:difference;opacity:0;
-  transition:width .28s ease,height .28s ease,opacity .3s ease,background .28s ease;will-change:transform}
-.cursor-ring.hover{width:56px;height:56px;background:rgba(255,255,255,.06)}
-.cursor-ring.down{width:24px;height:24px}
-@media (pointer:coarse){.cursor-ring{display:none}}
-
 /* Boutons magnétiques + cartes en relief : transitions douces au retour */
 .btn{will-change:transform}
 .service-card,.value-card,.benefit-grid article{will-change:transform}
+
+/* ============================================================
+   V7 — corrections : dégradés partout, contours retirés,
+   recalibrage, tuiles secteurs, arrondis, logo, chiffres
+   ============================================================ */
+
+/* (5) DÉGRADÉS sur TOUTES les parties claires — jamais d'aplat */
+main>section:not(.section-navy):not(.hero):not(.page-hero):not(.cta-section):not(.locations-section):not(.why-section):not(.case-section){
+  background:linear-gradient(150deg,#f3f7fb 0%,#e4ebf3 50%,#cfdae8 100%);
+}
+main>section.section-soft:not(.section-navy){
+  background:linear-gradient(150deg,#eaf1f8 0%,#d9e3ef 55%,#c4d3e4 100%);
+}
+/* variante secteurs (plus bleutée) pour rythmer l'alternance */
+#secteurs{background:linear-gradient(150deg,#eef3f9 0%,#dbe6f1 50%,#c6d6e8 100%)}
+
+/* (9) AUCUN contour blanc autour des photos */
+.media-frame,.page-photo,.office-placeholder,.photo-card,.hero-photo-panel,.expertise-visual{border:0}
+.media-frame::before,.page-photo::before,.office-placeholder::before{display:none}
+
+/* (4) LOGO jamais coupé */
+.brand-logo{width:112px;height:auto;max-height:46px;object-fit:contain;overflow:visible}
+@media(max-width:1120px){.brand-logo{width:100px;max-height:42px}}
+@media(max-width:640px){.brand-logo{width:88px;max-height:38px}}
+
+/* (3) RECALIBRAGE — tient à 100 % sans dézoomer */
+h1{font-size:clamp(2.5rem,4.3vw,4rem)}
+h2{font-size:clamp(1.85rem,3vw,2.85rem)}
+.nav-wrap{min-height:76px}
+.primary-nav ul a{padding:30px 0}
+.section{padding:78px 0}
+.hero-home{padding-top:82px}
+.hero-grid{min-height:0;gap:54px}
+.hero-copy{padding-bottom:40px}
+.hero-lead{font-size:1.04rem;line-height:1.7}
+.hero-copy h1{margin-bottom:14px}
+.dashboard-main{width:min(100%,468px);padding:26px}
+.dash-kpis strong{font-size:1.95rem}
+.page-hero{padding:46px 0 84px}
+.page-hero h1{font-size:clamp(2.5rem,4.4vw,4rem)}
+@media(min-width:900px){
+  html.snap-home .hero{min-height:100svh}
+  html.snap-home main>section:not(.hero){min-height:100svh}
+}
+
+/* (1) HERO — devise du cabinet */
+.hero-tagline{color:#d8bd93;font-size:1.08rem;font-weight:500;letter-spacing:.01em;margin:0 0 18px}
+
+/* (6a) SITUATIONS — photos à coins arrondis */
+.case-grid-rounded .case-card .case-photo{border-radius:16px;margin:14px 14px 0;overflow:hidden;height:196px}
+.case-grid-rounded .case-card .case-photo:after{border-radius:16px}
+
+/* (6b) SECTEURS — tuiles sans numéros, sans zoom, balayage bleu foncé vers la droite + CTA */
+.sector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border:0}
+.sector-tile{position:relative;overflow:hidden;border-radius:var(--radius);min-height:300px;
+  background-size:cover;background-position:center;isolation:isolate;display:flex;align-items:flex-end;
+  box-shadow:var(--shadow-soft);transition:box-shadow .4s ease}
+.sector-tile::after{content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(15,30,46,.12) 0%,rgba(15,30,46,.55) 58%,rgba(11,22,34,.9) 100%)}
+.sector-tile::before{content:"";position:absolute;inset:0;z-index:1;transform:translateX(-101%);
+  transition:transform .6s cubic-bezier(.16,.8,.3,1);
+  background:linear-gradient(90deg,rgba(11,22,34,.97) 0%,rgba(30,58,82,.92) 52%,rgba(30,58,82,.35) 100%)}
+.sector-tile:hover::before{transform:translateX(0)}
+.sector-tile:hover{box-shadow:0 26px 60px -18px rgba(15,30,46,.5)}
+.sector-tile-in{position:relative;z-index:2;padding:28px;width:100%}
+.sector-tile-in h3{margin:0 0 8px;font-size:1.5rem}
+.sector-tile-in h3 a{color:#fff;transition:color .3s ease}
+.sector-tile-in h3 a:hover{color:#e2cda6}
+.sector-tile-in p{color:#c7d2de;font-size:.9rem;margin:0;line-height:1.5}
+.sector-cta{display:inline-flex;align-items:center;gap:9px;margin-top:18px;color:#e2cda6;
+  font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;
+  opacity:0;transform:translateY(10px);transition:opacity .45s ease .08s,transform .45s ease .08s}
+.sector-tile:hover .sector-cta{opacity:1;transform:none}
+.sector-cta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s ease}
+.sector-cta:hover svg{transform:translateX(4px)}
+.sector-grid .sector-all{background:linear-gradient(155deg,#1e3a52 0%,#0f1e2e 100%);color:#fff;border:0;
+  border-radius:var(--radius);min-height:300px;display:flex;flex-direction:column;justify-content:center;
+  padding:32px;box-shadow:var(--shadow-soft);transition:transform .4s ease,box-shadow .4s ease}
+.sector-grid .sector-all:hover{transform:translateY(-5px);box-shadow:0 26px 60px -18px rgba(15,30,46,.5)}
+.sector-grid .sector-all h3{color:#fff;margin:0 0 6px;font-size:1.5rem}
+.sector-grid .sector-all p{color:#c7d2de;display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.9rem}
+.sector-grid .sector-all svg{width:16px;height:16px;fill:none;stroke:#e2cda6;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){.sector-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.sector-grid{grid-template-columns:1fr}}
+
+/* (8) BANDEAU CHIFFRES — présentation aérée */
+.stat-band{display:grid;grid-template-columns:repeat(4,1fr);margin-top:46px;
+  border-top:1px solid #c9d4e0;border-bottom:1px solid #c9d4e0}
+.stat-band article{padding:28px 26px;border-right:1px solid #c9d4e0}
+.stat-band article:last-child{border-right:0}
+.stat-band strong{display:block;font-family:Poppins,Montserrat,sans-serif;font-weight:600;
+  font-size:2.5rem;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-band strong::after{content:"";display:block;width:34px;height:2px;background:#c8a57a;margin-top:14px}
+.stat-band span{display:block;margin-top:14px;font-size:.82rem;color:var(--muted);line-height:1.4}
+@media(max-width:760px){.stat-band{grid-template-columns:1fr 1fr}
+  .stat-band article:nth-child(2){border-right:0}
+  .stat-band article:nth-child(-n+2){border-bottom:1px solid #c9d4e0}
+  .stat-band strong{font-size:2.1rem}}
+
+/* (12) ÉCHÉANCE — carte centrée sur toute la largeur */
+.deadline-callout{margin:32px auto 0;max-width:940px;width:100%}
+
+/* (7) ÉQUIPE — années d'expérience */
+.person-card .xp{display:inline-block;margin-top:12px;padding:5px 12px;border-radius:999px;
+  background:rgba(200,165,122,.14);color:#8f7448;font-size:.72rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.08em}
+
+/* Correctif tuiles : neutraliser les anciennes règles .sector-grid a sur les liens internes */
+.sector-grid .sector-tile a{padding:0;min-height:0;border:0;background:none;box-shadow:none;
+  transform:none;display:inline-flex;align-items:center;overflow:visible}
+.sector-grid .sector-tile h3 a{display:inline}
+.sector-grid .sector-tile a::after{display:none}
