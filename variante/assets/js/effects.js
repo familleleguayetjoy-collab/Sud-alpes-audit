@@ -12,7 +12,9 @@
   /* ---------- 1. Révélation des titres par masque (mots qui montent) ---------- */
   // Uniquement les titres en texte pur (pas de <br>/<em>/<sup> internes) pour
   // éviter de casser le balisage. Le hero (h1) garde son propre style.
-  if (!reduce && 'IntersectionObserver' in window) {
+  // Réservé au pointeur fin (bureau) : sur tactile, le déclenchement de
+  // l'observer est moins fiable et laisserait des titres masqués.
+  if (!reduce && fine && 'IntersectionObserver' in window) {
     const heads = document.querySelectorAll('main h2, .page-hero h1');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
