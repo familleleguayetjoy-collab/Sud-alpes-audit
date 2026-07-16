@@ -1609,3 +1609,15 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
 @media(prefers-reduced-motion:reduce){.dash-float-one,.dash-float-two{animation:none}
   .dash-float-one{bottom:82px}.dash-float-two{bottom:12px}}
 @media(max-width:640px){.dash-float{display:none}}
+
+/* ============================================================
+   V9 — corrections mobile / tactile
+   ============================================================ */
+/* Tuiles secteurs : sur tactile (pas de survol), le CTA reste visible */
+@media (hover:none){
+  .sector-cta{opacity:1;transform:none}
+  .sector-tile::before{transform:translateX(-101%)} /* pas de sweep permanent, on garde la photo */
+}
+/* Filet de sécurité titres : si le mot-masque n'est pas activé, jamais masqué */
+.rw-in{will-change:transform}
+.sector-cta{white-space:nowrap}
