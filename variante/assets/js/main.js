@@ -43,7 +43,7 @@
   // sans avoir à annoter chaque élément dans le HTML.
   const autoRevealSelectors = [
     '.section-heading', '.split-heading > div', '.service-card', '.person-card',
-    '.values-grid article', '.benefit-grid article', '.sector-grid a',
+    '.values-grid article', '.benefit-grid article', '.sector-tile', '.sector-grid .sector-all',
     '.expertise-accordion article', '.expertise-nav', '.contact-method', '.contact-form',
     '.jobs article', '.article-grid-large article', '.article-grid article',
     '.location-cards article', '.case-card', '.deadline-card', '.priority-card',
