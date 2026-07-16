@@ -14,15 +14,16 @@
 <meta property="og:title" content="Expert-comptable à Nice | S2A – Sud Alpes Audit"/>
 <meta property="og:description" content="Cabinet d'expertise comptable et de commissariat aux comptes à Nice et Allos depuis 1998."/>
 <meta property="og:url" content="https://www.sudalpesaudit.com/"/>
-<meta property="og:image" content="https://www.sudalpesaudit.com/assets/img/hero-reunion.webp"/>
+<meta property="og:image" content="https://www.sudalpesaudit.com/assets/img/v-hero.webp"/>
 <meta name="theme-color" content="#0f1e2e"/>
-<link rel="preload" as="image" href="assets/img/hero-reunion.webp" fetchpriority="high"/>
+<link rel="preload" as="image" href="assets/img/v-hero.webp" fetchpriority="high"/>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-600.woff2" crossorigin=""/>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-var.woff2" crossorigin=""/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["AccountingService", "ProfessionalService"], "name": "S2A - Sud Alpes Audit", "legalName": "SUD ALPES AUDIT", "url": "https://www.sudalpesaudit.com", "logo": "https://www.sudalpesaudit.com/assets/img/logo-s2a.webp", "foundingDate": "1998", "telephone": "+33497031530", "faxNumber": "+33497031531", "address": {"@type": "PostalAddress", "streetAddress": "Immeuble Cap Californie, Entrée C, 212 avenue de la Californie", "postalCode": "06200", "addressLocality": "Nice", "addressCountry": "FR"}, "location": [{"@type": "Place", "name": "S2A Nice — siège social", "address": {"@type": "PostalAddress", "streetAddress": "212 avenue de la Californie", "postalCode": "06200", "addressLocality": "Nice", "addressCountry": "FR"}}, {"@type": "Place", "name": "S2A Allos — bureau secondaire", "address": {"@type": "PostalAddress", "streetAddress": "Grande rue", "postalCode": "04260", "addressLocality": "Allos", "addressCountry": "FR"}}], "areaServed": ["Nice", "Alpes-Maritimes", "Alpes-de-Haute-Provence", "Provence-Alpes-Côte d'Azur"], "knowsAbout": ["Expertise comptable", "Commissariat aux comptes", "Social et paie", "Conseil de gestion", "Facturation électronique"]}</script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/shader-bg.js" defer></script>
 </head>
 <body class="home" id="top">
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -35,8 +36,8 @@
 <header class="site-header" data-header="">
 <div class="container nav-wrap">
 <a aria-label="Sud Alpes Audit — accueil" class="brand" href="#top">
-<svg aria-hidden="true" class="brand-logo" viewBox="0 0 176 96"><defs><linearGradient id="s2aArrowa" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8f7448"/><stop offset=".55" stop-color="#c8a57a"/><stop offset="1" stop-color="#e2c79b"/></linearGradient></defs><text class="logo-letters" x="2" y="64" font-family="Poppins,Montserrat,sans-serif" font-size="64" font-weight="600" letter-spacing="-2">S2A</text><path d="M6 76 C 52 83, 102 74, 148 30" fill="none" stroke="url(#s2aArrowa)" stroke-width="7" stroke-linecap="round"/><path d="M138 20 L 158 19 L 148 39 Z" fill="#e2c79b"/></svg>
-<span class="brand-copy"><strong><b>S2A</b><i></i> Sud Alpes Audit</strong><small>Expertise comptable · Audit · Conseil</small></span>
+<img alt="S2A — Sud Alpes Audit" class="brand-logo" src="assets/img/logo-s2a.webp" width="520" height="178"/>
+<span class="brand-copy"><strong>Sud Alpes Audit</strong><small>Expertise comptable · Audit · Conseil</small></span>
 </a>
 <button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle"><span></span><span></span><span></span><span class="sr-only">Ouvrir le menu</span></button>
 <nav aria-label="Navigation principale" class="primary-nav" id="primary-nav">
@@ -47,6 +48,7 @@
 </header>
 <main id="main">
 <section class="hero hero-home">
+<canvas class="shader-canvas" aria-hidden="true"></canvas>
 <div class="hero-orb hero-orb-one"></div><div class="hero-orb hero-orb-two"></div>
 <div class="container hero-grid">
 <div class="hero-copy reveal">
@@ -57,7 +59,7 @@
 <div class="hero-proof"><div class="avatar-stack"><span>TB</span><span>JL</span><span>19</span></div><p><strong>Une équipe pluridisciplinaire</strong><br/>Nice · Allos · Provence-Alpes-Côte d’Azur</p></div>
 </div>
 <div class="hero-visual reveal">
-<div aria-hidden="true" class="hero-photo-panel"><img alt="" src="assets/img/hero-reunion.webp" width="1400" height="876" loading="eager" decoding="async" fetchpriority="high"/></div>
+<div aria-hidden="true" class="hero-photo-panel"><img alt="" src="assets/img/v-hero.webp" width="1400" height="876" loading="eager" decoding="async" fetchpriority="high"/></div>
 <div class="dashboard-card dashboard-main">
 <div class="dash-head"><div><span class="dash-label">Synthèse dirigeant</span><strong>Performance &amp; liquidité</strong></div><span class="status-dot">Exemple illustratif</span></div>
 <div class="dash-kpis"><div><span>Performance</span><strong data-count-to="12.8" data-decimals="1" data-prefix="+" data-suffix=" %">+0,0 %</strong><small>croissance annuelle</small></div><div><span>Liquidité</span><strong data-count-to="4.6" data-decimals="1" data-suffix=" mois">0,0 mois</strong><small>d’autonomie estimée</small></div></div>
@@ -104,7 +106,7 @@
 </section>
 <section class="section why-section">
 <div class="container why-grid">
-<div class="why-visual reveal"><div class="office-placeholder media-frame"><img alt="Vue temporaire d'un espace d'accueil élégant et contemporain du cabinet" class="site-photo" src="assets/img/bureau-accueil.webp" width="1200" height="751" loading="lazy" decoding="async"/><div class="image-caption"><strong>Un cabinet pensé pour recevoir les dirigeants</strong><span>À Nice comme à Allos, nos équipes vous accueillent pour des échanges réguliers et préparés.</span></div></div><div class="why-quote"><span>Notre conviction</span><blockquote>« La technique est indispensable. La disponibilité et la compréhension du dirigeant font la différence. »</blockquote></div></div>
+<div class="why-visual reveal"><div class="office-placeholder media-frame"><img alt="Salle de réunion du cabinet S2A" class="site-photo" src="assets/img/v-reunion-ronde.webp" width="1200" height="751" loading="lazy" decoding="async"/><div class="image-caption"><strong>Un cabinet pensé pour recevoir les dirigeants</strong><span>À Nice comme à Allos, nos équipes vous accueillent pour des échanges réguliers et préparés.</span></div></div><div class="why-quote"><span>Notre conviction</span><blockquote>« La technique est indispensable. La disponibilité et la compréhension du dirigeant font la différence. »</blockquote></div></div>
 <div class="why-copy"><span class="eyebrow eyebrow-light">Pourquoi S2A</span><h2>La solidité d’un cabinet structuré. La proximité d’une équipe accessible.</h2>
 <div class="feature-list"><article><span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><div><h3>Une relation directe</h3><p>Un interlocuteur identifié, capable de suivre votre dossier et de mobiliser les bonnes compétences au bon moment.</p></div></article><article><span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"></path></svg></span><div><h3>Des chiffres rendus lisibles</h3><p>Nous ne nous contentons pas de produire les comptes : nous vous aidons à en comprendre les conséquences.</p></div></article><article><span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m12 3-1.6 4.4L6 9l4.4 1.6L12 15l1.6-4.4L18 9l-4.4-1.6L12 3Z"></path><path d="m5 15-.9 2.1L2 18l2.1.9L5 21l.9-2.1L8 18l-2.1-.9L5 15Zm14-2-1.1 2.9L15 17l2.9 1.1L19 21l1.1-2.9L23 17l-2.9-1.1L19 13Z"></path></svg></span><div><h3>Des outils au service du conseil</h3><p>Automatisation, dématérialisation et tableaux de bord permettent de consacrer davantage de temps à l’accompagnement.</p></div></article></div>
 <a class="btn btn-light" href="#contact">Rencontrer notre équipe <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></a></div>
@@ -113,15 +115,16 @@
 <section class="section section-soft" id="secteurs">
 <div class="container"><div class="section-heading"><div><span class="eyebrow">Vos enjeux, notre expérience</span><h2>Nous parlons le langage de votre activité.</h2></div><p>Chaque secteur a ses indicateurs, ses contraintes et ses habitudes. Notre accompagnement tient compte de votre réalité opérationnelle.</p></div>
 <div class="sector-grid">
-<a href="secteurs.html#sante" style="background-image:url(assets/img/case-sante.webp)"><span>01</span><h3>Professions de santé</h3><p>SELARL, investissements, rémunération et fiscalité.</p></a>
-<a href="secteurs.html#chr" style="background-image:url(assets/img/case-chr.webp)"><span>02</span><h3>Hôtellerie &amp; restauration</h3><p>Marges, masse salariale, saisonnalité et trésorerie.</p></a>
-<a href="secteurs.html#btp" style="background-image:url(assets/img/bureau-accueil.webp)"><span>03</span><h3>BTP &amp; artisans</h3><p>Chantiers, rentabilité, sous-traitance et paie.</p></a>
-<a href="secteurs.html#immobilier" style="background-image:url(assets/img/expertise-conseil.webp)"><span>04</span><h3>Immobilier</h3><p>SCI, location meublée et structuration patrimoniale.</p></a>
-<a href="secteurs.html#services" style="background-image:url(assets/img/equipe-collaboration.webp)"><span>05</span><h3>Services &amp; conseil</h3><p>Croissance, recrutement et pilotage de la performance.</p></a>
+<a href="secteurs.html#sante" style="background-image:url(assets/img/v-sante.webp)"><span>01</span><h3>Professions de santé</h3><p>SELARL, investissements, rémunération et fiscalité.</p></a>
+<a href="secteurs.html#chr" style="background-image:url(assets/img/v-chr.webp)"><span>02</span><h3>Hôtellerie &amp; restauration</h3><p>Marges, masse salariale, saisonnalité et trésorerie.</p></a>
+<a href="secteurs.html#btp" style="background-image:url(assets/img/v-btp.webp)"><span>03</span><h3>BTP &amp; artisans</h3><p>Chantiers, rentabilité, sous-traitance et paie.</p></a>
+<a href="secteurs.html#immobilier" style="background-image:url(assets/img/v-immobilier.webp)"><span>04</span><h3>Immobilier</h3><p>SCI, location meublée et structuration patrimoniale.</p></a>
+<a href="secteurs.html#services" style="background-image:url(assets/img/v-services.webp)"><span>05</span><h3>Services &amp; conseil</h3><p>Croissance, recrutement et pilotage de la performance.</p></a>
 <a class="sector-all" href="secteurs.html"><span>+</span><h3>Tous nos secteurs</h3><p>Découvrir nos accompagnements.</p></a>
 </div></div>
 </section>
 <section class="section section-navy case-section" id="situations">
+<canvas class="shader-canvas" aria-hidden="true"></canvas>
 <div class="container">
 <div class="section-heading">
 <div><span class="eyebrow">Situations accompagnées</span><h2>Des enjeux concrets, des réponses très opérationnelles.</h2></div>
@@ -129,7 +132,7 @@
 </div>
 <div class="case-grid">
 <article class="case-card reveal" data-glow-card="">
-<div class="case-photo"><img alt="Accompagnement d’un dirigeant du secteur santé" src="assets/img/case-sante.webp" width="900" height="563" loading="lazy" decoding="async"/></div>
+<div class="case-photo"><img alt="Accompagnement d’un dirigeant du secteur santé" src="assets/img/v-sante.webp" width="900" height="563" loading="lazy" decoding="async"/></div>
 <div class="case-body">
 <span class="tag">Professions de santé</span>
 <h3>Structurer la croissance du dirigeant</h3>
@@ -142,7 +145,7 @@
 </div>
 </article>
 <article class="case-card reveal" data-glow-card="">
-<div class="case-photo"><img alt="Réunion de pilotage avec un client CHR" src="assets/img/case-chr.webp" width="900" height="563" loading="lazy" decoding="async"/></div>
+<div class="case-photo"><img alt="Réunion de pilotage avec un client CHR" src="assets/img/v-chr.webp" width="900" height="563" loading="lazy" decoding="async"/></div>
 <div class="case-body">
 <span class="tag">Hôtellerie &amp; restauration</span>
 <h3>Maîtriser l’exploitation au quotidien</h3>
@@ -162,7 +165,7 @@
 <div class="team-grid">
 <article class="person-card reveal"><div class="portrait portrait-one"><img alt="Portrait de Thierry Bozzola, expert-comptable et commissaire aux comptes" src="assets/img/portrait-thierry-bozzola.webp" width="800" height="1000" loading="lazy" decoding="async"/></div><div><h3>Thierry Bozzola</h3><p>Expert-comptable · Commissaire aux comptes</p></div></article>
 <article class="person-card reveal"><div class="portrait portrait-two"><img alt="Portrait de Julien Lesnes, expert-comptable et commissaire aux comptes" src="assets/img/portrait-julien-lesnes.webp" width="800" height="1000" loading="lazy" decoding="async"/></div><div><h3>Julien Lesnes</h3><p>Expert-comptable · Commissaire aux comptes</p></div></article>
-<article class="person-card reveal"><div class="portrait portrait-three"><img alt="Réunion de l'équipe pluridisciplinaire S2A" src="assets/img/equipe-collaboration.webp" width="900" height="563" loading="lazy" decoding="async"/></div><div><h3>Une équipe pluridisciplinaire</h3><p>Comptabilité · Social · Juridique · Audit · Conseil</p></div></article>
+<article class="person-card reveal"><div class="portrait portrait-three"><img alt="Réunion de l'équipe pluridisciplinaire S2A" src="assets/img/v-services.webp" width="900" height="563" loading="lazy" decoding="async"/></div><div><h3>Une équipe pluridisciplinaire</h3><p>Comptabilité · Social · Juridique · Audit · Conseil</p></div></article>
 </div></div>
 </section>
 <section class="section locations-section"><div class="container locations-grid"><div><span class="eyebrow">Deux implantations</span><h2>Proches de vos projets.</h2><p>Nos équipes vous accueillent à Nice et à Allos et accompagnent des entreprises dans l’ensemble de la région Provence-Alpes-Côte d’Azur.</p><a class="btn btn-secondary" href="#contact">Voir les coordonnées</a></div><div class="location-cards">
@@ -174,7 +177,7 @@
 <footer class="site-footer">
 <div class="container footer-grid">
 <div class="footer-brand">
-<a class="brand brand-inverse" href="#top"><svg aria-hidden="true" class="brand-logo" viewBox="0 0 176 96"><defs><linearGradient id="s2aArrowb" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8f7448"/><stop offset=".55" stop-color="#c8a57a"/><stop offset="1" stop-color="#e2c79b"/></linearGradient></defs><text class="logo-letters" x="2" y="64" font-family="Poppins,Montserrat,sans-serif" font-size="64" font-weight="600" letter-spacing="-2">S2A</text><path d="M6 76 C 52 83, 102 74, 148 30" fill="none" stroke="url(#s2aArrowb)" stroke-width="7" stroke-linecap="round"/><path d="M138 20 L 158 19 L 148 39 Z" fill="#e2c79b"/></svg><span class="brand-copy"><strong><b>S2A</b><i></i> Sud Alpes Audit</strong><small>Avancer. Décider. Réussir.</small></span></a>
+<a class="brand brand-inverse" href="#top"><img alt="S2A — Sud Alpes Audit" class="brand-logo" src="assets/img/logo-s2a-light.webp" width="520" height="178"/><span class="brand-copy"><strong>Sud Alpes Audit</strong><small>Avancer. Décider. Réussir.</small></span></a>
 <p>Cabinet d’expertise comptable et de commissariat aux comptes implanté à Nice et à Allos.</p>
 <a class="footer-phone" href="tel:+33497031530">04 97 03 15 30</a>
 </div>
