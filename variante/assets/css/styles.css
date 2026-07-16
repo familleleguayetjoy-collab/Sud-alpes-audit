@@ -1626,15 +1626,11 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
    V10 — mobile : calage doux section par section + arrivée des titres
    ============================================================ */
 @media (max-width:899px){
-  /* Proximité : aligne gentiment sur le début de section quand on s'arrête
-     près d'une limite ; laisse défiler librement dans les sections longues */
-  html,html.snap-home{scroll-snap-type:y proximity;scroll-padding-top:66px}
-  main>section{scroll-snap-align:start;scroll-snap-stop:normal}
+  /* Le calage section par section est géré en JS (main.js) pour un rendu
+     doux et réglable : le snap CSS (trop brutal) est désactivé. */
+  html,html.snap-home{scroll-snap-type:none;scroll-padding-top:66px}
   /* Arrivée des titres plus marquée sur mobile (le mot-masque est désactivé
      au tactile, on garde un slide-up net et fiable) */
   .js .reveal{transform:translateY(40px)}
   .section-heading h2,.split-heading h2,.page-hero h1{transition-delay:.05s}
-}
-@media (max-width:899px) and (prefers-reduced-motion:reduce){
-  html,html.snap-home{scroll-snap-type:none}
 }
