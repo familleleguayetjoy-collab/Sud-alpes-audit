@@ -39,6 +39,31 @@
     });
   });
 
+  // Variante : applique les effets d'apparition et de lueur sur toutes les pages,
+  // sans avoir à annoter chaque élément dans le HTML.
+  const autoRevealSelectors = [
+    '.section-heading', '.split-heading > div', '.service-card', '.person-card',
+    '.values-grid article', '.benefit-grid article', '.sector-grid a',
+    '.expertise-accordion article', '.expertise-nav', '.contact-method', '.contact-form',
+    '.jobs article', '.article-grid-large article', '.article-grid article',
+    '.location-cards article', '.case-card', '.deadline-card', '.priority-card',
+    '.value-card', '.team-story-card', '.team-quote', '.expertise-copy',
+    '.expertise-visual', '.commercial-band', '.kpi-inline article', '.journey article',
+    '.comparison-grid article', '.accordion article', '.mini-proof',
+    '.related-grid a', '.diagnostic-preview', '.diagnostic-score', '.resource-filter'
+  ];
+  document.querySelectorAll(autoRevealSelectors.join(',')).forEach((el) => {
+    if (!el.closest('.reveal')) el.classList.add('reveal');
+  });
+  const autoGlowSelectors = [
+    '.service-card', '.case-card', '.location-cards article', '.values-grid article',
+    '.sector-detail-grid > article', '.jobs article', '.benefit-grid article',
+    '.person-card', '.article-grid-large article', '.contact-method', '.team-story-card'
+  ];
+  document.querySelectorAll(autoGlowSelectors.join(',')).forEach((el) => {
+    el.setAttribute('data-glow-card', '');
+  });
+
   const revealItems = document.querySelectorAll('.reveal');
   const siblingIndex = (el) => Array.from(el.parentElement?.querySelectorAll(':scope > .reveal') || []).indexOf(el);
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
