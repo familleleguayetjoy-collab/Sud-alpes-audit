@@ -1297,11 +1297,47 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     radial-gradient(52% 44% at -10% 32%,rgba(65,84,102,.10),transparent 62%),
     linear-gradient(180deg,#f8fafc 0%,#edf2f7 100%)}
 
-/* Sections claires : nappes qui s'estompent — la transition entre parties devient fluide */
-.section-soft{background:linear-gradient(180deg,rgba(231,237,244,0) 0%,#e7edf4 16%,#e7edf4 84%,rgba(231,237,244,0) 100%)}
-.locations-section{background:linear-gradient(180deg,rgba(232,237,243,0) 0%,#e6ecf3 18%,#e6ecf3 100%)}
-.case-section{background:linear-gradient(180deg,#eaeff5 0%,#e2e9f1 100%)}
-.related-section{background:linear-gradient(180deg,#e9eef4 0%,#e2e9f0 100%)}
+/* Bandes de section : chaque section a SON dégradé propre, à bord net —
+   les dégradés ne se fondent pas dans la section voisine. On alterne
+   gris / bleu marine d'une section à l'autre pour rythmer la page. */
+.section-soft,.related-section{
+  background:linear-gradient(148deg,#eef2f7 0%,#e4eaf1 38%,#d8e0e9 72%,#cad4e0 100%)}
+.related-section{background:linear-gradient(155deg,#ecf0f5 0%,#dde5ed 50%,#c6d1de 100%)}
+.locations-section{background:linear-gradient(155deg,#16283e 0%,#0f1e2e 45%,#0b1622 100%);color:#fff;position:relative;overflow:hidden}
+.locations-section::before{content:"";position:absolute;inset:-25%;pointer-events:none;z-index:0;
+  background:radial-gradient(30% 40% at 80% 22%,rgba(200,165,122,.15),transparent 70%);
+  animation:auroraDrift 24s ease-in-out infinite alternate}
+.locations-section .container{position:relative;z-index:1}
+.locations-section .eyebrow{color:#d8cbb3}
+.locations-section .eyebrow:before{background:#c8a57a}
+.locations-section>.container>div:first-child h2{color:#fff}
+.locations-section>.container>div:first-child>p{color:#aab4c0}
+.locations-section .btn-secondary{border-color:#68696c;color:#fff}
+.locations-section .btn-secondary:hover{background:transparent;border-color:#fff}
+.locations-section .location-cards{color:var(--ink)}
+.locations-section .location-cards h3{color:var(--ink)}
+.locations-section .location-cards p{color:var(--muted)}
+.locations-section .location-cards a{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.locations-section::before{animation:none}}
+
+.section-navy{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(155deg,#16283e 0%,#0f1e2e 45%,#0b1622 100%)}
+.section-navy::before{content:"";position:absolute;inset:-25%;pointer-events:none;z-index:0;
+  background:radial-gradient(32% 34% at 82% 18%,rgba(200,165,122,.14),transparent 70%),
+             radial-gradient(28% 30% at 12% 82%,rgba(96,138,180,.11),transparent 70%);
+  animation:auroraDrift 26s ease-in-out infinite alternate}
+.section-navy>.container{position:relative;z-index:1}
+.section-navy .eyebrow{color:#d8cbb3}
+.section-navy .eyebrow:before{background:#c8a57a}
+.section-navy h2,.section-navy h3{color:#fff}
+.section-navy p{color:#aab4c0}
+.section-navy .section-heading p{color:#aab4c0}
+.section-navy .text-link{color:#fff}
+.section-navy .text-link:hover{color:#e2c79b}
+.section-navy .large-copy{color:#c7cedb}
+.section-navy .person-card h3{color:var(--ink)}
+.section-navy .person-card p{color:var(--green-deep)}
+@media(prefers-reduced-motion:reduce){.section-navy::before{animation:none}}
 
 /* Surfaces sombres : dégradés profonds + aurores en dérive lente */
 @keyframes auroraDrift{from{transform:translate3d(-3%,-2%,0) scale(1)}to{transform:translate3d(3%,3%,0) scale(1.07)}}
@@ -1338,12 +1374,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 /* Apparitions : plus amples, plus élastiques */
 .js .reveal{transform:translateY(34px);transition:opacity .85s cubic-bezier(.16,.8,.3,1),transform .85s cubic-bezier(.16,.8,.3,1)}
 
-/* Transitions entre sections sur les pages intérieures (snap doux, jamais bloquant) */
-@media (min-width:900px){
-  html:not(.snap-home){scroll-snap-type:y proximity}
-  html:not(.snap-home) main>section{scroll-snap-align:start;scroll-margin-top:94px}
-}
-@media (prefers-reduced-motion:reduce){html:not(.snap-home){scroll-snap-type:none}}
+/* Ancre de défilement sur les pages intérieures (pour les liens #ancre, sans figer le scroll) */
+main>section{scroll-margin-top:94px}
 
 /* Lueur curseur : étendue aux cartes des pages intérieures */
 .person-card,.benefit-grid article,.jobs article,.contact-method,.team-story-card{position:relative;isolation:isolate}
@@ -1382,3 +1414,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    (le padding-bottom du corps crée un plancher de hauteur en grid 0fr) */
 .expertise-accordion .accordion-body{padding-bottom:0}
 .expertise-accordion .accordion-body::after{content:"";display:block;height:34px}
+
+/* Cabinet — bloc de chiffres clés sous le titre "Notre histoire" (comble le vide de la colonne courte) */
+.history-stats{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;margin-top:38px;max-width:360px}
+.history-stats article{border-left:2px solid rgba(200,165,122,.55);padding-left:16px}
+.history-stats strong{display:block;font-family:Poppins,Montserrat,sans-serif;font-weight:600;font-size:2.1rem;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.history-stats span{display:block;margin-top:6px;font-size:.78rem;color:var(--muted)}
+@media(max-width:640px){.history-stats{max-width:none}}
