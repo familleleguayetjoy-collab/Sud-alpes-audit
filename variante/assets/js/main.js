@@ -226,5 +226,49 @@
   document.querySelector('[data-cookie-close]')?.addEventListener('click', () => {
     if (cookiePanel) cookiePanel.hidden = true;
   });
+
+  /* Calage doux « section par section » — mobile uniquement.
+     Petit défilement : rien ne bouge. Quand le défilement s'arrête PRÈS du
+     début d'une section (dans une marge réduite), on s'aligne en douceur.
+     Loin d'une limite : on laisse défiler librement (lecture des sections
+     longues). Beaucoup plus doux et réglable que le scroll-snap CSS. */
+  const mqMobile = window.matchMedia('(max-width: 899px)');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mqMobile.matches && !reduceMotion.matches) {
+    const HEADER = 60;                 // décalage sous l'en-tête collant
+    const SNAP_ZONE = 0.30;            // ne cale que si on s'arrête à moins de 30 % d'écran d'une limite
+    const sections = Array.from(document.querySelectorAll('main > section'));
+    let idleTimer = 0;
+    let programmatic = false;
+    let releaseTimer = 0;
+
+    const boundaries = () => sections.map((s) => s.getBoundingClientRect().top + window.scrollY - HEADER);
+
+    const settle = () => {
+      if (programmatic) return;
+      const y = window.scrollY;
+      const maxY = document.documentElement.scrollHeight - window.innerHeight;
+      if (y <= 4 || y >= maxY - 4) return;         // pas de calage tout en haut / tout en bas
+      let target = null, best = Infinity;
+      for (const b of boundaries()) {
+        const d = Math.abs(b - y);
+        if (d < best) { best = d; target = b; }
+      }
+      if (target == null) return;
+      const clamped = Math.max(0, Math.min(target, maxY));
+      if (best > 3 && best < window.innerHeight * SNAP_ZONE) {
+        programmatic = true;
+        window.scrollTo({ top: clamped, behavior: 'smooth' });
+        clearTimeout(releaseTimer);
+        releaseTimer = window.setTimeout(() => { programmatic = false; }, 800);
+      }
+    };
+
+    window.addEventListener('scroll', () => {
+      if (programmatic) return;
+      clearTimeout(idleTimer);
+      idleTimer = window.setTimeout(settle, 150);   // attend la fin de l'inertie
+    }, { passive: true });
+  }
 })();
 
