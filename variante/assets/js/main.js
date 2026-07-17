@@ -245,7 +245,7 @@
     // façon plus décisive (grande zone). Mobile : contenu aligné en haut → on
     // décale sous l'en-tête collant, zone plus discrète.
     const HEADER = () => innerDesktop ? 0 : ((headerEl ? headerEl.offsetHeight : 60) + 8);
-    const SNAP_ZONE = innerDesktop ? 0.5 : 0.30;
+    const SNAP_ZONE = 0.30;                       // mobile : petite zone, calage doux
     const sections = Array.from(document.querySelectorAll('main > section'));
     let idleTimer = 0;
     let programmatic = false;
@@ -253,24 +253,56 @@
 
     const boundaries = () => sections.map((s) => s.getBoundingClientRect().top + window.scrollY - HEADER());
 
+    const goTo = (target, y, maxY) => {
+      const clamped = Math.max(0, Math.min(target, maxY));
+      if (Math.abs(clamped - y) <= 3) return;
+      programmatic = true;
+      window.scrollTo({ top: clamped, behavior: 'smooth' });
+      clearTimeout(releaseTimer);
+      releaseTimer = window.setTimeout(() => { programmatic = false; }, 800);
+    };
+
     const settle = () => {
       if (programmatic) return;
       const y = window.scrollY;
-      const maxY = document.documentElement.scrollHeight - window.innerHeight;
+      const vh = window.innerHeight;
+      const maxY = document.documentElement.scrollHeight - vh;
       if (y <= 4 || y >= maxY - 4) return;         // pas de calage tout en haut / tout en bas
+      const tops = boundaries();
+
+      if (innerDesktop) {
+        // Pages internes (ordinateur) : reproduire le calage décisif de
+        // l'accueil QUAND la section tient dans l'écran. Section « courte »
+        // (≤ ~1 écran) → on cale franchement sur le bord le plus proche
+        // (haut de la section actuelle ou de la suivante), comme l'accueil.
+        // Section « longue » (grille de portraits, accordéon) → défilement
+        // libre au milieu, calage seulement tout près de ses deux bords.
+        let i = 0;
+        for (let k = 0; k < tops.length; k++) { if (tops[k] <= y + 2) i = k; }
+        const curTop = tops[i];
+        const nextTop = (i + 1 < tops.length) ? tops[i + 1] : maxY;
+        const secH = nextTop - curTop;
+        const SHORT = vh * 1.15;
+        const EDGE = vh * 0.28;
+        let target = null;
+        if (secH <= SHORT) {
+          target = (y - curTop) < secH * 0.4 ? curTop : nextTop;   // > 40 % → on avance
+        } else if (y - curTop < EDGE) {
+          target = curTop;                                          // entrée nette
+        } else if (nextTop - y < EDGE) {
+          target = nextTop;                                         // sortie nette
+        }
+        if (target != null) goTo(target, y, maxY);
+        return;
+      }
+
+      // Mobile : calage doux dans une petite zone autour du bord le plus proche.
       let target = null, best = Infinity;
-      for (const b of boundaries()) {
+      for (const b of tops) {
         const d = Math.abs(b - y);
         if (d < best) { best = d; target = b; }
       }
-      if (target == null) return;
-      const clamped = Math.max(0, Math.min(target, maxY));
-      if (best > 3 && best < window.innerHeight * SNAP_ZONE) {
-        programmatic = true;
-        window.scrollTo({ top: clamped, behavior: 'smooth' });
-        clearTimeout(releaseTimer);
-        releaseTimer = window.setTimeout(() => { programmatic = false; }, 800);
-      }
+      if (target != null && best > 3 && best < vh * SNAP_ZONE) goTo(target, y, maxY);
     };
 
     window.addEventListener('scroll', () => {
