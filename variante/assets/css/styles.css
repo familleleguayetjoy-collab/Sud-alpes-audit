@@ -1604,31 +1604,9 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
 .page-photo{height:auto;min-height:440px}
 .page-hero-grid>.reveal{align-self:center}
 
-/* (1) CARTES FLOTTANTES DU HERO : deux cartes ancrées au dashboard,
-   empilées, qui se croisent (l'une passe devant l'autre) en boucle */
+/* Cartes flottantes du hero retirées : l'effet n'apportait pas assez. */
 .hero-visual:before{display:none}
 .dashboard-main{position:relative}
-.dash-float{position:absolute;min-width:206px;padding:12px 15px}
-/* Deux cartes empilées façon « notifications » : elles se croisent
-   verticalement, l'une passe devant l'autre puis inversement, en boucle.
-   Sélecteur .hero-visual pour battre l'ancienne animation driftSlow. */
-.hero-visual .dash-float-one{position:absolute;left:-30px;right:auto;top:auto;bottom:-4px;animation:notifSwapA 5.4s cubic-bezier(.65,0,.35,1) infinite}
-.hero-visual .dash-float-two{position:absolute;left:-30px;right:auto;top:auto;bottom:-4px;animation:notifSwapB 5.4s cubic-bezier(.65,0,.35,1) infinite}
-@keyframes notifSwapA{
-  0%,18%   {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
-  50%,68%  {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
-  100%     {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
-}
-@keyframes notifSwapB{
-  0%,18%   {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
-  50%,68%  {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
-  100%     {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
-}
-@media(prefers-reduced-motion:reduce){
-  .hero-visual .dash-float-one{position:absolute;left:-30px;top:auto;bottom:-4px;animation:none;transform:translateY(-15px)}
-  .hero-visual .dash-float-two{position:absolute;left:-30px;top:auto;bottom:-4px;animation:none;transform:translateY(15px);opacity:.6}
-}
-@media(max-width:640px){.dash-float{display:none}}
 
 /* ============================================================
    V9 — corrections mobile / tactile
