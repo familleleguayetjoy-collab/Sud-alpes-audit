@@ -236,12 +236,16 @@
      ordinateur (l'accueil garde son propre snap CSS plein écran). */
   const mqMobile = window.matchMedia('(max-width: 899px)');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const isHomeSnap = document.documentElement.classList.contains('snap-home');
-  const innerDesktop = window.matchMedia('(min-width: 900px)').matches && !isHomeSnap;
+  const innerDesktop = window.matchMedia('(min-width: 900px)').matches
+    && !document.documentElement.classList.contains('snap-home');
   if ((mqMobile.matches || innerDesktop) && !reduceMotion.matches) {
     const headerEl = document.querySelector('.site-header');
-    const HEADER = () => (headerEl ? headerEl.offsetHeight : 60) + 8; // décalage sous l'en-tête collant
-    const SNAP_ZONE = 0.30;            // ne cale que si on s'arrête à moins de 30 % d'écran d'une limite
+    // Pages internes desktop : sections en plein écran (contenu centré) → on
+    // aligne pile le haut de section (comme l'accueil, offset 0) et on cale de
+    // façon plus décisive (grande zone). Mobile : contenu aligné en haut → on
+    // décale sous l'en-tête collant, zone plus discrète.
+    const HEADER = () => innerDesktop ? 0 : ((headerEl ? headerEl.offsetHeight : 60) + 8);
+    const SNAP_ZONE = innerDesktop ? 0.5 : 0.30;
     const sections = Array.from(document.querySelectorAll('main > section'));
     let idleTimer = 0;
     let programmatic = false;

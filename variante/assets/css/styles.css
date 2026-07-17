@@ -1586,10 +1586,17 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
   border:1px solid #cbd8e6;border-radius:var(--radius);overflow:hidden}
 .case-card .case-photo{border-radius:0;margin:0;height:210px}
 
-/* (3) PAGES INTERNES : plus de snap qui saute au milieu — défilement normal */
+/* (3) PAGES INTERNES (desktop) : chaque section remplit l'écran (comme
+   l'accueil). Le calage « section par section » est piloté en JS (main.js) :
+   il s'aligne PILE sur les sections (le snap CSS mandatory se posait à mi-
+   hauteur à cause des sections plus grandes qu'un écran). Les sections longues
+   (accordéon, grille de portraits) se laissent défiler librement. */
 @media (min-width:900px){
-  html:not(.snap-home){scroll-snap-type:none}
-  html:not(.snap-home) main>section{scroll-snap-align:none;scroll-snap-stop:normal}
+  html:not(.snap-home) main>section{min-height:100vh;display:flex;align-items:center}
+  html:not(.snap-home) main>section>.container{width:min(var(--container),calc(100% - 48px))}
+}
+@media (min-width:900px) and (prefers-reduced-motion:reduce){
+  html:not(.snap-home) main>section{min-height:0;display:block}
 }
 
 /* (4) PHOTO PAGE (cabinet, etc.) : s'étire jusqu'en bas de la colonne texte */
