@@ -1216,7 +1216,7 @@ p{color:var(--muted)}
 /* Home page: one full-screen "zone" at a time, snapping cleanly to the next on scroll */
 @media (min-width:900px){
   html.snap-home{scroll-snap-type:y mandatory}
-  html.snap-home .hero{min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always}
+  html.snap-home .hero{min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:140px}
   html.snap-home main>section:not(.hero){min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;align-items:center}
 }
 @media (prefers-reduced-motion:reduce){html.snap-home{scroll-snap-type:none}}
@@ -1608,13 +1608,26 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
    empilées, qui se croisent (l'une passe devant l'autre) en boucle */
 .hero-visual:before{display:none}
 .dashboard-main{position:relative}
-.dash-float{position:absolute;min-width:200px;padding:12px 15px}
-.dash-float-one{left:-36px;right:auto;top:auto;bottom:82px;animation:floatDeckA 8s ease-in-out infinite}
-.dash-float-two{left:-6px;right:auto;top:auto;bottom:12px;animation:floatDeckB 8s ease-in-out infinite}
-@keyframes floatDeckA{0%,100%{transform:translate(0,0);z-index:5}50%{transform:translate(26px,42px);z-index:7}}
-@keyframes floatDeckB{0%,100%{transform:translate(0,0);z-index:7}50%{transform:translate(-26px,-42px);z-index:5}}
-@media(prefers-reduced-motion:reduce){.dash-float-one,.dash-float-two{animation:none}
-  .dash-float-one{bottom:82px}.dash-float-two{bottom:12px}}
+.dash-float{position:absolute;min-width:206px;padding:12px 15px}
+/* Deux cartes empilées façon « notifications » : elles se croisent
+   verticalement, l'une passe devant l'autre puis inversement, en boucle.
+   Sélecteur .hero-visual pour battre l'ancienne animation driftSlow. */
+.hero-visual .dash-float-one{left:-28px;right:auto;top:auto;bottom:56px;animation:notifSwapA 5.4s cubic-bezier(.65,0,.35,1) infinite}
+.hero-visual .dash-float-two{left:-28px;right:auto;top:auto;bottom:56px;animation:notifSwapB 5.4s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes notifSwapA{
+  0%,18%   {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
+  50%,68%  {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
+  100%     {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
+}
+@keyframes notifSwapB{
+  0%,18%   {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
+  50%,68%  {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
+  100%     {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-visual .dash-float-one{animation:none;transform:translateY(-15px)}
+  .hero-visual .dash-float-two{animation:none;transform:translateY(15px);opacity:.6}
+}
 @media(max-width:640px){.dash-float{display:none}}
 
 /* ============================================================
