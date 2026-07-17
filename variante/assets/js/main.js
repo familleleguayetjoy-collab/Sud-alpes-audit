@@ -227,22 +227,27 @@
     if (cookiePanel) cookiePanel.hidden = true;
   });
 
-  /* Calage doux « section par section » — mobile uniquement.
+  /* Calage doux « section par section ».
      Petit défilement : rien ne bouge. Quand le défilement s'arrête PRÈS du
      début d'une section (dans une marge réduite), on s'aligne en douceur.
      Loin d'une limite : on laisse défiler librement (lecture des sections
-     longues). Beaucoup plus doux et réglable que le scroll-snap CSS. */
+     longues). Beaucoup plus doux et réglable que le scroll-snap CSS.
+     Actif : sur mobile (toutes pages) ET sur les pages internes en version
+     ordinateur (l'accueil garde son propre snap CSS plein écran). */
   const mqMobile = window.matchMedia('(max-width: 899px)');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (mqMobile.matches && !reduceMotion.matches) {
-    const HEADER = 60;                 // décalage sous l'en-tête collant
+  const isHomeSnap = document.documentElement.classList.contains('snap-home');
+  const innerDesktop = window.matchMedia('(min-width: 900px)').matches && !isHomeSnap;
+  if ((mqMobile.matches || innerDesktop) && !reduceMotion.matches) {
+    const headerEl = document.querySelector('.site-header');
+    const HEADER = () => (headerEl ? headerEl.offsetHeight : 60) + 8; // décalage sous l'en-tête collant
     const SNAP_ZONE = 0.30;            // ne cale que si on s'arrête à moins de 30 % d'écran d'une limite
     const sections = Array.from(document.querySelectorAll('main > section'));
     let idleTimer = 0;
     let programmatic = false;
     let releaseTimer = 0;
 
-    const boundaries = () => sections.map((s) => s.getBoundingClientRect().top + window.scrollY - HEADER);
+    const boundaries = () => sections.map((s) => s.getBoundingClientRect().top + window.scrollY - HEADER());
 
     const settle = () => {
       if (programmatic) return;
