@@ -1612,8 +1612,8 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
 /* Deux cartes empilées façon « notifications » : elles se croisent
    verticalement, l'une passe devant l'autre puis inversement, en boucle.
    Sélecteur .hero-visual pour battre l'ancienne animation driftSlow. */
-.hero-visual .dash-float-one{left:-28px;right:auto;top:auto;bottom:56px;animation:notifSwapA 5.4s cubic-bezier(.65,0,.35,1) infinite}
-.hero-visual .dash-float-two{left:-28px;right:auto;top:auto;bottom:56px;animation:notifSwapB 5.4s cubic-bezier(.65,0,.35,1) infinite}
+.hero-visual .dash-float-one{left:-28px;right:auto;top:auto;bottom:18px;animation:notifSwapA 5.4s cubic-bezier(.65,0,.35,1) infinite}
+.hero-visual .dash-float-two{left:-28px;right:auto;top:auto;bottom:18px;animation:notifSwapB 5.4s cubic-bezier(.65,0,.35,1) infinite}
 @keyframes notifSwapA{
   0%,18%   {transform:translateY(-15px) scale(1);opacity:1;z-index:7}
   50%,68%  {transform:translateY(15px)  scale(.9);opacity:.55;z-index:5}
