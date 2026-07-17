@@ -1634,3 +1634,14 @@ h2{font-size:clamp(1.85rem,3vw,2.85rem)}
   .js .reveal{transform:translateY(40px)}
   .section-heading h2,.split-heading h2,.page-hero h1{transition-delay:.05s}
 }
+
+/* ============================================================
+   V11 — mobile uniquement : masquer le dashboard du hero
+   et la photo « Pourquoi S2A » (ordi inchangé)
+   ============================================================ */
+@media (max-width:899px){
+  .hero-home .hero-visual{display:none}
+  .why-section .why-visual{display:none}
+  /* resserre un peu le hero sans le visuel */
+  .hero-home .hero-copy{padding-bottom:8px}
+}
