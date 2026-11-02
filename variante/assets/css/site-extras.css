@@ -157,3 +157,7 @@ html.fp .team-preview .portrait{box-shadow:none!important}
   html.fp .contact-form .form-row{grid-template-columns:1fr}
   html.fp .sector-slide:nth-of-type(even) .sector-photo{order:-1}
 }
+
+/* contact : repère et libellés lisibles sur fond sombre */
+html.fp .contact-top .eyebrow,html.fp .contact-top .eyebrow-light{color:var(--gold-soft,#E4C79C)!important}
+html.fp .contact-top .eyebrow::before{background:var(--gold,#C8A57A)}

@@ -70,3 +70,28 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 - Une page **recrutement** avec offres en cours ?
 - Un espace **client** (portail documentaire, lien vers l'outil utilisé) ?
 - Prise de **rendez-vous en ligne** (agenda) à la place du formulaire seul ?
+
+---
+
+## Mises à jour du 2 novembre (à valider avec les associés)
+
+### Slogan et accueil
+- [ ] 🔴 Slogan **sans « audit »** : « Expertise comptable · Conseil stratégique » (accroche et en-tête). Vérifier que c'est bien le positionnement voulu (le commissariat aux comptes reste présenté dans les expertises et le cadre professionnel).
+- [ ] 🟠 Hero : visuel plein bord + chiffres clés 1998 / 19 / 2.
+- [ ] 🔴 **« Exemples d'accompagnements »** : les 4 cas (ouverture d'un restaurant, constitution d'une holding, reprise d'une pharmacie, société de charter à Nice) sont **imaginés** ; ils sont présentés comme des *exemples*, pas comme de vrais clients. À remplacer par des missions réelles ou à valider avec les associés (savoir-faire effectivement proposé : plan de financement, étude de financement, montage de holding, évaluation de fonds…).
+- [ ] 🟠 « Pourquoi S2A » : trois arguments raccourcis.
+
+### Secteurs (6 au lieu de 5)
+- [ ] 🔴 Secteurs retenus : Santé · Hôtellerie-restauration · BTP & artisans · Immobilier · Services, conseil & start-up · **Nautisme, loisirs & montagne** (nouveau). À confirmer selon la clientèle réelle du cabinet (voir pistes dans le message de la session : commerce, tech/Sophia Antipolis, événementiel, professions libérales…).
+- [ ] 🟠 Pour chaque secteur : les 4 points listés.
+
+### Cabinet
+- [ ] 🔴 **Histoire** : « Depuis 1998, le cabinet… » (la mention « fondé par Thierry Bozzola » a été retirée par prudence ; confirmer s'il faut la remettre). Chiffres affichés : 1998 · 19 collaborateurs · 2 bureaux (« 27+ ans d'expérience » retiré car redondant avec 1998).
+- [ ] 🔴 **Manière de travailler** (nouvelle section) : « Pas de pôle, chaque collaborateur responsable de ses dossiers de A à Z », un seul interlocuteur, réactivité accrue, accompagnement sur tous les sujets, vision globale. À valider mot à mot.
+- [ ] 🟠 **Nous rejoindre** : quatre avantages affichés (dossiers de A à Z, équipe à taille humaine, Nice ou Allos, progression continue) → à confirmer ou compléter (télétravail, formation, avantages réels).
+
+### Contact
+- [ ] 🟠 Page en deux écrans (coordonnées, puis formulaire). Champ « téléphone » du formulaire retiré pour simplifier.
+
+### Images
+- [ ] 🟠 Visuels actuels = **remplacements d'ambiance** (certains générés). Prompts prêts dans `PROMPTS-IMAGES.md`, brief photographe dans `BRIEF-PHOTOGRAPHE.md`.
