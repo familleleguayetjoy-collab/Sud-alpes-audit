@@ -958,3 +958,35 @@ html.fp .service-card:nth-child(1)::before,html.fp .service-card:nth-child(6)::b
     font-size:clamp(3.6rem,4.4vw + 2vh,6.4rem);line-height:1;-webkit-text-stroke:1px rgba(118,86,42,.45)}
   html.fp .sector-slide h2{padding-right:clamp(70px,7vw,130px)}
 }
+
+/* ==========================================================================
+   V7 — MOINS DE TEXTE, PLUS DE STYLE (hero + expertises + situations)
+   ========================================================================== */
+@media (min-width:921px){
+  /* ---- hero : titre monumental, une accroche, deux boutons ---- */
+  html.fp .hero-home h1{font-size:clamp(3.2rem,3.4vw + 5.4vh,6.6rem);font-weight:300;line-height:.98;letter-spacing:-.03em;margin-bottom:clamp(16px,3vh,30px)}
+  html.fp .hero-home h1 em{font-weight:300;letter-spacing:-.02em}
+  html.fp .hero-home .eyebrow{margin-bottom:clamp(14px,2.6vh,28px)}
+  html.fp .hero-tagline{position:relative;padding-top:clamp(14px,2.4vh,24px);font-size:clamp(1.3rem,.7vw + 1.8vh,1.9rem);font-weight:300;margin-bottom:clamp(8px,1.4vh,14px)}
+  html.fp .hero-tagline::before{content:"";position:absolute;top:0;left:0;width:64px;height:1px;background:var(--gold)}
+  html.fp .hero-lead{font:600 .66rem/1.7 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#B4C4D4;max-width:none;margin-bottom:clamp(22px,4.4vh,46px)}
+  html.fp .hero-proof{display:none}
+
+  /* ---- expertises : titre + une ligne + flèche en cercle ---- */
+  html.fp .service-card{justify-content:flex-start;gap:6px;padding-bottom:clamp(54px,7vh,70px)}
+  html.fp .service-card h3{font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-top:2px}
+  html.fp .service-card p{font:300 clamp(1rem,.3vw + 1.4vh,1.18rem)/1.4 var(--serif);font-style:italic;-webkit-line-clamp:2;max-width:26ch}
+  html.fp .service-card .text-link{position:absolute;right:clamp(16px,1.6vw,24px);bottom:clamp(14px,2.2vh,22px);margin:0;padding:0;
+    width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;font-size:0;display:grid;place-items:center;
+    transition:background .3s,border-color .3s,transform .3s}
+  html.fp .service-card .text-link svg{display:block;width:18px;height:18px;stroke:var(--gold-deep);stroke-width:1.5;transition:stroke .3s}
+  html.fp .service-card:hover .text-link{background:var(--gold);border-color:var(--gold);transform:translateX(3px)}
+  html.fp .service-card:hover .text-link svg{stroke:var(--navy)}
+  html.fp .service-card:nth-child(1) .text-link,html.fp .service-card:nth-child(6) .text-link{border-color:var(--gold-soft)}
+  html.fp .service-card:nth-child(1) .text-link svg,html.fp .service-card:nth-child(6) .text-link svg{stroke:var(--gold-soft)}
+  html.fp .service-card:nth-child(1) p,html.fp .service-card:nth-child(6) p{color:#D5DFE9;max-width:30ch}
+
+  /* ---- situations accompagnées : l'essentiel seulement ---- */
+  html.fp .case-points{display:none}
+  html.fp .case-body>p{font:300 clamp(1rem,.3vw + 1.4vh,1.2rem)/1.45 var(--serif);font-style:italic;color:#D5DFE9}
+}
