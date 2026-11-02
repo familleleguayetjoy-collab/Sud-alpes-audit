@@ -95,3 +95,8 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 
 ### Images
 - [ ] 🟠 Visuels actuels = **remplacements d'ambiance** (certains générés). Prompts prêts dans `PROMPTS-IMAGES.md`, brief photographe dans `BRIEF-PHOTOGRAPHE.md`.
+
+### Mises à jour du 2 novembre (suite)
+- [ ] 🔴 **Exemples d'accompagnements** (remplacent holding et charter, jugés trop éloignés de la majorité des clients) : *Ouvrir son restaurant* (création), *Reprendre une entreprise — exemple d'une pharmacie* (reprise), *Choisir le bon statut* (entreprise individuelle → société), *Y voir clair dans sa trésorerie* (pilotage). Tous **imaginés** : à valider ou remplacer. Souhaite-t-on garder un exemple « holding » ?
+- [ ] 🔴 **Secteurs** : « Nautisme & montagne » retiré. 6 secteurs : Professions libérales & santé (photo des médecins) · Hôtellerie & restauration · **Commerce de proximité** (nouveau, photo de remplacement) · BTP & artisans · Immobilier · Services & start-up. Autres pistes : événementiel & congrès, associations.
+- [ ] 🟠 Accueil : les chiffres 1998 / 19 / 2 ne figurent plus en page d'accueil (ils restent sur la page Cabinet).

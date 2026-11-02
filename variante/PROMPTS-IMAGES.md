@@ -42,30 +42,32 @@ comme l'équipe réelle du cabinet : pour les portraits, attends les vraies phot
 
 ## 3. Accueil — « Exemples d'accompagnements » (4 visuels, format 3:2)
 
-**3.1 `exemple-restaurant.jpg`**
+Quatre situations qui parlent au plus grand nombre : création, reprise, statut, pilotage.
+
+**3.1 `exemple-creation-restaurant.jpg`**
 > Un restaurateur en tenue de travail et une conseillère assis au comptoir d'un restaurant
 > méditerranéen encore vide avant l'ouverture, plans, carnet et ordinateur portable ouverts,
 > lumière dorée de fin d'après-midi par les baies vitrées, ambiance de projet qui démarre.
 > + Style commun.
 
-**3.2 `exemple-holding.jpg`**
-> Un chef d'entreprise et son conseiller dans un bureau élégant avec vue sur la mer, une table
-> de réunion sobre, quelques dossiers fermés et une maquette d'immeuble en arrière-plan flou,
-> ambiance patrimoniale et sereine. + Style commun.
-
-**3.3 `exemple-pharmacie.jpg`**
+**3.2 `exemple-reprise.jpg`**
 > Un pharmacien et un expert-comptable dans une pharmacie lumineuse et ordonnée, rayonnages
 > blancs et bois en arrière-plan, ils regardent ensemble une tablette posée sur le comptoir,
 > ambiance de reprise d'officine, sérieuse et chaleureuse. + Style commun.
 
-**3.4 `exemple-charter.jpg`**
-> Le propriétaire d'une petite société de location de bateaux et son conseiller sur un ponton
-> du port de Nice, voiliers et yachts blancs flous derrière, lumière douce du matin, tablette à
-> la main, ambiance de lancement d'activité. + Style commun.
+**3.3 `exemple-statut.jpg`**
+> Un dirigeant de PME et son expert-comptable autour d'un bureau, un document de comparaison
+> (sans texte lisible) et une calculatrice devant eux, bureau lumineux, ambiance de décision
+> importante prise sereinement. + Style commun.
+
+**3.4 `exemple-tresorerie.jpg`**
+> Un dirigeant devant un écran affichant un tableau de bord financier flou (courbes et barres
+> sans chiffres lisibles), un conseiller à côté qui lui explique un point, bureau moderne
+> lumineux. + Style commun.
 
 ## 4. Secteurs — 6 visuels (format 3:2, sujet décalé à gauche : le texte est à gauche)
 
-**4.1 `secteur-sante.jpg`**
+**4.1 `secteur-sante.jpg`** *(Professions libérales & santé : garder les médecins)*
 > Un médecin en blouse blanche et un conseiller en costume sombre regardent une tablette dans
 > un cabinet médical moderne et clair, matériel médical flou en arrière-plan. + Style commun.
 
@@ -73,23 +75,25 @@ comme l'équipe réelle du cabinet : pour les portraits, attends les vraies phot
 > Un restaurateur en tablier et un conseiller consultent une tablette à une table de terrasse
 > face à la mer, salle de restaurant élégante en arrière-plan flou. + Style commun.
 
-**4.3 `secteur-btp.jpg`**
+**4.3 `secteur-commerce.jpg`** *(nouveau)*
+> Une commerçante dans sa boutique de centre-ville de Nice, vitrine lumineuse, étagères
+> soignées, elle consulte une tablette avec un conseiller au comptoir, ambiance chaleureuse
+> d'un commerce de proximité. + Style commun.
+
+**4.4 `secteur-btp.jpg`**
 > Un artisan du bâtiment avec casque blanc et gilet orange et un conseiller en veste sombre
 > déroulent un plan sur un chantier de construction moderne, grues floues au loin. + Style commun.
 
-**4.4 `secteur-immobilier.jpg`**
+**4.5 `secteur-immobilier.jpg`**
 > Un couple et un conseiller examinent des plans d'architecture sur une table dans un
 > appartement moderne en cours d'aménagement, grande baie vitrée lumineuse. + Style commun.
 
-**4.5 `secteur-services.jpg`**
+**4.6 `secteur-services.jpg`**
 > Une équipe de start-up de quatre personnes autour d'une table dans un open space lumineux de
 > Sophia Antipolis, une personne présente devant un écran, ambiance tournée vers la croissance.
 > + Style commun.
 
-**4.6 `secteur-nautisme-montagne.jpg`**
-> Vue large d'un village de montagne des Alpes du Sud au début de l'été, clocher en pierre,
-> prairies fleuries, sommets en arrière-plan, ciel clair, aucune personne. + Style commun.
-> *(Variante nautique possible : le vieux port de Nice au lever du jour, voiliers amarrés.)*
+*Autres secteurs possibles : événementiel & congrès, associations (même format).*
 
 ## 5. Pages du site (format 3:2, grand côté 2 400 px)
 
@@ -102,6 +106,7 @@ comme l'équipe réelle du cabinet : pour les portraits, attends les vraies phot
 | `changer-de-cabinet.jpg` | Un dirigeant remet un dossier épais à un conseiller en lui serrant la main lors d'un premier rendez-vous, salle de réunion claire. + Style commun. |
 | `transmission.jpg` | Deux personnes de générations différentes (un cédant et un repreneur) s'échangent un dossier et un stylo autour d'une table de signature, ambiance sobre et solennelle. + Style commun. |
 | `creation.jpg` | Une créatrice d'entreprise dans son tout nouveau local, cartons de matériel et ordinateur posés sur une table, sourire discret, lumière naturelle. + Style commun. |
+| `histoire-cabinet.jpg` | Un bureau de direction élégant à Nice : bureau en bois sombre, fauteuils bleu marine, étagères éclairées, grande baie sur la ville, aucune personne. + Style commun. |
 | `pourquoi-s2a.jpg` | Salle de réunion élégante, table ronde en bois sombre, fauteuils bleu marine, étagères avec livres et objets, lumière indirecte chaude, aucune personne. + Style commun. |
 | `nice.jpg` | La baie des Anges à Nice vue en hauteur à l'heure bleue, promenade et façades lumineuses, mer calme. + Style commun (sans personnage). |
 | `allos.jpg` | Village d'Allos dans le Haut-Verdon, toits en lauze, clocher, montagnes boisées, ciel dégagé. + Style commun (sans personnage). |

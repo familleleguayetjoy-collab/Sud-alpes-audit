@@ -161,3 +161,117 @@ html.fp .team-preview .portrait{box-shadow:none!important}
 /* contact : repère et libellés lisibles sur fond sombre */
 html.fp .contact-top .eyebrow,html.fp .contact-top .eyebrow-light{color:var(--gold-soft,#E4C79C)!important}
 html.fp .contact-top .eyebrow::before{background:var(--gold,#C8A57A)}
+
+/* ==========================================================================
+   Retours du 2 novembre (suite)
+   ========================================================================== */
+@media (min-width:921px){
+
+  /* ---- POURQUOI S2A : texte à gauche, image à droite ---- */
+  html.fp .why-grid{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
+  html.fp .why-copy{order:-1}
+  html.fp .why-visual{order:1}
+
+  /* ---- ÉQUIPE (aperçu) : portraits plein cadre, nom en superposition ---- */
+  html.fp .team-preview .team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,28px);align-items:start;
+    filter:drop-shadow(0 28px 22px rgba(8,19,30,.22)) drop-shadow(0 3px 3px rgba(8,19,30,.12))}
+  html.fp .team-preview .person-card{position:relative;display:block;height:clamp(250px,47vh,440px);padding:0;overflow:hidden;background:#0D2033;box-shadow:none!important;
+    clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)}
+  html.fp .team-preview .person-card:nth-child(2){margin-top:clamp(16px,4vh,44px)}
+  html.fp .team-preview .person-card::after{content:"";position:absolute;top:0;right:0;width:28px;height:28px;z-index:3;background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+  html.fp .team-preview .person-card .portrait{position:absolute;inset:0;height:100%;box-shadow:none!important;background:#0D2033}
+  html.fp .team-preview .person-card .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+  html.fp .team-preview .person-card>div:last-child{position:absolute;left:0;right:0;bottom:0;z-index:2;
+    padding:clamp(60px,10vh,110px) clamp(16px,1.6vw,26px) clamp(14px,2.6vh,24px);background:linear-gradient(180deg,transparent,rgba(7,17,27,.9))}
+  html.fp .team-preview .person-card h3{font:400 clamp(1.35rem,.6vw + 1.8vh,1.9rem)/1.1 var(--serif);color:#fff;margin:0}
+  html.fp .team-preview .person-card p{margin:6px 0 0;font:600 .58rem/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft)}
+  html.fp .team-preview .person-card small,html.fp .team-preview .person-card .xp{display:none}
+  html.fp .team-preview .heading-aside{max-width:360px}
+
+  /* ---- SECTEURS (accueil) : 3 colonnes, tuiles larges ---- */
+  html.fp .sector-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,22px)}
+  html.fp .sector-tile{min-height:clamp(170px,28vh,270px)}
+  html.fp .sector-tile h3,html.fp .sector-tile h3 a{font-size:clamp(1.3rem,.5vw + 1.7vh,1.75rem)}
+  html.fp .sector-tile p{font-size:.86rem}
+  html.fp .sector-tile .sector-cta{font-size:.56rem;letter-spacing:.14em}
+
+  /* ---- EXPERTISES (page) : les deux carrés démarrent et finissent au même endroit ---- */
+  html.fp .expertise-faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);grid-template-rows:auto minmax(clamp(320px,46vh,420px),auto);
+    column-gap:clamp(40px,7vw,120px);row-gap:clamp(14px,3vh,30px);align-items:stretch}
+  html.fp .expertise-faq>div:first-child{display:contents}
+  html.fp .expertise-faq .faq-head{grid-column:1/-1;grid-row:1}
+  html.fp .expertise-faq .faq-head .faq-side-title{margin-bottom:0}
+  html.fp .expertise-faq .expertise-nav{grid-column:1;grid-row:2;align-self:stretch;display:grid;grid-auto-rows:1fr;margin:0}
+  html.fp .expertise-faq .expertise-nav li{display:flex}
+  html.fp .expertise-faq .expertise-nav a{flex:1;align-items:center}
+  /* tous les panneaux occupent la même cellule : la hauteur = celle du plus long, donc position fixe d'un onglet à l'autre */
+  html.fp .expertise-faq .expertise-accordion{grid-column:2;grid-row:2;align-self:stretch;display:grid}
+  html.fp .expertise-faq .expertise-accordion>article{grid-area:1/1;display:block;visibility:hidden}
+  html.fp .expertise-faq .expertise-accordion>article.open{visibility:visible;display:flex;flex-direction:column;justify-content:flex-start}
+}
+
+/* ---- CABINET : histoire (photo + texte + trois chiffres en ligne) ---- */
+@media (min-width:921px){
+  html.fp .histoire-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,112px);align-items:center}
+  html.fp .histoire-photo{position:relative;margin:0 16px 16px 0;height:clamp(280px,56vh,520px);overflow:hidden;background:#0D2033;box-shadow:16px 16px 0 0 var(--frame-light)}
+  html.fp .histoire-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;filter:saturate(.95) contrast(1.04)}
+  html.fp .histoire-text h2{margin:0 0 clamp(14px,3vh,26px)}
+  html.fp .histoire-text .large-copy{max-width:44ch;margin:0 0 clamp(20px,4.4vh,44px)}
+  html.fp .facts-line{display:flex;margin:0;padding:clamp(14px,2.6vh,24px) 0 0;border-top:1px solid var(--rule-strong,#8FA2B5);max-width:520px}
+  html.fp .facts-line>div{flex:1;padding:0 clamp(12px,2vw,28px);border-left:1px solid var(--rule,#C3CFDB)}
+  html.fp .facts-line>div:first-child{padding-left:0;border-left:0}
+  html.fp .facts-line dt{font:300 clamp(2.2rem,1.4vw + 3.4vh,3.6rem)/1 var(--serif);color:var(--ink,#08131E);letter-spacing:-.02em}
+  html.fp .facts-line dd{margin:8px 0 0;font:600 .6rem/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep,#76562A)}
+
+  /* ---- CABINET : manière de travailler (intro marine + index numéroté) ---- */
+  html.fp .methode-split{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:stretch}
+  html.fp .methode-intro{position:relative;display:flex;flex-direction:column;justify-content:center;padding:clamp(26px,5vh,56px) clamp(24px,2.6vw,44px);
+    background:var(--grain,none) 0 0/112px 112px,radial-gradient(70% 70% at 100% 0%,rgba(200,165,122,.16),transparent 60%),linear-gradient(145deg,#08131E 0%,#1B3A57 100%);
+    box-shadow:0 30px 46px -28px rgba(8,19,30,.7);clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,0 100%)}
+  html.fp .methode-intro::after{content:"";position:absolute;top:0;right:0;width:30px;height:30px;background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+  html.fp .methode-intro .eyebrow{color:var(--gold-soft)}
+  html.fp .methode-intro h2{color:#fff;margin:0 0 clamp(12px,2.4vh,22px)}
+  html.fp .methode-intro p{color:#D5DFE9;margin:0;font:italic 300 clamp(1rem,.3vw + 1.4vh,1.2rem)/1.5 var(--serif)}
+  html.fp .methode-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--rule-strong,#8FA2B5)}
+  html.fp .methode-list li{display:grid;grid-template-columns:clamp(54px,5vw,84px) minmax(0,1fr);gap:clamp(12px,1.6vw,24px);align-items:center;
+    padding:clamp(12px,2.4vh,24px) 0;border-bottom:1px solid var(--rule,#C3CFDB)}
+  html.fp .methode-list b{font:300 clamp(2.2rem,1.4vw + 3.2vh,3.6rem)/1 var(--serif);color:var(--gold-deep,#76562A);letter-spacing:-.02em}
+  html.fp .methode-list h3{font:400 clamp(1.3rem,.5vw + 1.8vh,1.8rem)/1.15 var(--serif);margin:0 0 4px;color:var(--ink,#08131E)}
+  html.fp .methode-list p{margin:0;font-size:.92rem;line-height:1.55;color:var(--text,#1B2A3A)}
+}
+
+/* ---- mobile ---- */
+@media (max-width:920px){
+  html.fp .histoire-photo{margin:0 0 24px;height:200px;position:relative;overflow:hidden}
+  html.fp .histoire-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  html.fp .facts-line{display:flex;margin:22px 0 0;padding-top:14px;border-top:1px solid #8FA2B5}
+  html.fp .facts-line>div{flex:1;padding:0 10px;border-left:1px solid #C3CFDB}
+  html.fp .facts-line>div:first-child{padding-left:0;border-left:0}
+  html.fp .facts-line dt{font:300 2.2rem/1 var(--serif);color:var(--ink,#08131E)}
+  html.fp .facts-line dd{margin:6px 0 0;font:600 .52rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep,#76562A)}
+  html.fp .methode-split{display:block}
+  html.fp .methode-intro{padding:26px 22px;margin-bottom:22px;background:linear-gradient(145deg,#08131E,#1B3A57)}
+  html.fp .methode-intro h2{color:#fff}
+  html.fp .methode-intro .eyebrow{color:var(--gold-soft)}
+  html.fp .methode-intro p{color:#D5DFE9;margin:0}
+  html.fp .methode-list{list-style:none;margin:0;padding:0;border-top:1px solid #8FA2B5}
+  html.fp .methode-list li{display:grid;grid-template-columns:46px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid #C3CFDB}
+  html.fp .methode-list b{font:300 1.9rem/1 var(--serif);color:var(--gold-deep,#76562A)}
+  html.fp .methode-list h3{font:400 1.2rem/1.2 var(--serif);margin:0 0 4px}
+  html.fp .methode-list p{margin:0;font-size:.86rem;line-height:1.55}
+  html.fp .expertise-faq .faq-head{margin-bottom:6px}
+  html.fp .team-preview .person-card small,html.fp .team-preview .person-card .xp{display:none}
+}
+@media (min-width:921px){
+  html.fp .expertise-faq .expertise-accordion>article{padding:clamp(20px,3.6vh,42px) clamp(22px,2.6vw,42px);border:1px solid transparent;border-top:3px solid transparent;box-sizing:border-box}
+  html.fp .expertise-faq .expertise-accordion>article.open{border-color:var(--ice-line,#C4D0DC);border-top-color:var(--gold,#C8A57A)}
+}
+
+/* tuiles de secteurs : dégradé plus affirmé, lien sur une ligne */
+html.fp .sector-tile::before{background:linear-gradient(180deg,rgba(8,19,30,.12) 0%,rgba(8,19,30,.5) 42%,rgba(8,19,30,.94) 100%)!important}
+html.fp .sector-tile:hover::before{background:linear-gradient(180deg,rgba(8,19,30,.3) 0%,rgba(8,19,30,.66) 42%,rgba(8,19,30,.97) 100%)!important}
+html.fp .sector-tile h3,html.fp .sector-tile h3 a{text-shadow:0 2px 14px rgba(0,0,0,.45)}
+html.fp .sector-tile p{color:#E3EAF1}
+html.fp .sector-tile .sector-cta{display:inline-flex;flex-wrap:nowrap;white-space:nowrap;align-items:center;gap:8px;width:fit-content}
+html.fp .sector-tile .sector-cta svg{flex:0 0 auto;width:14px;height:14px}
+html.fp .methode-intro h2 em,html.fp .methode-intro .eyebrow{color:var(--gold-soft,#E4C79C)!important}
