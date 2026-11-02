@@ -255,3 +255,17 @@ html.fp .sector-slide .sector-slide-grid .sector-photo{order:-1!important;width:
 html.fp .sector-slide .sector-slide-grid>div:not(.sector-photo){order:0}
 /* contact : formulaire à plat, sans cadre */
 html.fp .contact-form{outline:0;background:none;padding:0}
+
+/* zones tactiles confortables (≥ 44 px) */
+html.fp .topbar{padding:0}
+html.fp .topbar-inner>a:first-child{padding:11px 0}
+html.fp .brand{min-height:44px;display:flex;align-items:center}
+html.fp .text-link{min-height:44px;display:inline-flex;align-items:center;padding-bottom:0;border-bottom:0;position:relative}
+html.fp .text-link::after{content:"";position:absolute;left:0;right:0;bottom:9px;height:1px;background:var(--gold)}
+html.fp .service-card .text-link::after{display:none}
+html.fp .site-footer li a,html.fp .footer-bottom a,html.fp .footer-bottom .link-button{display:inline-block;padding:9px 0}
+html.fp .site-footer .footer-phone{display:inline-block;padding:6px 0}
+html.fp .resource-filter button{min-height:44px}
+html.fp .panel-links{gap:0 24px}
+html.fp .footer-bottom a,html.fp .footer-bottom .link-button{padding:13px 0}
+html.fp .contact-method a{display:inline-block;padding:10px 0}

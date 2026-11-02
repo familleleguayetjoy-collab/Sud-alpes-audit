@@ -93,7 +93,7 @@
         article.querySelector('button')?.setAttribute('aria-expanded', String(isTarget));
       });
       navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
-      if (scroll && window.matchMedia('(max-width: 899px)').matches) {
+      if (scroll && window.matchMedia('(max-width: 920px)').matches) {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     };
@@ -193,7 +193,7 @@
   /* Mobile : défilement libre et naturel (aucun calage « molette »).
      - barre fixe Appeler / Rendez-vous ;
      - articles de la page Ressources dépliables au toucher. */
-  const mqMobile = window.matchMedia('(max-width: 899px)');
+  const mqMobile = window.matchMedia('(max-width: 920px)');
   if (mqMobile.matches) {
     const bar = document.createElement('div');
     bar.className = 'mobile-bar';

@@ -75,14 +75,14 @@ html.fp .brand-logo{width:auto;height:40px;max-height:none}
 html.fp .brand-copy strong{font:600 .8rem/1 Poppins,var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
 html.fp .brand-copy small{margin-top:7px;font:500 .54rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#5A6B7B}
 html.fp .btn{white-space:nowrap}
-@media (min-width:900px){
+@media (min-width:921px){
   html.fp .primary-nav{gap:clamp(14px,1.8vw,32px)}
   html.fp .primary-nav ul{gap:clamp(14px,1.7vw,30px)}
   html.fp .primary-nav ul a{white-space:nowrap;font:500 .7rem/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:#2C3E50;padding:calc((var(--hdr) - .7rem)/2) 0}
   html.fp .primary-nav ul a::after{bottom:calc((var(--hdr) - .7rem)/2 - 8px);height:1px;background:var(--gold)}
   html.fp .primary-nav ul a:hover,html.fp .primary-nav ul a.active{color:var(--ink)}
 }
-@media (max-width:899px){
+@media (max-width:920px){
   html.fp .btn{white-space:normal;text-align:center;justify-content:center}
   html.fp .join-card{flex-direction:column;align-items:flex-start;padding:28px 22px!important}
   html.fp .join-card>div{min-width:0}
@@ -144,7 +144,7 @@ html.fp .section-navy .heading-aside p,html.fp .section-navy .section-heading>p{
 /* ==========================================================================
    CALAGE PLEIN ÉCRAN — identique sur toutes les pages (ordinateur)
    ========================================================================== */
-@media (min-width:900px) and (hover:hover) and (prefers-reduced-motion:no-preference){
+@media (min-width:921px) and (hover:hover) and (prefers-reduced-motion:no-preference){
   html.fp:not(.fp-simple){scroll-snap-type:y mandatory;scroll-padding-top:0}
   html.fp:not(.fp-simple) main>section{
     box-sizing:border-box;min-height:100vh;
@@ -162,7 +162,7 @@ html.fp .section-navy .heading-aside p,html.fp .section-navy .section-heading>p{
   html.fp:not(.fp-simple) main>section:last-child:not(:first-child){min-height:calc(100vh - var(--footer-h))}
   html.fp:not(.fp-simple) .site-footer{scroll-snap-align:end}
 }
-@media (min-width:900px) and (hover:hover) and (prefers-reduced-motion:no-preference) and (max-height:700px){
+@media (min-width:921px) and (hover:hover) and (prefers-reduced-motion:no-preference) and (max-height:700px){
   html.fp{--pad-t:10px;--pad-b:14px;--gap-h:14px}
 }
 
@@ -357,7 +357,7 @@ html.fp .expertise-nav a:hover{color:var(--ink)}
 html.fp .expertise-nav a.active{color:var(--ink);padding-left:14px;box-shadow:inset 2px 0 0 var(--gold)}
 html.fp .expertise-nav a.active b{color:var(--gold-deep)}
 html.fp .expertise-accordion{border:0}
-@media (min-width:900px){
+@media (min-width:921px){
   html.fp .expertise-accordion>article{display:none;border:0;background:none}
   html.fp .expertise-accordion>article.open{display:block}
   html.fp .expertise-accordion button{padding:0 0 clamp(10px,2vh,20px);pointer-events:none;cursor:default;width:auto;display:block}
@@ -462,7 +462,7 @@ html.fp [data-page="equipe"] main>section:nth-of-type(4) .portrait{height:clamp(
 html.fp [data-page="equipe"] main>section:nth-of-type(4) .team-grid{gap:clamp(14px,2.4vh,30px) clamp(16px,2vw,32px)}
 
 /* contact : un seul écran, section unique */
-@media (min-width:900px) and (hover:hover) and (prefers-reduced-motion:no-preference){
+@media (min-width:921px) and (hover:hover) and (prefers-reduced-motion:no-preference){
   }
 html.fp .contact-screen{padding-top:var(--pad-t)}
 html.fp .contact-form{padding:clamp(16px,3vh,36px) clamp(22px,2.6vw,44px);gap:clamp(6px,1.2vh,14px)}
@@ -502,7 +502,7 @@ html.fp .brand-inverse .brand-copy small{color:#8EA0B1}
 /* ==========================================================================
    TABLETTE / MOBILE (< 900 px) — mise en page empilée
    ========================================================================== */
-@media (max-width:899px){
+@media (max-width:920px){
   html.fp{--hdr:66px}
   html.fp .section,html.fp .page-hero,html.fp .cta-section{padding-top:56px;padding-bottom:56px}
   html.fp .hero-home{padding-top:48px;padding-bottom:48px}
@@ -589,3 +589,15 @@ html.fp .footer-grid{padding-bottom:clamp(8px,1.8vh,24px)}
 html.fp .site-footer p,html.fp .site-footer address,html.fp .site-footer li,html.fp .site-footer a{line-height:1.55}
 html.fp .site-footer h2{margin-bottom:10px}
 html.fp .mobile-bar{display:none}
+
+/* ---- petits portables / tablettes en paysage : l'en-tête doit toujours tenir ---- */
+@media (min-width:921px) and (max-width:1180px){
+  html.fp .brand-copy small{display:none}
+  html.fp .primary-nav ul a{letter-spacing:.1em}
+  html.fp .primary-nav{gap:14px}
+}
+@media (min-width:921px) and (max-width:1100px){
+  html.fp .brand-copy{display:none}
+  html.fp .primary-nav .btn{display:none}
+}
+html.fp .error-code{color:#B9C4D0}
