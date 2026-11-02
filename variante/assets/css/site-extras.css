@@ -1,0 +1,159 @@
+/* ==========================================================================
+   S2A — compléments communs (chargés APRÈS premium.css / premium-v3.css)
+   Accueil : hero en grand visuel, expertises en index + image, exemples
+   d'accompagnements, 6 secteurs · Cabinet : histoire + manière de travailler,
+   candidatures · Secteurs : même disposition partout · Contact en deux écrans.
+   ========================================================================== */
+html.fp{--frame-dark:#22446A;--frame-light:#0F2A44;--ice-line:#C4D0DC}
+
+/* liens dans les phrases d'appel à l'action : pas de soulignement */
+html.fp .cta-section p a,html.fp .contact-intro p a{border-bottom:0!important;text-decoration:none!important}
+
+/* mots clés des titres en italique doré (toutes pages) */
+html.fp h1 em,html.fp h2 em{font-style:italic;font-weight:400;color:var(--gold-deep,#76562A)}
+html.fp .hero-home h1 em,html.fp .page-hero h1 em,html.fp .section-navy h2 em,html.fp .why-section h2 em,
+html.fp .cta-section h2 em,html.fp .contact-top h1 em,html.fp .join-new h2 em{color:var(--gold-soft,#E4C79C)}
+
+/* aperçu équipe : pas de bloc coloré derrière les portraits */
+html.fp .team-preview .portrait{box-shadow:none!important}
+
+/* ============================== DESKTOP ============================== */
+@media (min-width:921px){
+
+  /* ---- HERO : visuel plein bord à droite, coupe en diagonale ---- */
+  html.fp .hero-home>.container,html.fp .hero-home .hero-grid{position:static!important}
+  html.fp .hero-home .hero-grid{display:block}
+  html.fp .hero-home .hero-copy{max-width:min(620px,50%)}
+  html.fp .hero-home .hero-visual{position:absolute;right:0;top:0;bottom:0;width:47%;height:auto!important;margin:0!important;z-index:1}
+  html.fp .hero-home .hero-photo{position:absolute;inset:0;outline:0!important;box-shadow:none!important;
+    clip-path:polygon(17% 0,100% 0,100% 100%,0 100%);background:#0D2033}
+  html.fp .hero-home .hero-photo img{object-position:40% 50%}
+  html.fp .hero-home .hero-photo::after{background:linear-gradient(90deg,rgba(7,17,27,.55) 0%,rgba(7,17,27,.05) 34%,rgba(7,17,27,.05) 62%,rgba(7,17,27,.7) 100%)}
+  html.fp .hero-home .hero-visual::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:linear-gradient(90deg,transparent 0 17%,transparent 17%);}
+  html.fp .hero-home .hero-facts{left:calc(100% * .17 + 18px);padding-bottom:clamp(20px,4.4vh,44px)}
+  html.fp .hero-home .hero-facts dt{font-size:clamp(2rem,1vw + 3vh,3rem)}
+  html.fp .hero-home .hero-proof{display:none}
+
+  /* ---- EXPERTISES (accueil) : image + index éditorial ---- */
+  html.fp .exp-showcase{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,104px);align-items:stretch}
+  html.fp .exp-figure{position:relative;margin:0 16px 16px 0;min-height:clamp(250px,46vh,460px);overflow:hidden;background:#0D2033;box-shadow:16px 16px 0 0 var(--frame-light)}
+  html.fp .exp-figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;filter:saturate(.95) contrast(1.04)}
+  html.fp .exp-figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,17,27,.5))}
+  html.fp .exp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--rule-strong,#8FA2B5)}
+  html.fp .exp-list li{border-bottom:1px solid #C3D0DD}
+  html.fp .exp-list a{display:grid;grid-template-columns:46px minmax(0,1fr) auto;grid-template-areas:"n t arr" "n d arr";column-gap:12px;align-items:center;
+    padding:clamp(10px,2vh,19px) 8px;color:var(--ink,#08131E);transition:background .3s,box-shadow .3s}
+  html.fp .exp-list b{grid-area:n;font:300 1.15rem/1 var(--serif);color:var(--gold-deep,#76562A);letter-spacing:.04em}
+  html.fp .exp-t{grid-area:t;font:400 clamp(1.35rem,.6vw + 1.9vh,1.95rem)/1.1 var(--serif);letter-spacing:-.012em}
+  html.fp .exp-d{grid-area:d;font:italic 300 clamp(.95rem,.2vw + 1.3vh,1.1rem)/1.35 var(--serif);color:var(--muted,#2E4155);margin-top:2px}
+  html.fp .exp-list svg{grid-area:arr;width:42px;height:42px;padding:11px;border:1px solid var(--gold);border-radius:50%;fill:none;stroke:var(--gold-deep,#76562A);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:background .3s,stroke .3s,transform .3s}
+  html.fp .exp-list a:hover{background:linear-gradient(90deg,rgba(200,165,122,.16),transparent 80%);box-shadow:inset 3px 0 0 var(--gold)}
+  html.fp .exp-list a:hover svg{background:var(--gold);stroke:#08131E;transform:translateX(4px)}
+  html.fp .exp-list a:hover .exp-t{color:var(--gold-deep,#76562A)}
+
+  /* ---- SECTEURS (accueil) : six colonnes ---- */
+  html.fp .sector-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  html.fp .sector-tile h3,html.fp .sector-tile h3 a{font-size:clamp(1.05rem,.3vw + 1.4vh,1.32rem)}
+  html.fp .sector-tile p{font-size:.72rem}
+  html.fp .sector-tile .sector-cta{font-size:.5rem;letter-spacing:.1em}
+
+  /* ---- EXEMPLES D'ACCOMPAGNEMENTS : 4 fiches ---- */
+  html.fp .case-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,22px)}
+  html.fp .case-card{display:flex;flex-direction:column;min-height:0}
+  html.fp .case-photo{position:relative;height:clamp(120px,25vh,235px);min-height:0;flex:0 0 auto}
+  html.fp .case-body{padding:clamp(14px,2.2vh,24px) clamp(14px,1.4vw,22px) clamp(16px,2.6vh,26px);justify-content:flex-start;gap:8px}
+  html.fp .case-body h3{font-size:clamp(1.2rem,.4vw + 1.6vh,1.5rem);margin:2px 0 0}
+  html.fp .case-body>p{font-size:clamp(.92rem,.2vw + 1.2vh,1.05rem);line-height:1.45}
+
+  /* ---- CABINET : histoire + manière de travailler ---- */
+  html.fp .histoire-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,7vw,120px);align-items:center}
+  html.fp .histoire-grid h2{margin:0 0 clamp(14px,3vh,28px)}
+  html.fp .histoire-grid .large-copy{max-width:46ch}
+  html.fp .stat-stack{position:relative;display:grid;padding:2px clamp(24px,2.8vw,46px);
+    background:var(--grain,none) 0 0/112px 112px,linear-gradient(135deg,#0A1722 0%,#1B3A56 100%);
+    box-shadow:0 30px 46px -28px rgba(8,19,30,.7);clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,0 100%)}
+  html.fp .stat-stack::after{content:"";position:absolute;top:0;right:0;width:30px;height:30px;background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+  html.fp .stat-stack>div{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:clamp(14px,3.2vh,30px) 0;border-top:1px solid rgba(255,255,255,.18)}
+  html.fp .stat-stack>div:first-child{border-top:0}
+  html.fp .stat-stack strong{font:300 clamp(2.6rem,2vw + 4.4vh,4.8rem)/1 var(--serif);color:#fff;letter-spacing:-.02em}
+  html.fp .stat-stack span{font:600 .62rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);text-align:right}
+
+  /* ---- NOUS REJOINDRE : texte à gauche, avantages + bouton à droite ---- */
+  html.fp .join-card.join-new{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:0;padding:0!important;align-items:stretch;
+    border-radius:0!important;outline:0!important;overflow:hidden;box-shadow:0 30px 50px -30px rgba(8,19,30,.7)}
+  html.fp .join-left{padding:clamp(26px,6vh,70px) clamp(26px,3.2vw,60px);display:flex;flex-direction:column;justify-content:center}
+  html.fp .join-new h2{color:#fff!important;font-size:clamp(1.9rem,1.6vw + 3.2vh,3.2rem)!important;max-width:16ch;margin:0 0 clamp(10px,2vh,18px)}
+  html.fp .join-new .join-left p{color:#C9D5E1;max-width:44ch;margin:0 0 clamp(14px,3vh,26px)}
+  html.fp .join-new .chips{margin:0}
+  html.fp .join-right{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vh,56px) clamp(24px,2.8vw,48px);
+    background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border-left:1px solid rgba(200,165,122,.5)}
+  html.fp .join-right h3{font:400 clamp(1.35rem,.6vw + 1.8vh,1.8rem)/1.15 var(--serif);color:#fff;margin:0 0 clamp(8px,1.6vh,14px)}
+  html.fp .join-perks{list-style:none;margin:0 0 clamp(16px,3.2vh,30px);padding:0}
+  html.fp .join-perks li{display:grid;gap:2px;padding:clamp(9px,1.6vh,15px) 0 clamp(9px,1.6vh,15px) 22px;border-top:1px solid rgba(255,255,255,.2);position:relative}
+  html.fp .join-perks li::before{content:"";position:absolute;left:0;top:calc(clamp(9px,1.6vh,15px) + .6em);width:8px;height:8px;background:var(--gold)}
+  html.fp .join-perks b{font:600 .92rem/1.3 var(--sans);color:#fff}
+  html.fp .join-perks span{font-size:.82rem;line-height:1.5;color:#B6C3D0}
+  html.fp .join-right .btn{align-self:flex-start}
+
+  /* ---- SECTEURS : même disposition partout, texte à gauche, photo à droite ---- */
+  html.fp .sector-slide-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)!important;gap:clamp(36px,6vw,96px)!important}
+  html.fp .sector-slide-grid>div:not(.sector-photo){margin-inline:0!important;order:0!important}
+  html.fp .sector-slide .sector-photo{order:1!important}
+  html.fp .sector-slide:nth-of-type(even) .sector-photo{order:1!important}
+
+  /* ---- CONTACT : deux écrans (coordonnées, puis formulaire) ---- */
+  html.fp main>section.contact-top{background:var(--grain,none) 0 0/112px 112px,radial-gradient(48% 80% at 88% 18%,rgba(52,104,152,.5),transparent 66%),
+    linear-gradient(125deg,#07111B 0%,#0D2033 52%,#173654 100%)!important;color:#fff}
+  html.fp .contact-top-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,7vw,120px);align-items:center}
+  html.fp .contact-top h1{color:#fff;font-size:clamp(2.6rem,2.2vw + 4.4vh,5rem);line-height:1;margin:0 0 clamp(12px,2.4vh,22px)}
+  html.fp .contact-top .contact-lead{color:#D5DFE9;font-size:1rem;line-height:1.7;max-width:34ch;margin:0 0 clamp(18px,3.6vh,34px)}
+  html.fp .contact-top .contact-lines{margin:0}
+  html.fp main>section.contact-form-section{background:#fff!important}
+  html.fp .contact-form-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,120px);align-items:center}
+  html.fp .contact-form-grid h2{font-size:clamp(2rem,1.6vw + 3.2vh,3.4rem);margin:0 0 clamp(10px,2vh,18px)}
+  html.fp .contact-sub{font-size:.98rem;color:var(--muted,#2E4155);margin:0;max-width:32ch}
+  html.fp .contact-form{display:grid;align-content:center;gap:clamp(10px,2vh,20px);padding:0!important;background:none!important;box-shadow:none!important;outline:0!important}
+  html.fp .contact-form textarea{height:clamp(70px,12vh,120px)}
+}
+
+/* ============================== MOBILE =============================== */
+@media (max-width:920px){
+  html.fp .hero-home .hero-visual{position:relative}
+  html.fp .exp-showcase{display:block}
+  html.fp .exp-figure{display:none}
+  html.fp .exp-list{list-style:none;margin:0;padding:0;border-top:1px solid #8FA2B5}
+  html.fp .exp-list li{border-bottom:1px solid #C3D0DD}
+  html.fp .exp-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"t arr" "d arr";gap:2px 10px;align-items:center;padding:16px 0;color:var(--ink,#08131E)}
+  html.fp .exp-list b{display:none}
+  html.fp .exp-t{grid-area:t;font:400 1.3rem/1.15 var(--serif)}
+  html.fp .exp-d{grid-area:d;font-size:.86rem;line-height:1.5;color:var(--text,#1B2A3A)}
+  html.fp .exp-list svg{grid-area:arr;width:20px;height:20px;fill:none;stroke:var(--gold-deep,#76562A);stroke-width:1.6}
+  html.fp .histoire-grid{display:block}
+  html.fp .stat-stack{margin-top:26px;display:grid;background:linear-gradient(135deg,#0A1722,#1B3A56);padding:2px 22px}
+  html.fp .stat-stack>div{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-top:1px solid rgba(255,255,255,.18)}
+  html.fp .stat-stack>div:first-child{border-top:0}
+  html.fp .stat-stack strong{font:300 2.4rem/1 var(--serif);color:#fff}
+  html.fp .stat-stack span{font:600 .56rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);text-align:right}
+  html.fp .join-card.join-new{display:block;padding:0!important;border-radius:0!important;outline:0!important}
+  html.fp .join-left{padding:30px 22px 8px}
+  html.fp .join-new h2{color:#fff!important;font-size:1.8rem!important;max-width:none}
+  html.fp .join-new .join-left p{color:#C9D5E1}
+  html.fp .join-right{padding:20px 22px 30px}
+  html.fp .join-right h3{color:#fff;font:400 1.35rem/1.2 var(--serif);margin:0 0 8px}
+  html.fp .join-perks{list-style:none;margin:0 0 20px;padding:0}
+  html.fp .join-perks li{display:grid;gap:2px;padding:12px 0;border-top:1px solid rgba(255,255,255,.2)}
+  html.fp .join-perks b{color:#fff;font-size:.9rem}
+  html.fp .join-perks span{color:#B6C3D0;font-size:.82rem}
+  html.fp .contact-top-grid,html.fp .contact-form-grid{display:block}
+  html.fp main>section.contact-top{background:linear-gradient(125deg,#07111B,#0D2033 55%,#173654)!important;color:#fff;padding:44px 0 36px}
+  html.fp .contact-top h1{color:#fff;font-size:2.3rem;margin:0 0 12px}
+  html.fp .contact-top .contact-lead{color:#D5DFE9;margin:0 0 22px}
+  html.fp .contact-top .contact-lines{margin:26px 0 0}
+  html.fp main>section.contact-form-section{background:#fff!important;padding:40px 0 48px}
+  html.fp .contact-form-grid h2{font-size:1.9rem;margin:0 0 8px}
+  html.fp .contact-sub{margin:0 0 22px;color:var(--muted,#2E4155)}
+  html.fp .contact-form{display:grid;gap:14px;padding:0!important;background:none!important;outline:0!important}
+  html.fp .contact-form .form-row{grid-template-columns:1fr}
+  html.fp .sector-slide:nth-of-type(even) .sector-photo{order:-1}
+}

@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="assets/css/styles.css?v=20261102b"/>
 <link rel="stylesheet" href="assets/css/premium.css?v=20261102b"/>
 <link rel="stylesheet" href="assets/css/mobile.css?v=20261102b" media="(max-width: 920px)"/>
+<link rel="stylesheet" href="assets/css/site-extras.css?v=20261102b"/>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/newsreader-var.woff2" crossorigin=""/>
 <script>document.documentElement.classList.add('js')</script>
 
@@ -37,7 +38,7 @@
 <div class="container nav-wrap">
 <a aria-label="Sud Alpes Audit — accueil" class="brand" href="index.html">
 <img alt="S2A — Sud Alpes Audit" class="brand-logo" src="assets/img/logo-s2a.webp" width="520" height="178"/>
-<span class="brand-copy"><strong>Sud Alpes Audit</strong><small>Expertise comptable · Audit · Conseil</small></span>
+<span class="brand-copy"><strong>Sud Alpes Audit</strong><small>Expertise comptable · Conseil</small></span>
 </a>
 <button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle"><span></span><span></span><span></span><span class="sr-only">Ouvrir le menu</span></button>
 <nav aria-label="Navigation principale" class="primary-nav" id="primary-nav">
@@ -47,28 +48,33 @@
 </div>
 </header>
 <main id="main">
-<section class="contact-screen">
-<div class="contact-split">
-<div class="contact-panel">
-<div class="contact-panel-in">
+<section class="contact-top">
+<div class="container contact-top-grid">
+<div class="reveal">
 <span class="eyebrow">Contact</span>
 <h1>Parlons de <em>votre projet.</em></h1>
-<p class="contact-lead">Quelques lignes suffisent. Nous revenons vers vous sous 48&nbsp;h ouvrées, dans la plus stricte confidentialité.</p>
-<ul class="contact-lines">
+<p class="contact-lead">Quelques lignes suffisent. Nous revenons vers vous sous 48&nbsp;h ouvrées.</p>
+<a class="btn btn-light" href="#formulaire">Nous écrire <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 5v14m-5-5 5 5 5-5"></path></svg></a>
+</div>
+<ul class="contact-lines reveal">
 <li><span>Téléphone</span><a class="contact-big" href="tel:+33497031530">04 97 03 15 30</a><small>Du lundi au vendredi · 9h–12h30 et 14h–17h30</small></li>
 <li><span>Courriel</span><a class="contact-mail" href="mailto:contact@sudalpesaudit.com">contact@sudalpesaudit.com</a></li>
 <li class="contact-places"><div><span>Nice · siège</span><address>212 avenue de la Californie<br/>06200 Nice</address></div><div><span>Allos</span><address>Grande rue<br/>04260 Allos</address></div></li>
 </ul>
 </div>
+</section>
+<section class="contact-form-section" id="formulaire">
+<div class="container contact-form-grid">
+<div class="reveal">
+<span class="eyebrow">Écrivez-nous</span>
+<h2>Un message, <em>nous vous répondons.</em></h2>
+<p class="contact-sub">Échange confidentiel, avec un interlocuteur dédié.</p>
 </div>
 <form class="contact-form" name="contact" method="post" action="merci.html" data-netlify="true" netlify-honeypot="site_web">
-<div class="contact-form-in">
 <input type="hidden" name="form-name" value="contact"/>
-<h2>Écrivez-nous</h2>
-<label>Nom et prénom<input autocomplete="name" name="nom" required="" type="text"/></label>
 <div class="form-row">
+<label>Nom et prénom<input autocomplete="name" name="nom" required="" type="text"/></label>
 <label>Courriel<input autocomplete="email" name="email" required="" type="email"/></label>
-<label>Téléphone <em>(facultatif)</em><input autocomplete="tel" name="telephone" type="tel"/></label>
 </div>
 <label>Votre demande
 <select name="sujet">
@@ -81,12 +87,10 @@
 <option value="autre">Autre demande</option>
 </select>
 </label>
-<label>Quelques mots sur votre situation<textarea name="message" rows="3" required="" placeholder="Votre entreprise, votre besoin, vos échéances…"></textarea></label>
+<label>Votre message<textarea name="message" rows="3" required="" placeholder="Votre entreprise, votre besoin, vos échéances…"></textarea></label>
 <input class="honeypot" name="site_web" tabindex="-1" autocomplete="off" type="text"/>
 <label class="checkbox"><input required="" type="checkbox"/><span>J’accepte que mes données soient utilisées pour traiter ma demande (<a href="mentions-legales.html#rgpd">confidentialité</a>).</span></label>
 <button class="btn btn-primary" type="submit">Envoyer ma demande <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></button>
-<ul class="reassure"><li>Réponse sous 48&nbsp;h ouvrées</li><li>Échange confidentiel</li><li>Un interlocuteur dédié</li></ul>
-</div>
 </form>
 </div>
 </section>
