@@ -51,7 +51,8 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 ## Contact
 - [ ] 🔴 Téléphone **04 97 03 15 30**, e-mail **contact@sudalpesaudit.com**, horaires **Lun–Ven 9h–12h30 / 14h–17h30**, adresses Nice et Allos.
 - [ ] 🔴 « Réponse sous 48 h ouvrées ».
-- [ ] 🟠 Liste des motifs de demande du formulaire.
+- [ ] 🟠 Liste des motifs de demande du formulaire. Le formulaire a été **simplifié** (nom et prénom, courriel, téléphone facultatif, demande, message) : confirmer que ces informations suffisent à traiter une demande.
+- [ ] 🟠 Mentions rassurantes du panneau : « Réponse sous 48 h ouvrées », « Échange confidentiel », « Un interlocuteur dédié ».
 
 ## Nouvelles pages (modèles à valider)
 - [ ] 🔴 **Changer de cabinet** : les 4 étapes (premier échange, proposition écrite, reprise du dossier avec prise de contact du confrère, mise en place) et la mention « honoraires présentés avant tout engagement ».

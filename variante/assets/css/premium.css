@@ -601,3 +601,170 @@ html.fp .mobile-bar{display:none}
   html.fp .primary-nav .btn{display:none}
 }
 html.fp .error-code{color:#B9C4D0}
+
+/* ==========================================================================
+   V3 — CONTRASTE & PROFONDEUR
+   Retour : « le contraste est encore un gros problème presque partout ».
+   Le contraste ne vient plus seulement de la couleur du texte : il vient des
+   FORMES (panneaux, blocs marine, cadres décalés), des DÉGRADÉS de fond et
+   d'un jeu clair / sombre franc d'une section à l'autre.
+   ========================================================================== */
+html.fp{
+  --ink:#08131E; --text:#1B2A3A; --muted:#2E4155; --gold-deep:#76562A;
+  --rule:#C3CFDB; --rule-strong:#8FA2B5; --ice-line:#C4D0DC;
+  --frame-dark:#22446A; --frame-light:#0F2A44;
+}
+html.fp body{color:var(--text);font-weight:450}
+html.fp h1,html.fp h2,html.fp h3{font-weight:480}
+html.fp .eyebrow{font-weight:700}
+
+/* --- fonds : dégradés + forme diagonale --- */
+html.fp main>section.section-soft,html.fp main>section.related-section,html.fp main>section.locations-section{
+  background:
+    linear-gradient(112deg,transparent 0 64%,rgba(255,255,255,.62) 64% 100%),
+    linear-gradient(160deg,#ECF1F7 0%,#DAE4EE 100%)!important}
+html.fp main>section.section-navy,html.fp main>section.why-section,html.fp main>section.case-section{
+  background:
+    radial-gradient(52% 70% at 94% 6%,rgba(200,165,122,.16),transparent 62%),
+    linear-gradient(112deg,transparent 0 62%,rgba(255,255,255,.04) 62% 100%),
+    linear-gradient(135deg,#08131E 0%,#0F2539 52%,#1B3A57 100%)!important}
+html.fp main>section.hero-home,html.fp main>section.page-hero{
+  background:
+    radial-gradient(48% 80% at 88% 18%,rgba(52,104,152,.5),transparent 66%),
+    linear-gradient(112deg,transparent 0 60%,rgba(255,255,255,.045) 60% 100%),
+    linear-gradient(125deg,#07111B 0%,#0D2033 52%,#173654 100%)!important}
+html.fp main>section.cta-section{
+  background:
+    radial-gradient(60% 90% at 90% 0%,rgba(200,165,122,.2),transparent 62%),
+    linear-gradient(120deg,#17304A 0%,#21466B 100%)!important;
+  border-top:3px solid var(--gold)}
+
+/* --- textes sur fond sombre : plus clairs --- */
+html.fp .section-navy p,html.fp .why-section p,html.fp .hero-lead,html.fp .page-hero p,html.fp .cta-section p,html.fp .case-body>p{color:#D5DFE9}
+html.fp .section-navy .heading-aside p,html.fp .section-navy .section-heading>p{color:#C9D5E1}
+html.fp .feature-list p,html.fp .value-card p,html.fp .person-card small{color:#C9D5E1}
+html.fp .section-navy .person-card small,html.fp .section-navy .person-card .xp{color:#C9D5E1}
+
+/* --- boutons plus affirmés --- */
+html.fp .btn{font-weight:700}
+html.fp .btn-secondary{border-width:1.5px;border-color:var(--ink)}
+html.fp .hero-home .btn-secondary,html.fp .page-hero .btn-secondary,html.fp .section-navy .btn-secondary{border-color:rgba(255,255,255,.7)}
+
+/* --- en-tête : séparation nette du contenu --- */
+html.fp .site-header{box-shadow:0 12px 26px -20px rgba(8,19,30,.7)}
+html.fp .primary-nav ul a{font-weight:600;color:var(--ink)}
+
+/* --- photos : bloc décalé plein (forme) au lieu d'un simple filet --- */
+html.fp .hero-photo,html.fp .page-photo{outline:0!important;box-shadow:18px 18px 0 0 var(--frame-dark)!important}
+html.fp .sector-photo{outline:0!important;box-shadow:18px 18px 0 0 var(--frame-light)!important}
+html.fp .portrait{box-shadow:10px 10px 0 0 var(--ice-line)!important}
+html.fp .section-navy .portrait{box-shadow:10px 10px 0 0 #234769!important}
+html.fp [data-page="equipe"] main>section:nth-of-type(4) .portrait{box-shadow:6px 6px 0 0 var(--ice-line)!important}
+html.fp .location-cards article{box-shadow:0 26px 44px -28px rgba(8,19,30,.65)!important;border-color:#B7C5D4}
+
+/* --- cartes : panneau clair sur fond blanc, panneau blanc sur fond clair --- */
+html.fp .service-card,html.fp .values-grid article,html.fp .steps li{
+  background:linear-gradient(165deg,#F4F7FB 0%,#E1E9F2 100%);
+  border:1px solid var(--ice-line);border-top:3px solid var(--gold);
+  padding:clamp(16px,2.8vh,30px) clamp(18px,1.8vw,28px);
+  box-shadow:0 20px 38px -28px rgba(8,19,30,.6)}
+html.fp .section-soft .values-grid article,html.fp .section-soft .article-grid-large article{background:#fff}
+html.fp .service-card h3::before,html.fp .values-grid h3::before,html.fp .article-grid-large h2::before{display:none}
+html.fp .service-card:hover{border-top-color:var(--navy);transform:translateY(-4px);box-shadow:0 30px 46px -26px rgba(8,19,30,.7)}
+html.fp .service-card:hover h3{color:var(--ink)}
+html.fp .service-card h3,html.fp .values-grid h3,html.fp .steps h3{color:var(--ink)}
+html.fp .service-card p,html.fp .values-grid p,html.fp .steps p{color:var(--text);font-size:.9rem}
+html.fp .article-grid-large article{background:#fff;border:1px solid var(--ice-line);border-top:3px solid var(--navy);padding:clamp(14px,2.4vh,26px) clamp(16px,1.6vw,24px);box-shadow:0 20px 38px -28px rgba(8,19,30,.6)}
+html.fp .article-grid-large p{color:var(--text);font-size:.85rem}
+html.fp .step-n{display:grid;place-items:center;width:46px;height:46px;background:var(--navy);color:#fff;font:400 1.55rem/1 var(--serif);margin-bottom:clamp(10px,2vh,18px)}
+html.fp .value-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-top:3px solid var(--gold);padding:clamp(16px,2.8vh,30px) clamp(16px,1.6vw,26px)}
+html.fp .case-card{border:1px solid rgba(255,255,255,.22);box-shadow:0 30px 50px -30px rgba(0,0,0,.7)!important}
+
+/* --- bandeau chiffres du cabinet : bloc marine --- */
+html.fp .stat-band{background:linear-gradient(135deg,#0C1B2A 0%,#1B3A56 100%);border:0;box-shadow:0 26px 44px -28px rgba(8,19,30,.7)}
+html.fp .stat-band article{border-left-color:rgba(255,255,255,.2)}
+html.fp .stat-band article:first-child{padding-left:clamp(16px,2vw,30px)}
+html.fp .stat-band strong{color:#fff}
+html.fp .stat-band span{color:var(--gold-soft)}
+
+/* --- expertises : onglet actif plein + panneau blanc --- */
+@media (min-width:921px){
+  html.fp .expertise-nav{border-top:0;background:#fff;border:1px solid var(--ice-line);box-shadow:0 20px 38px -28px rgba(8,19,30,.6)}
+  html.fp .expertise-nav a{padding:clamp(10px,1.8vh,16px) 18px;color:#243648;border-bottom:1px solid #DCE5EE;font-weight:500}
+  html.fp .expertise-nav a b{color:#4E6378}
+  html.fp .expertise-nav a:hover:not(.active){background:#EEF3F8;color:var(--ink)}
+  html.fp .expertise-nav a.active{background:var(--navy);color:#fff;padding-left:18px;box-shadow:none}
+  html.fp .expertise-nav a.active b{color:var(--gold-soft)}
+  html.fp .expertise-accordion>article.open{background:#fff;border:1px solid var(--ice-line);border-top:3px solid var(--gold);padding:clamp(20px,3.6vh,42px) clamp(22px,2.6vw,42px);box-shadow:0 26px 46px -30px rgba(8,19,30,.65)}
+  html.fp .expertise-accordion .accordion-body p{color:#16273A}
+}
+html.fp .check-list svg{stroke:var(--gold-deep)}
+html.fp .check-list li{color:var(--text)}
+
+/* --- implantations / CTA / divers --- */
+html.fp .locations-section>.container>div:first-child>p{color:var(--text)!important}
+html.fp .heading-aside p,html.fp .section-heading>p{color:var(--text)}
+html.fp .person-card p{color:var(--gold-deep)}
+html.fp .section-navy .person-card p{color:var(--gold-soft)}
+html.fp .join-card{box-shadow:0 30px 50px -30px rgba(8,19,30,.7)}
+
+/* ==========================================================================
+   CONTACT — épuré, rassurant, un seul écran
+   ========================================================================== */
+html.fp main>section.contact-screen{padding:0!important;background:#fff!important;border-top:0}
+html.fp .contact-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);flex:1 1 auto;min-height:0}
+html.fp .contact-panel{display:flex;align-items:center;color:#fff;
+  padding:clamp(24px,5vh,64px) clamp(28px,4vw,72px) clamp(24px,5vh,64px) max(clamp(20px,3.5vw,64px),calc((100vw - 1240px)/2));
+  background:
+    radial-gradient(60% 70% at 100% 0%,rgba(200,165,122,.18),transparent 62%),
+    linear-gradient(135deg,#08131E 0%,#0F2539 55%,#1B3A57 100%)}
+html.fp .contact-panel-in{width:100%;max-width:480px}
+html.fp .contact-panel h1{color:#fff;font-size:clamp(2.2rem,1.5vw + 3.8vh,3.9rem);line-height:1.04;margin:0 0 clamp(10px,2vh,20px)}
+html.fp .contact-lead{color:#D5DFE9;font-size:.98rem;line-height:1.7;margin:0;max-width:40ch}
+html.fp .contact-lines{list-style:none;margin:clamp(18px,4vh,42px) 0 0;padding:0}
+html.fp .contact-lines>li{padding:clamp(10px,1.8vh,18px) 0;border-top:1px solid rgba(255,255,255,.22);display:grid;gap:3px}
+html.fp .contact-lines span{font:700 .6rem/1.2 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+html.fp .contact-lines a{color:#fff}
+html.fp .contact-big{font:300 clamp(1.7rem,.8vw + 2.6vh,2.3rem)/1.1 var(--serif);letter-spacing:.01em}
+html.fp .contact-mail{font:400 clamp(1.05rem,.3vw + 1.6vh,1.3rem)/1.2 var(--serif)}
+html.fp .contact-lines a:hover{color:var(--gold-soft)}
+html.fp .contact-lines small{font-size:.8rem;color:#C0CEDB}
+html.fp .contact-places{grid-template-columns:1fr 1fr;gap:18px}
+html.fp .contact-places address{font-style:normal;font-size:.88rem;line-height:1.55;color:#E3EAF1}
+html.fp .contact-form{display:flex;align-items:center;background:#fff;border:0;outline:0;box-shadow:none;border-radius:0;
+  padding:clamp(24px,5vh,64px) max(clamp(20px,3.5vw,64px),calc((100vw - 1240px)/2)) clamp(24px,5vh,64px) clamp(28px,5vw,88px)}
+html.fp .contact-form-in{width:100%;max-width:540px;display:grid;gap:clamp(9px,1.7vh,18px)}
+html.fp .contact-form h2{font-size:clamp(1.6rem,.8vw + 2.4vh,2.3rem);margin:0 0 2px}
+html.fp .contact-form label{display:grid;gap:3px;font:700 .6rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+html.fp .contact-form label em{font-style:normal;font-weight:500;letter-spacing:.04em;text-transform:none;color:#516478}
+html.fp .contact-form input:not([type=checkbox]),html.fp .contact-form select,html.fp .contact-form textarea{border:0;border-bottom:1.5px solid #8FA2B5;background:none;padding:8px 0 7px;font:450 .98rem/1.4 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);width:100%;border-radius:0;outline:0}
+html.fp .contact-form input:focus,html.fp .contact-form select:focus,html.fp .contact-form textarea:focus{border-bottom-color:var(--navy);box-shadow:0 1.5px 0 0 var(--gold)}
+html.fp .contact-form textarea{resize:none;height:clamp(58px,10vh,104px)}
+html.fp .contact-form textarea::placeholder{color:#6A7C8E}
+html.fp .contact-form .checkbox{display:flex;gap:10px;align-items:flex-start;font:450 .74rem/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
+html.fp .contact-form .checkbox a{color:var(--ink);border-bottom:1px solid var(--gold)}
+html.fp .contact-form .btn{justify-self:start;padding:18px 34px}
+html.fp .reassure{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:2px 0 0;padding:clamp(10px,1.8vh,16px) 0 0;border-top:1px solid var(--rule)}
+html.fp .reassure li{position:relative;padding-left:16px;font:600 .74rem/1.4 var(--sans);color:var(--ink)}
+html.fp .reassure li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:2px;background:var(--gold)}
+@media (max-width:920px){
+  html.fp main>section.contact-screen{min-height:0}
+  html.fp .contact-split{display:block}
+  html.fp .contact-panel{padding:44px 22px 36px}
+  html.fp .contact-panel-in{max-width:none}
+  html.fp .contact-panel h1{font-size:2.3rem}
+  html.fp .contact-big{font-size:2rem}
+  html.fp .contact-lines a{display:inline-block;padding:4px 0}
+  html.fp .contact-form{display:block;padding:36px 22px 44px}
+  html.fp .contact-form .form-row{grid-template-columns:1fr}
+  html.fp .contact-form .btn{width:100%;justify-self:stretch}
+}
+html.fp .contact-panel .eyebrow{color:var(--gold-soft)}
+html.fp .contact-panel{background:radial-gradient(60% 60% at 100% 0%,rgba(200,165,122,.1),transparent 60%),linear-gradient(135deg,#08131E 0%,#0F2539 55%,#1B3A57 100%)}
+
+/* corrections de contraste (retours de l'audit V3) */
+html.fp .person-card small,html.fp .person-card .xp{color:var(--muted)}
+html.fp .section-navy .person-card small,html.fp .section-navy .person-card .xp{color:#C9D5E1}
+html.fp .resource-filter button{background:#fff;border:1px solid var(--rule-strong);color:var(--ink);font-weight:700}
+html.fp .resource-filter button:hover{border-color:var(--ink)}
+html.fp .resource-filter button.active{background:var(--navy);border-color:var(--navy);color:#fff}

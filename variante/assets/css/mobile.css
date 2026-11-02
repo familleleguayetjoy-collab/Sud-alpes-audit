@@ -269,3 +269,24 @@ html.fp .resource-filter button{min-height:44px}
 html.fp .panel-links{gap:0 24px}
 html.fp .footer-bottom a,html.fp .footer-bottom .link-button{padding:13px 0}
 html.fp .contact-method a{display:inline-block;padding:10px 0}
+
+/* ---- V3 mobile : on garde les listes (pas de cartes) mais avec plus de contraste ---- */
+html.fp .service-card,html.fp .values-grid article,html.fp .steps li,html.fp .article-grid-large article{background:none;box-shadow:none;border:0;border-top:1px solid var(--rule-strong)}
+html.fp .service-card:last-child,html.fp .values-grid article:last-child,html.fp .steps li:last-child,html.fp .article-grid-large article:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp .value-card{background:none;border:0;border-top:1px solid rgba(255,255,255,.28)}
+html.fp .section-soft .values-grid article{background:none}
+html.fp .hero-photo,html.fp .page-photo,html.fp .sector-photo,html.fp .portrait{box-shadow:none!important}
+html.fp .portrait{box-shadow:6px 6px 0 0 var(--ice-line)!important}
+html.fp .section-navy .portrait{box-shadow:6px 6px 0 0 #234769!important}
+html.fp .stat-band{padding:6px 18px;margin-top:26px}
+html.fp .stat-band article{border-top:1px solid rgba(255,255,255,.2);padding:14px 0}
+html.fp .stat-band article:nth-child(-n+2){border-top:0}
+html.fp .location-cards article{box-shadow:none!important;border:0}
+html.fp .step-n{width:38px;height:38px;font-size:1.3rem}
+html.fp .steps li{column-gap:14px;grid-template-columns:38px 1fr}
+html.fp .expertise-accordion>article.open{background:none;border:0;box-shadow:none;padding:0;border-top:1px solid var(--rule-strong)}
+html.fp .contact-form{background:#fff;padding:38px 22px 46px}
+html.fp .contact-form-in{max-width:none}
+/* accordéon fermé = totalement fermé (le padding du corps laissait dépasser une ligne) */
+html.fp .expertise-accordion .accordion-body{padding:0}
+html.fp .expertise-accordion article.open .accordion-body{padding-bottom:22px}
