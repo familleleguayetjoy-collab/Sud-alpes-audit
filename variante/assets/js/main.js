@@ -190,37 +190,24 @@
     if (cookiePanel) cookiePanel.hidden = true;
   });
 
-  /* Calage doux « section par section » — MOBILE uniquement.
-     Sur ordinateur, toutes les pages utilisent le même calage CSS plein écran
-     (scroll-snap, voir premium.css) : une molette = une section, comme l'accueil. */
+  /* Mobile : défilement libre et naturel (aucun calage « molette »).
+     - barre fixe Appeler / Rendez-vous ;
+     - articles de la page Ressources dépliables au toucher. */
   const mqMobile = window.matchMedia('(max-width: 899px)');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (mqMobile.matches && !reduceMotion.matches) {
-    const headerEl = document.querySelector('.site-header');
-    const HEADER = () => (headerEl ? headerEl.offsetHeight : 60) + 8;
-    const SNAP_ZONE = 0.30;
-    const sections = Array.from(document.querySelectorAll('main > section'));
-    let idleTimer = 0, programmatic = false, releaseTimer = 0;
-    const boundaries = () => sections.map((el) => el.getBoundingClientRect().top + window.scrollY - HEADER());
-    const settle = () => {
-      if (programmatic) return;
-      const y = window.scrollY;
-      const maxY = document.documentElement.scrollHeight - window.innerHeight;
-      if (y <= 4 || y >= maxY - 4) return;
-      let target = null, best = Infinity;
-      for (const t of boundaries()) { const d = Math.abs(t - y); if (d < best) { best = d; target = t; } }
-      if (target == null || best <= 3 || best >= window.innerHeight * SNAP_ZONE) return;
-      programmatic = true;
-      window.scrollTo({ top: Math.max(0, Math.min(target, maxY)), behavior: 'smooth' });
-      clearTimeout(releaseTimer);
-      releaseTimer = window.setTimeout(() => { programmatic = false; }, 800);
-    };
-    window.addEventListener('scroll', () => {
-      if (programmatic) return;
-      clearTimeout(idleTimer);
-      idleTimer = window.setTimeout(settle, 150);
-    }, { passive: true });
+  if (mqMobile.matches) {
+    const bar = document.createElement('div');
+    bar.className = 'mobile-bar';
+    bar.innerHTML = '<a href="tel:+33497031530">Appeler</a><a href="contact.html">Rendez-vous</a>';
+    document.body.appendChild(bar);
+    document.querySelectorAll('.article-grid-large article').forEach((card) => {
+      card.addEventListener('click', () => card.classList.toggle('expanded'));
+    });
   }
+
+  /* Contact : présélection de la demande depuis un lien (?sujet=transmission…) */
+  const subjectParam = new URLSearchParams(location.search).get('sujet');
+  const subjectSelect = document.querySelector('select[name="sujet"]');
+  if (subjectParam && subjectSelect && Array.from(subjectSelect.options).some((o) => o.value === subjectParam)) subjectSelect.value = subjectParam;
 
   /* Hauteur du pied de page : la dernière section + le pied tiennent dans un écran. */
   const footerEl = document.querySelector('.site-footer');

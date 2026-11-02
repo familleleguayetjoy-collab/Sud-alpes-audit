@@ -19,7 +19,7 @@ html.fp{
   --ink:#0F1E2E; --navy:#0F1E2E; --navy-2:#162A40; --navy-3:#1E3A52; --slate:#415466;
   --mist:#F4F6F9; --rule:#D7DEE6; --rule-dark:rgba(255,255,255,.16);
   --gold:#C8A57A; --gold-deep:#8A6B3C; --gold-soft:#E4C79C;
-  --text:#3A4A5A; --muted:#64748A;
+  --text:#2C3B4B; --muted:#445769; --rule-strong:#AEBBC8;
   --topbar:35px; --hdr:76px;
   --pad-t:clamp(12px,2.6vh,30px); --pad-b:clamp(16px,3.6vh,40px);
   --gap-h:clamp(16px,3.4vh,40px);
@@ -73,7 +73,7 @@ html.fp .site-header.scrolled{box-shadow:none}
 html.fp .nav-wrap{min-height:var(--hdr);height:var(--hdr)}
 html.fp .brand-logo{width:auto;height:40px;max-height:none}
 html.fp .brand-copy strong{font:600 .8rem/1 Poppins,var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
-html.fp .brand-copy small{margin-top:7px;font:500 .54rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#7A8896}
+html.fp .brand-copy small{margin-top:7px;font:500 .54rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#5A6B7B}
 html.fp .btn{white-space:nowrap}
 @media (min-width:900px){
   html.fp .primary-nav{gap:clamp(14px,1.8vw,32px)}
@@ -352,7 +352,7 @@ html.fp .faq-layout>div:first-child{position:static}
 html.fp .faq-side-title{font-size:clamp(1.8rem,1.1vw + 3vh,2.9rem);margin:0 0 clamp(14px,3vh,30px)}
 html.fp .expertise-nav{background:none;border:0;border-radius:0;box-shadow:none;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
 html.fp .expertise-nav a{display:flex;align-items:baseline;gap:16px;padding:clamp(9px,1.7vh,16px) 0;border:0;border-bottom:1px solid var(--rule);border-left:0;border-radius:0;font:400 clamp(1.05rem,.3vw + 1.5vh,1.4rem)/1.2 var(--serif);color:#5A6B7B;background:none;transition:color .2s,padding .2s}
-html.fp .expertise-nav a b{font:600 .6rem/1 var(--sans);letter-spacing:.16em;color:#9AA7B4;min-width:22px}
+html.fp .expertise-nav a b{font:600 .6rem/1 var(--sans);letter-spacing:.16em;color:#566A7D;min-width:22px}
 html.fp .expertise-nav a:hover{color:var(--ink)}
 html.fp .expertise-nav a.active{color:var(--ink);padding-left:14px;box-shadow:inset 2px 0 0 var(--gold)}
 html.fp .expertise-nav a.active b{color:var(--gold-deep)}
@@ -429,14 +429,14 @@ html.fp .response-note svg{display:none}
 html.fp .response-note p{margin:0;font-size:.74rem;line-height:1.55;color:var(--muted)}
 html.fp .contact-form{background:#fff;border:0;border-radius:0;box-shadow:none;padding:clamp(20px,3.6vh,42px) clamp(22px,2.6vw,44px);display:grid;gap:clamp(8px,1.5vh,16px);outline:1px solid var(--rule);outline-offset:-1px}
 html.fp .contact-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
-html.fp .contact-form label{display:grid;gap:2px;font:600 .56rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#5E6F80}
+html.fp .contact-form label{display:grid;gap:2px;font:600 .56rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#44566A}
 html.fp .contact-form input:not([type=checkbox]),html.fp .contact-form select,html.fp .contact-form textarea{width:100%;border:0;border-bottom:1px solid #B8C3CE;border-radius:0;background:none;padding:8px 0 7px;font:400 .92rem/1.4 var(--sans);color:var(--ink);letter-spacing:0;text-transform:none;outline:0;box-shadow:none}
 html.fp .contact-form textarea{resize:none;height:clamp(56px,10vh,100px)}
 html.fp .contact-form input:focus,html.fp .contact-form select:focus,html.fp .contact-form textarea:focus{border-bottom-color:var(--gold-deep)}
 html.fp .contact-form .checkbox{display:flex;gap:10px;align-items:flex-start;font:400 .7rem/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
 html.fp .contact-form .checkbox input{width:auto;margin-top:3px;accent-color:var(--navy)}
 html.fp .contact-form .btn{justify-self:start}
-html.fp .contact-form small{font-size:.68rem;color:#8795A4}
+html.fp .contact-form small{font-size:.68rem;color:#566A7D}
 
 
 /* ------------------------------------------------------------ finitions */
@@ -545,3 +545,47 @@ html.fp .btn:focus-visible,html.fp .text-link:focus-visible{outline-offset:4px}
 /* pages simples (mentions légales, merci, 404) */
 html.fp.fp-simple .page-hero,html.fp.fp-simple .section{padding-top:clamp(56px,9vh,96px);padding-bottom:clamp(56px,9vh,96px)}
 html.fp.fp-simple main>section{min-height:0}
+
+/* ---- lisibilité & relief (retour : « texte qui se confond avec le fond ») ---- */
+html.fp body{font-weight:430}
+html.fp .service-card,html.fp .values-grid article,html.fp .article-grid-large article{border-top:1px solid var(--rule-strong)}
+html.fp .service-card h3::before,html.fp .values-grid h3::before,html.fp .article-grid-large h2::before{content:"";display:block;width:28px;height:2px;background:var(--gold);margin-bottom:clamp(8px,1.6vh,16px)}
+html.fp .service-card h3{font-weight:500;color:var(--ink)}
+html.fp .service-card p{color:var(--text);font-size:.9rem}
+html.fp .service-card:hover{border-top-color:var(--ink)}
+html.fp .service-card:hover h3{color:var(--gold-deep)}
+html.fp .section-heading>p,html.fp .heading-aside,html.fp .heading-aside p{color:var(--text)}
+html.fp .person-card small,html.fp .contact-method small,html.fp .article-grid-large p,html.fp .values-grid p,html.fp .editorial-note p,html.fp .response-note p,html.fp .locations-section p{color:var(--muted)}
+html.fp .section-navy .heading-aside p,html.fp .section-navy .section-heading>p{color:#B4C2D0}
+
+/* ---- pages « moments clés » (changer de cabinet, transmission, création) ---- */
+html.fp .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+html.fp .steps li{border-top:1px solid var(--rule-strong);padding-top:clamp(14px,2.6vh,28px)}
+html.fp .step-n{display:block;font:300 clamp(2.4rem,1.4vw + 3.4vh,3.9rem)/1 var(--serif);color:var(--gold-deep);margin-bottom:clamp(8px,1.8vh,18px)}
+html.fp .steps h3{font:400 clamp(1.25rem,.5vw + 1.7vh,1.7rem)/1.2 var(--serif);margin:0 0 10px}
+html.fp .steps p{margin:0;font-size:.9rem;line-height:1.65;color:var(--text)}
+html.fp .duo{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,7vw,120px);align-items:center}
+html.fp .duo h2{margin:0 0 clamp(14px,3vh,28px)}
+html.fp .check-list.plain{margin:0;padding:0;gap:0}
+html.fp .check-list.plain li{position:relative;padding:clamp(9px,1.6vh,15px) 0 clamp(9px,1.6vh,15px) 26px;border-top:1px solid var(--rule);font-size:.92rem;line-height:1.55;color:var(--text);display:block}
+html.fp .check-list.plain li::before{content:"";position:absolute;left:0;top:calc(clamp(9px,1.6vh,15px) + .75em);width:12px;height:1px;background:var(--gold)}
+html.fp .check-list.plain li:last-child{border-bottom:1px solid var(--rule)}
+html.fp .duo-side{background:var(--navy);color:#fff;padding:clamp(22px,4vh,44px) clamp(24px,2.6vw,44px);outline:1px solid rgba(200,165,122,.45);outline-offset:-12px}
+html.fp .duo-side h3{color:#fff;font:400 1.6rem/1.15 var(--serif);margin:0 0 14px}
+html.fp .duo-side ul{list-style:none;margin:0 0 clamp(16px,3vh,28px);padding:0}
+html.fp .duo-side li{padding:clamp(8px,1.4vh,13px) 0;border-top:1px solid var(--rule-dark);font-size:.9rem;color:#C9D4DF}
+html.fp .chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0 0 clamp(14px,3vh,26px);padding:0}
+html.fp .chips li{border:1px solid rgba(200,165,122,.55);color:var(--gold-soft);padding:9px 14px;font:600 .58rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+html.fp .panel-links{display:flex;flex-wrap:wrap;gap:12px 32px;margin:clamp(14px,2.6vh,24px) 0 0}
+html.fp .cta-section p a,html.fp .contact-intro p a{color:inherit;border-bottom:1px solid var(--gold);padding-bottom:1px}
+html.fp .cta-section p a:hover,html.fp .contact-intro p a:hover{color:var(--gold-soft)}
+html.fp .contact-method a{color:inherit}
+html.fp .contact-method a:hover{color:var(--gold-deep)}
+
+html.fp .duo-side .btn-primary{background:#fff;border-color:#fff;color:var(--navy)}
+html.fp .duo-side .btn-primary:hover{background:var(--gold);border-color:var(--gold)}
+html.fp .site-footer{padding-top:clamp(14px,2.8vh,34px)}
+html.fp .footer-grid{padding-bottom:clamp(8px,1.8vh,24px)}
+html.fp .site-footer p,html.fp .site-footer address,html.fp .site-footer li,html.fp .site-footer a{line-height:1.55}
+html.fp .site-footer h2{margin-bottom:10px}
+html.fp .mobile-bar{display:none}
