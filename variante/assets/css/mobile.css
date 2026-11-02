@@ -328,3 +328,7 @@ html.fp [data-page="equipe"] .team-grid{filter:none}
 html.fp [data-page="equipe"] .person-card{clip-path:none;background:none;box-shadow:none;padding:0}
 html.fp [data-page="equipe"] .person-card::after{display:none}
 html.fp .check-list.plain{background:none;box-shadow:none;padding:0;border-top:0}
+
+/* V7 mobile : accroche courte */
+html.fp .hero-lead{font:600 .62rem/1.8 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#C0CDDA;margin-bottom:24px}
+html.fp .hero-tagline{font-size:1.3rem}
