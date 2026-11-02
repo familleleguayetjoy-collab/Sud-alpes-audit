@@ -890,3 +890,71 @@ html.fp .service-card h3{font-size:clamp(1.2rem,.4vw + 1.7vh,1.55rem)}
 html.fp .service-card:nth-child(1) h3,html.fp .service-card:nth-child(6) h3{font-size:clamp(1.55rem,.7vw + 2.2vh,2.1rem)}
 html.fp .service-card p{font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 html.fp .service-card .text-link{padding-top:2px}
+
+/* V5 — la flèche décorative est retirée partout (le logo, lui, la conserve) */
+html.fp main>section.hero-home::after,html.fp main>section.page-hero::after,html.fp main>section.cta-section::after{content:none!important;display:none!important}
+html.fp .service-card:nth-child(1)::before,html.fp .service-card:nth-child(6)::before{
+  background:var(--grain) 0 0/112px 112px,radial-gradient(75% 95% at 100% 0%,rgba(200,165,122,.2),transparent 60%),linear-gradient(150deg,#0B1B2B 0%,#1B3A57 100%)}
+
+/* ==========================================================================
+   V6 — DES SLIDES PLUS « PREMIUM » (même langage : coin plié, blocs, chiffres)
+   Secteurs · Équipe · listes des pages « moments clés »
+   ========================================================================== */
+@media (min-width:921px){
+  /* ---- Secteurs : texte dans un panneau, grand chiffre de repère ---- */
+  html.fp .sector-slide{counter-increment:sec}
+  html.fp .sector-slide-grid{filter:drop-shadow(0 26px 22px rgba(8,19,30,.16)) drop-shadow(0 2px 2px rgba(8,19,30,.08))}
+  html.fp .sector-slide-grid>div:not(.sector-photo){
+    position:relative;isolation:isolate;
+    padding:clamp(24px,4.4vh,52px) clamp(24px,2.8vw,48px) clamp(24px,4vh,46px);
+    background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,#FFFFFF 0%,#EEF3F8 55%,#DCE6F0 100%);
+    box-shadow:inset 0 0 0 1px #C3D0DD;
+    clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,0 100%);
+    margin-inline:clamp(-60px,-3vw,-24px);z-index:2}
+  html.fp .sector-slide-grid>div:not(.sector-photo)::after{content:"";position:absolute;top:0;right:0;width:30px;height:30px;background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+  html.fp .sector-slide-grid>div:not(.sector-photo)::before{
+    content:"0" counter(sec);position:absolute;right:clamp(14px,1.6vw,26px);bottom:clamp(-8px,-.6vw,0px);z-index:-1;
+    font:300 clamp(5rem,9vw + 4vh,11rem)/.8 var(--serif);color:transparent;-webkit-text-stroke:1px rgba(118,86,42,.38);letter-spacing:-.02em}
+  html.fp .sector-slide h2{margin-bottom:clamp(8px,1.6vh,16px)}
+  html.fp .sector-slide .large-copy{font-size:clamp(1.05rem,.4vw + 1.6vh,1.35rem)}
+  html.fp .sector-slide .check-list li{font-weight:500}
+
+  /* ---- Équipe : chaque personne dans un panneau ---- */
+  html.fp [data-page="equipe"] .team-grid{filter:drop-shadow(0 22px 18px rgba(8,19,30,.16)) drop-shadow(0 2px 2px rgba(8,19,30,.08))}
+  html.fp [data-page="equipe"] .person-card{position:relative;isolation:isolate;
+    padding:clamp(14px,2.4vh,26px);
+    background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,#FFFFFF 0%,#EEF3F8 55%,#DCE6F0 100%);
+    box-shadow:inset 0 0 0 1px #C3D0DD;
+    clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,0 100%)}
+  html.fp [data-page="equipe"] .person-card::after{content:"";position:absolute;top:0;right:0;width:26px;height:26px;background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+  html.fp [data-page="equipe"] .person-card h3{color:var(--ink)}
+  html.fp [data-page="equipe"] .person-card p{color:var(--gold-deep)}
+  html.fp [data-page="equipe"] .person-card small,html.fp [data-page="equipe"] .person-card .xp{color:var(--muted)}
+  html.fp [data-page="equipe"] .section-navy .person-card{
+    background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+  html.fp [data-page="equipe"] .section-navy .person-card h3{color:#fff}
+  html.fp [data-page="equipe"] .section-navy .person-card p{color:var(--gold-soft)}
+  html.fp [data-page="equipe"] .section-navy .person-card small,html.fp [data-page="equipe"] .section-navy .person-card .xp{color:#C9D5E1}
+  html.fp [data-page="equipe"] main>section:nth-of-type(4) .person-card{padding:10px 10px 12px;gap:8px}
+  html.fp [data-page="equipe"] main>section:nth-of-type(4) .person-card::after{width:16px;height:16px}
+  html.fp [data-page="equipe"] main>section:nth-of-type(4) .person-card{clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
+  html.fp [data-page="equipe"] .portrait{box-shadow:none!important}
+  html.fp [data-page="equipe"] main>section:nth-of-type(4) .portrait{height:clamp(96px,16vh,160px)}
+
+  /* ---- listes des pages « moments clés » : panneau + puces carrées dorées ---- */
+  html.fp .duo>div:first-child{position:relative}
+  html.fp .check-list.plain{padding:clamp(6px,1.2vh,12px) clamp(18px,2vw,30px);
+    background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,#FFFFFF 0%,#F3F6FA 100%);
+    box-shadow:inset 0 0 0 1px #C3D0DD,0 22px 30px -24px rgba(8,19,30,.4);border-top:3px solid var(--gold)}
+  html.fp .check-list.plain li{border-top:1px solid #DCE5EE;padding-left:28px}
+  html.fp .check-list.plain li:first-child{border-top:0}
+  html.fp .check-list.plain li:last-child{border-bottom:0}
+  html.fp .check-list.plain li::before{width:8px;height:8px;background:var(--navy);left:2px;top:calc(clamp(9px,1.6vh,15px) + .55em)}
+}
+@media (min-width:921px){
+  html.fp .sector-slide-grid>div:not(.sector-photo)::before{
+    right:clamp(46px,3.4vw,64px);top:clamp(6px,1.4vh,16px);bottom:auto;
+    font-size:clamp(3.6rem,4.4vw + 2vh,6.4rem);line-height:1;-webkit-text-stroke:1px rgba(118,86,42,.45)}
+  html.fp .sector-slide h2{padding-right:clamp(70px,7vw,130px)}
+}
