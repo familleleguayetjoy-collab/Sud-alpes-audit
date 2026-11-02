@@ -768,3 +768,125 @@ html.fp .section-navy .person-card small,html.fp .section-navy .person-card .xp{
 html.fp .resource-filter button{background:#fff;border:1px solid var(--rule-strong);color:var(--ink);font-weight:700}
 html.fp .resource-filter button:hover{border-color:var(--ink)}
 html.fp .resource-filter button.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ==========================================================================
+   V4 — SIGNATURE & MATIÈRE (retour : « 80 % — manque le côté premium »)
+   - motif signature : la flèche dorée ascendante du logo, en filet ;
+   - grain fin sur les fonds (évite l'aplat « numérique ») ;
+   - cartes à angle coupé + pli doré, ombres en couches, bascule au survol ;
+   - composition asymétrique des expertises (deux cartes phares) ;
+   - mots clés des titres en italique doré (touche éditoriale).
+   ========================================================================== */
+html.fp{--grain:url('../img/grain.png');--motif:url('../img/motif-arrow.svg')}
+
+/* ---- grain par-dessus les dégradés de fond ---- */
+html.fp main>section.section-soft,html.fp main>section.related-section,html.fp main>section.locations-section{
+  background:
+    var(--grain) 0 0/112px 112px,
+    linear-gradient(112deg,transparent 0 64%,rgba(255,255,255,.62) 64% 100%),
+    linear-gradient(160deg,#ECF1F7 0%,#DAE4EE 100%)!important}
+html.fp main>section.section-navy,html.fp main>section.why-section,html.fp main>section.case-section{
+  background:
+    var(--grain) 0 0/112px 112px,
+    radial-gradient(52% 70% at 94% 6%,rgba(200,165,122,.16),transparent 62%),
+    linear-gradient(112deg,transparent 0 62%,rgba(255,255,255,.04) 62% 100%),
+    linear-gradient(135deg,#08131E 0%,#0F2539 52%,#1B3A57 100%)!important}
+html.fp main>section.hero-home,html.fp main>section.page-hero{
+  background:
+    var(--grain) 0 0/112px 112px,
+    radial-gradient(48% 80% at 88% 18%,rgba(52,104,152,.5),transparent 66%),
+    linear-gradient(112deg,transparent 0 60%,rgba(255,255,255,.045) 60% 100%),
+    linear-gradient(125deg,#07111B 0%,#0D2033 52%,#173654 100%)!important}
+html.fp main>section.cta-section{
+  background:
+    var(--grain) 0 0/112px 112px,
+    radial-gradient(60% 90% at 90% 0%,rgba(200,165,122,.2),transparent 62%),
+    linear-gradient(120deg,#17304A 0%,#21466B 100%)!important}
+html.fp .contact-panel{background:
+    var(--grain) 0 0/112px 112px,
+    radial-gradient(60% 60% at 100% 0%,rgba(200,165,122,.1),transparent 60%),
+    linear-gradient(135deg,#08131E 0%,#0F2539 55%,#1B3A57 100%)}
+
+/* ---- motif signature : flèche ascendante en filet doré ---- */
+html.fp main>section.hero-home,html.fp main>section.page-hero,html.fp main>section.cta-section{position:relative;overflow:hidden}
+html.fp main>section.hero-home::after,html.fp main>section.page-hero::after,html.fp main>section.cta-section::after{
+  content:""!important;display:block!important;position:absolute;pointer-events:none;z-index:0;
+  background:var(--motif) right bottom/contain no-repeat;opacity:.9}
+html.fp main>section.hero-home::after{left:34%;right:4%;top:0;bottom:0;background-image:url("../img/motif-arrow-tall.svg");background-position:right bottom;background-size:auto 100%;opacity:.85}
+html.fp main>section.page-hero::after{left:34%;right:0;bottom:-4%;height:70%;opacity:.55}
+html.fp main>section.cta-section::after{left:30%;right:0;top:0;bottom:0;opacity:.5}
+html.fp main>section>.container{position:relative;z-index:1}
+html.fp .scroll-cue{z-index:2}
+
+/* ---- cartes d'expertises : composition asymétrique + angle coupé + bascule au survol ---- */
+html.fp .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,24px);
+  filter:drop-shadow(0 28px 22px rgba(8,19,30,.20)) drop-shadow(0 3px 3px rgba(8,19,30,.12))}
+html.fp .service-card{position:relative;isolation:isolate;overflow:hidden;
+  min-height:clamp(190px,29vh,270px);padding:clamp(18px,3vh,32px) clamp(20px,2vw,32px);
+  display:flex;flex-direction:column;gap:8px;border:0!important;border-radius:0;
+  background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,#FFFFFF 0%,#EEF3F8 52%,#D9E4EF 100%)!important;
+  box-shadow:inset 0 0 0 1px #C3D0DD!important;
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+html.fp .service-card:nth-child(1),html.fp .service-card:nth-child(6){grid-column:span 2}
+html.fp .service-card::after{content:""!important;display:block!important;position:absolute;top:0;right:0;width:28px;height:28px;z-index:2;
+  background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+html.fp .service-card::before{content:""!important;display:block!important;position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .45s ease;
+  background:var(--grain) 0 0/112px 112px,radial-gradient(70% 90% at 100% 0%,rgba(200,165,122,.22),transparent 60%),linear-gradient(150deg,#0B1B2B 0%,#1B3A57 100%)}
+html.fp .service-card .icon-box{display:block;width:36px;height:36px;margin-bottom:6px;border:0;background:none;color:var(--gold-deep)}
+html.fp .service-card .icon-box svg{width:34px;height:34px;stroke:var(--gold-deep);stroke-width:1.4;transition:stroke .4s}
+html.fp .service-card h3{font-size:clamp(1.35rem,.5vw + 1.9vh,1.8rem);margin:0;transition:color .4s}
+html.fp .service-card p{max-width:46ch;transition:color .4s}
+html.fp .service-card .text-link{margin-top:auto;transition:color .4s,border-color .4s}
+html.fp .service-card:hover{transform:translateY(-5px)}
+html.fp .service-card:hover::before{opacity:1}
+html.fp .service-card:hover h3{color:#fff}
+html.fp .service-card:hover p{color:#D5DFE9}
+html.fp .service-card:hover .text-link{color:var(--gold-soft);border-bottom-color:var(--gold-soft)}
+html.fp .service-card:hover .icon-box svg{stroke:var(--gold-soft)}
+/* cartes phares : marine en permanence, motif signature en fond */
+html.fp .service-card:nth-child(1)::before,html.fp .service-card:nth-child(6)::before{opacity:1;
+  background:var(--motif) right -4% bottom -8%/72% auto no-repeat,var(--grain) 0 0/112px 112px,radial-gradient(70% 90% at 100% 0%,rgba(200,165,122,.22),transparent 60%),linear-gradient(150deg,#0B1B2B 0%,#1B3A57 100%)}
+html.fp .service-card:nth-child(1) h3,html.fp .service-card:nth-child(6) h3{color:#fff;font-size:clamp(1.7rem,.8vw + 2.4vh,2.4rem)}
+html.fp .service-card:nth-child(1) p,html.fp .service-card:nth-child(6) p{color:#D5DFE9;max-width:34ch}
+html.fp .service-card:nth-child(1) .icon-box svg,html.fp .service-card:nth-child(6) .icon-box svg{stroke:var(--gold-soft)}
+html.fp .service-card:nth-child(1) .text-link,html.fp .service-card:nth-child(6) .text-link{color:var(--gold-soft);border-bottom-color:var(--gold-soft)}
+html.fp .service-card:nth-child(1):hover::before,html.fp .service-card:nth-child(6):hover::before{filter:brightness(1.12)}
+@media (max-height:760px){html.fp .service-card .icon-box{display:none}}
+
+/* ---- même langage (angle coupé, dégradé, ombres en couches) pour les autres cartes ---- */
+html.fp .values-grid,html.fp .steps,html.fp .article-grid-large,html.fp .location-cards{
+  filter:drop-shadow(0 26px 20px rgba(8,19,30,.18)) drop-shadow(0 3px 3px rgba(8,19,30,.1))}
+html.fp .values-grid article,html.fp .steps li,html.fp .article-grid-large article{
+  position:relative;border:0!important;box-shadow:inset 0 0 0 1px #C3D0DD!important;
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%)}
+html.fp .values-grid article,html.fp .steps li{background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,#FFFFFF 0%,#EEF3F8 52%,#D9E4EF 100%)!important}
+html.fp .section-soft .values-grid article,html.fp .article-grid-large article{background:var(--grain) 0 0/112px 112px,linear-gradient(150deg,#FFFFFF 0%,#F7F9FC 100%)!important}
+html.fp .values-grid article::after,html.fp .steps li::after,html.fp .article-grid-large article::after{
+  content:""!important;display:block!important;position:absolute;top:0;right:0;width:22px;height:22px;background:linear-gradient(45deg,var(--gold) 0 50%,transparent 50%)}
+html.fp .value-card{clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);position:relative}
+html.fp .location-cards article{clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,0 100%);box-shadow:inset 0 0 0 1px #C3D0DD!important}
+
+/* ---- chiffres clés de l'accueil et pied : détails de finition ---- */
+html.fp .hero-facts dt{text-shadow:0 2px 14px rgba(0,0,0,.4)}
+html.fp .site-footer{background:var(--grain) 0 0/112px 112px,linear-gradient(180deg,#0A1722,#07101A)}
+
+/* ---- touche éditoriale : mots clés des titres en italique doré ---- */
+html.fp h1 em,html.fp h2 em{font-style:italic;font-weight:400;color:var(--gold-deep);letter-spacing:-.005em}
+html.fp .hero-home h1 em,html.fp .page-hero h1 em,html.fp .section-navy h2 em,html.fp .why-section h2 em,html.fp .cta-section h2 em,html.fp .contact-panel h1 em,html.fp .join-card h2 em{color:var(--gold-soft)}
+
+/* neutralise les anciens pseudo-éléments des cartes (barre de 3 px, halo à opacité 0) */
+html.fp .service-card::before{inset:0;left:0;top:0;right:0;bottom:0;width:auto!important;height:auto!important;transform:none!important;background-repeat:no-repeat,repeat,no-repeat,no-repeat}
+html.fp .service-card::after,html.fp .values-grid article::after,html.fp .steps li::after,html.fp .article-grid-large article::after{opacity:1!important;transform:none!important;left:auto!important;bottom:auto!important}
+html.fp .service-card::after{width:28px!important;height:28px!important}
+html.fp .values-grid article::after,html.fp .steps li::after,html.fp .article-grid-large article::after{width:22px!important;height:22px!important}
+
+/* compacité : la composition des expertises doit tenir dans un écran */
+html.fp #expertises .section-heading{margin-bottom:clamp(12px,2.4vh,26px)}
+html.fp .service-card{min-height:clamp(160px,23vh,215px);padding:clamp(14px,2.4vh,26px) clamp(18px,1.8vw,28px);gap:6px}
+html.fp .service-card .icon-box{width:28px;height:28px;margin-bottom:2px}
+html.fp .service-card .icon-box svg{width:28px;height:28px}
+html.fp .service-card h3{font-size:clamp(1.2rem,.4vw + 1.7vh,1.55rem)}
+html.fp .service-card:nth-child(1) h3,html.fp .service-card:nth-child(6) h3{font-size:clamp(1.55rem,.7vw + 2.2vh,2.1rem)}
+html.fp .service-card p{font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+html.fp .service-card .text-link{padding-top:2px}

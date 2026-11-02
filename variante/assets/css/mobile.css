@@ -290,3 +290,29 @@ html.fp .contact-form-in{max-width:none}
 /* accordéon fermé = totalement fermé (le padding du corps laissait dépasser une ligne) */
 html.fp .expertise-accordion .accordion-body{padding:0}
 html.fp .expertise-accordion article.open .accordion-body{padding-bottom:22px}
+
+/* ---- V4 mobile : on neutralise cartes à angle coupé / bascule (version bureau) ---- */
+html.fp .services-grid,html.fp .values-grid,html.fp .steps,html.fp .article-grid-large,html.fp .location-cards{filter:none}
+html.fp .service-card,html.fp .values-grid article,html.fp .steps li,html.fp .article-grid-large article,html.fp .value-card,html.fp .location-cards article{clip-path:none;background:none!important;box-shadow:none!important;min-height:0;transform:none}
+html.fp .service-card{grid-column:auto!important;overflow:visible;isolation:auto}
+html.fp .service-card::before{display:none!important}
+html.fp .service-card .icon-box{display:none}
+html.fp .service-card::after{width:auto;height:auto;background:none!important}
+html.fp .service-card:hover{transform:none}
+html.fp .service-card:nth-child(1) h3,html.fp .service-card:nth-child(6) h3,html.fp .service-card h3{color:var(--ink);font-size:1.3rem}
+html.fp .service-card:nth-child(1) p,html.fp .service-card:nth-child(6) p,html.fp .service-card p{color:var(--text);max-width:none}
+html.fp .service-card:hover h3{color:var(--ink)}
+html.fp .service-card:hover p{color:var(--text)}
+html.fp .values-grid article::after,html.fp .steps li::after,html.fp .value-card::after{display:none!important}
+html.fp .article-grid-large article::after{position:static;width:auto;height:auto;background:none!important}
+html.fp .value-card{clip-path:none}
+html.fp .site-footer{background:linear-gradient(180deg,#0A1722,#07101A)}
+html.fp main>section.page-hero::after{left:0;height:46%;opacity:.4}
+html.fp main>section.cta-section::after{left:0;opacity:.35}
+
+/* motif signature : discret et jamais derrière le texte (mobile) */
+html.fp main>section.hero-home::after{left:0!important;right:0!important;top:auto!important;bottom:0!important;height:36%!important;background-image:url("../img/motif-arrow.svg")!important;background-position:right bottom!important;background-size:contain!important;opacity:.35!important}
+html.fp main>section.page-hero::after{display:none!important}
+html.fp main>section.cta-section::after{opacity:.22!important}
+/* cadre professionnel : pas de bloc blanc plaqué derrière les articles */
+html.fp .values-grid article,html.fp .section-soft .values-grid article{background:none!important;box-shadow:none!important}
