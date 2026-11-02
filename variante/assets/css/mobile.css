@@ -316,3 +316,15 @@ html.fp main>section.page-hero::after{display:none!important}
 html.fp main>section.cta-section::after{opacity:.22!important}
 /* cadre professionnel : pas de bloc blanc plaqué derrière les articles */
 html.fp .values-grid article,html.fp .section-soft .values-grid article{background:none!important;box-shadow:none!important}
+
+/* V5 mobile : plus de flèche décorative */
+html.fp main>section.hero-home::after,html.fp main>section.cta-section::after{display:none!important}
+
+/* V6 mobile : les panneaux de bureau sont neutralisés */
+html.fp .sector-slide-grid{filter:none}
+html.fp .sector-slide-grid>div:not(.sector-photo){clip-path:none;background:none;box-shadow:none;margin:0;padding:0}
+html.fp .sector-slide-grid>div:not(.sector-photo)::before,html.fp .sector-slide-grid>div:not(.sector-photo)::after{display:none}
+html.fp [data-page="equipe"] .team-grid{filter:none}
+html.fp [data-page="equipe"] .person-card{clip-path:none;background:none;box-shadow:none;padding:0}
+html.fp [data-page="equipe"] .person-card::after{display:none}
+html.fp .check-list.plain{background:none;box-shadow:none;padding:0;border-top:0}
