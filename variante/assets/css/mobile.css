@@ -1,0 +1,271 @@
+/* ==========================================================================
+   S2A — version téléphone (< 900 px), chargée après premium.css
+   Parti pris : une lecture fluide, peu de cartes, contenu resserré.
+   - pas de calage « molette » : défilement naturel ;
+   - listes à filets plutôt que grilles de cartes ;
+   - carrousels horizontaux au doigt pour les secteurs et les situations ;
+   - barre fixe Appeler / Rendez-vous.
+   On reprend les codes du site (marine, or, serif) sans copier la version bureau.
+   ========================================================================== */
+
+html.fp{--hdr:58px;--m:22px;scroll-snap-type:none!important}
+html.fp body{font-size:15px;line-height:1.65;padding-bottom:0}
+html.fp .container{width:calc(100% - (var(--m) * 2))}
+
+/* ------------------------------------------------------------- en-tête */
+html.fp .topbar{height:auto;padding:8px 0;font-size:.62rem;letter-spacing:.03em}
+html.fp .topbar-inner>a:first-child{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+html.fp .topbar .topbar-phone{display:none}
+html.fp .nav-wrap{height:var(--hdr);min-height:var(--hdr)}
+html.fp .brand-logo{height:32px;width:auto}
+html.fp .brand-copy{display:none}
+html.fp .nav-toggle span:not(.sr-only){width:22px;height:1.5px;background:var(--ink)}
+html.fp .primary-nav{background:var(--navy);padding:96px var(--m) 40px;gap:0}
+html.fp .primary-nav ul{display:block;gap:0}
+html.fp .primary-nav ul li{border-top:1px solid var(--rule-dark)}
+html.fp .primary-nav ul li:last-child{border-bottom:1px solid var(--rule-dark)}
+html.fp .primary-nav ul a{display:block;padding:16px 0;font:400 1.7rem/1.2 var(--serif);color:#fff;letter-spacing:0}
+html.fp .primary-nav ul a.active{color:var(--gold-soft)}
+html.fp .primary-nav .btn{margin-top:28px;width:100%;justify-content:center;background:var(--gold);border-color:var(--gold);color:var(--navy)}
+html.fp .site-header.nav-open .nav-toggle span:not(.sr-only){background:#fff}
+
+/* ----------------------------------------------------- barre fixe en bas */
+html.fp .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--navy);box-shadow:0 -1px 0 rgba(255,255,255,.1)}
+html.fp .mobile-bar a{flex:1;padding:18px 10px;text-align:center;font:600 .64rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff}
+html.fp .mobile-bar a+a{background:var(--gold);color:var(--navy)}
+html.fp:has(.site-header.nav-open) .mobile-bar{display:none}
+html.fp[data-nobar] .mobile-bar{display:none}
+
+/* ------------------------------------------------------- rythme général */
+html.fp .section,html.fp .cta-section,html.fp .page-hero,html.fp .hero-home{padding-top:52px;padding-bottom:52px}
+html.fp .eyebrow{font-size:.58rem;letter-spacing:.22em;gap:10px;margin-bottom:12px}
+html.fp .eyebrow::before{width:22px}
+html.fp h1{font-size:clamp(2.2rem,10.4vw,2.9rem);line-height:1.04}
+html.fp h2{font-size:clamp(1.65rem,7.4vw,2.1rem);line-height:1.12}
+html.fp .section-heading{display:block;margin-bottom:26px}
+html.fp .section-heading .heading-aside p,html.fp .section-heading>p{display:none}
+html.fp .section-heading .text-link,html.fp .heading-aside .text-link{margin-top:16px}
+html.fp .heading-aside{display:block}
+html.fp .reveal,html.fp .js .reveal{opacity:1;transform:none;transition:none}
+html.fp .btn{width:100%;justify-content:center;padding:17px 20px;white-space:normal;text-align:center}
+html.fp .text-link{white-space:nowrap}
+
+/* ---------------------------------------------------------- accueil : hero */
+html.fp .hero-home{padding-top:34px}
+html.fp .hero-grid{display:block}
+html.fp .hero-home h1{margin-bottom:12px}
+html.fp .hero-tagline{font-size:1.2rem;margin-bottom:14px}
+html.fp .hero-lead{font-size:.93rem;line-height:1.7;margin-bottom:26px;color:#C0CDDA}
+html.fp .hero-actions{display:grid;gap:6px;margin-bottom:0}
+html.fp .hero-actions .btn-secondary{border:0;padding:14px 0;width:auto;justify-content:flex-start;background:none;color:var(--gold-soft);text-decoration:underline;text-underline-offset:6px;text-decoration-color:rgba(200,165,122,.6)}
+html.fp .hero-proof{display:none}
+html.fp .hero-visual{display:block;position:relative;height:320px;margin:34px calc(var(--m) * -1) calc(52px * -1);width:auto}
+html.fp .hero-photo{outline:0;inset:0}
+html.fp .hero-facts{padding:0 var(--m) 18px}
+html.fp .hero-facts dt{font-size:1.7rem}
+html.fp .hero-facts dd{font-size:.5rem;letter-spacing:.14em}
+html.fp .scroll-cue{display:none}
+
+/* ------------------------------------------- listes plutôt que cartes */
+html.fp .services-grid{grid-template-columns:1fr;gap:0}
+html.fp .service-card{position:relative;padding:18px 36px 18px 0;border-top:1px solid var(--rule-strong);gap:4px}
+html.fp .service-card:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp .service-card h3{font-size:1.3rem}
+html.fp .service-card h3::before{display:none}
+html.fp .service-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.86rem;line-height:1.55}
+html.fp .service-card .text-link{position:absolute;inset:0;font-size:0;border:0;padding:0;width:auto}
+html.fp .service-card .text-link svg{display:none}
+html.fp .service-card::after{content:"→"!important;display:block!important;position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:1.1rem;color:var(--gold-deep)}
+
+/* pourquoi S2A : texte seul */
+html.fp .why-grid{display:block}
+html.fp .why-visual{display:none}
+html.fp .why-copy h2{margin-bottom:22px}
+html.fp .feature-list{margin-bottom:26px}
+html.fp .feature-list article{grid-template-columns:1fr;padding:14px 0;gap:0}
+html.fp .feature-list .icon-box{display:none}
+html.fp .feature-list h3{font-size:1.15rem}
+html.fp .feature-list p{font-size:.84rem}
+
+/* carrousels au doigt : secteurs + situations */
+html.fp .sector-grid,html.fp .case-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--m) * -1);padding:0 var(--m) 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html.fp .sector-grid::-webkit-scrollbar,html.fp .case-grid::-webkit-scrollbar{display:none}
+html.fp .sector-tile{flex:0 0 74%;min-height:330px;scroll-snap-align:start}
+html.fp .sector-tile p{font-size:.8rem}
+html.fp .sector-tile .sector-cta{display:none}
+html.fp .case-card{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column;min-height:0}
+html.fp .case-photo{min-height:0;height:150px}
+html.fp .case-body{padding:20px;gap:8px}
+html.fp .case-points{display:none}
+html.fp .case-body h3{font-size:1.3rem}
+html.fp .case-body>p{font-size:.84rem}
+
+/* équipe (aperçu) : les deux associés seulement */
+html.fp .team-grid{grid-template-columns:1fr 1fr;gap:16px}
+html.fp .team-preview .person-card:nth-child(3){display:none}
+html.fp .portrait{height:210px}
+html.fp .person-card small,html.fp .person-card .xp{display:none}
+html.fp .person-card h3{font-size:1.15rem}
+html.fp .person-card p{font-size:.52rem;letter-spacing:.12em}
+
+/* implantations */
+html.fp .locations-grid{display:block}
+html.fp .locations-section p{font-size:.9rem}
+html.fp .locations-section .btn{display:none}
+html.fp .location-cards{grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+html.fp .location-cards article{border:0;background:none}
+html.fp .location-photo{height:110px}
+html.fp .location-body{padding:12px 0 0}
+html.fp .location-body span,html.fp .location-body a{display:none}
+html.fp .location-body h3{font-size:1.35rem;margin:0}
+html.fp .location-body p{font-size:.78rem;margin:2px 0 0}
+
+/* appel à l'action */
+html.fp .cta-inner{display:block}
+html.fp .cta-section h2{font-size:1.9rem;max-width:none}
+html.fp .cta-section p{font-size:.9rem;margin-bottom:24px}
+html.fp .cta-actions{align-items:stretch;gap:18px}
+html.fp .cta-phone{padding:0}
+html.fp .cta-phone strong{font-size:1.7rem}
+
+/* --------------------------------------------------------- pages intérieures */
+html.fp .page-hero{padding-top:30px}
+html.fp .breadcrumbs{display:none}
+html.fp .page-hero-grid{display:block}
+html.fp .page-hero h1{margin-bottom:14px}
+html.fp .page-hero p{font-size:.93rem;margin-bottom:24px}
+html.fp .page-hero .hero-actions .btn-secondary{display:none}
+html.fp .page-photo{height:210px;margin:30px calc(var(--m) * -1) calc(52px * -1);outline:0;width:auto}
+
+/* cabinet */
+html.fp .split-heading{display:block}
+html.fp .split-heading>div:last-child{margin-top:16px}
+html.fp .large-copy{font-size:1.08rem}
+html.fp .stat-band{grid-template-columns:1fr 1fr;border:0;margin-top:26px}
+html.fp .stat-band article{padding:14px 0;border:0;border-top:1px solid var(--rule-strong)}
+html.fp .stat-band article:first-child{padding-left:0;border-left:0}
+html.fp .stat-band strong{font-size:2.3rem}
+html.fp .stat-band span{font-size:.52rem;letter-spacing:.14em}
+html.fp .values-grid{grid-template-columns:1fr;gap:0;margin-top:26px!important}
+html.fp .values-grid article{padding:16px 0}
+html.fp .values-grid article:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp .values-grid h3{font-size:1.2rem;margin-bottom:4px}
+html.fp .values-grid h3::before{display:none}
+html.fp .values-grid p{font-size:.84rem}
+html.fp .join-card{display:block;padding:30px 22px!important;outline:0}
+html.fp .join-card h2{font-size:1.7rem!important;max-width:none}
+html.fp .chips li{padding:8px 11px;font-size:.52rem}
+
+/* équipe */
+html.fp [data-page="equipe"] main>section .team-grid{grid-template-columns:1fr 1fr!important;gap:18px 14px}
+html.fp [data-page="equipe"] main>section:nth-of-type(2) .person-card,html.fp [data-page="equipe"] main>section:nth-of-type(3) .person-card{display:flex;flex-direction:column}
+html.fp [data-page="equipe"] main>section .portrait{height:190px}
+html.fp [data-page="equipe"] main>section:nth-of-type(4) .portrait{height:150px}
+
+/* expertises : accordéon simple */
+html.fp .expertise-faq{display:block}
+html.fp .faq-layout>div:first-child{margin-bottom:22px}
+html.fp .expertise-nav{display:none}
+html.fp .expertise-accordion>article{display:block;border-top:1px solid var(--rule-strong)}
+html.fp .expertise-accordion>article:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp .expertise-accordion button{display:flex;pointer-events:auto;cursor:pointer;width:100%;padding:18px 0;justify-content:space-between;align-items:center}
+html.fp .expertise-accordion button .num{display:none}
+html.fp .expertise-accordion button .chevron{display:grid;width:28px;height:28px;border-radius:0}
+html.fp .expertise-accordion button h2{font-size:1.25rem}
+html.fp .expertise-accordion article>div{display:grid;grid-template-rows:0fr}
+html.fp .expertise-accordion article.open>div{grid-template-rows:1fr}
+html.fp .expertise-accordion article>div>div{overflow:hidden}
+html.fp .expertise-accordion .accordion-body{padding:0 0 22px}
+html.fp .expertise-accordion .accordion-body p{font:400 .93rem/1.65 var(--sans);color:var(--text)}
+html.fp .expertise-accordion .check-list{grid-template-columns:1fr;border:0;padding:0}
+html.fp .value-grid{grid-template-columns:1fr;gap:0}
+html.fp .value-card{padding:16px 0}
+html.fp .value-card h3{font-size:1.2rem;margin-bottom:4px}
+html.fp .value-card p{font-size:.84rem}
+html.fp .deadline-card,html.fp .deadline-callout{padding:24px 20px;outline:0;margin-top:22px}
+html.fp .deadline-card strong{font-size:1.5rem}
+
+/* secteurs : une fiche par secteur, photo en tête */
+html.fp .sector-slide{padding-top:44px;padding-bottom:44px}
+html.fp .sector-slide-grid{display:flex;flex-direction:column;gap:20px}
+html.fp .sector-slide .sector-photo{order:-1;height:190px;outline:0;margin:0 calc(var(--m) * -1);width:auto}
+html.fp .sector-slide h2{font-size:1.8rem;margin-bottom:10px}
+html.fp .sector-slide .large-copy{font-size:1rem;margin-bottom:16px}
+html.fp .sector-slide .check-list{grid-template-columns:1fr;padding-top:10px}
+html.fp .sector-slide .check-list li{font-size:.84rem}
+
+/* ressources : articles dépliables au toucher */
+html.fp .resource-filter{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(var(--m) * -1) 22px;padding:0 var(--m);scrollbar-width:none}
+html.fp .resource-filter::-webkit-scrollbar{display:none}
+html.fp .resource-filter button{flex:0 0 auto;padding:11px 14px}
+html.fp .article-grid-large{grid-template-columns:1fr;gap:0}
+html.fp .article-grid-large article{padding:18px 0;gap:6px;cursor:pointer}
+html.fp .article-grid-large article:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp .article-grid-large h2{font-size:1.2rem}
+html.fp .article-grid-large h2::before{display:none}
+html.fp .article-grid-large p{font-size:.86rem;line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+html.fp .article-grid-large article.expanded p{display:block;-webkit-line-clamp:unset;overflow:visible}
+html.fp .article-grid-large article::after{content:"Lire la suite +"!important;display:block!important;margin-top:4px;font:600 .56rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
+html.fp .article-grid-large article.expanded::after{content:"Réduire −"!important}
+html.fp .editorial-note{margin-top:24px;display:block}
+html.fp .editorial-note strong{display:block;margin-bottom:4px}
+
+/* contact : coordonnées cliquables puis formulaire */
+html.fp .contact-layout{display:block}
+html.fp .contact-intro h1{font-size:2rem}
+html.fp .contact-sidebar{margin-bottom:28px}
+html.fp .contact-method strong{font-size:1.15rem}
+html.fp .response-note{display:none}
+html.fp .contact-form{padding:22px 18px;gap:14px}
+html.fp .contact-form .form-row{grid-template-columns:1fr}
+html.fp .contact-form textarea{height:90px}
+html.fp:has(body[data-page="contact"]) .mobile-bar{display:none}
+
+/* pages « moments clés » */
+html.fp .steps{grid-template-columns:1fr;gap:0}
+html.fp .steps li{display:grid;grid-template-columns:44px 1fr;column-gap:6px;padding:18px 0}
+html.fp .steps li:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp .step-n{grid-row:1/3;font-size:2.2rem;margin:0}
+html.fp .steps h3{font-size:1.25rem;margin-bottom:4px}
+html.fp .steps p{font-size:.86rem}
+html.fp .duo{display:block}
+html.fp .duo-side{margin-top:28px;outline:0;padding:24px 20px}
+
+/* pied de page */
+html.fp .site-footer{padding-top:34px;padding-bottom:58px}
+html.fp .footer-grid{grid-template-columns:1fr 1fr;gap:26px 18px}
+html.fp .footer-brand{grid-column:1/-1}
+html.fp .footer-grid>div:nth-child(2){display:none}
+html.fp .footer-bottom{display:block}
+html.fp .footer-bottom>div{margin-top:8px}
+html.fp .footer-bottom a,html.fp .footer-bottom .link-button{margin:0 14px 0 0}
+
+/* ---- corrections après audit mobile ---- */
+html.fp .expertise-accordion article>div>div{overflow:hidden;min-height:0}
+html.fp .expertise-accordion button .chevron,html.fp .expertise-accordion article.open button .chevron{width:28px;height:28px;border:0!important;background:none!important;color:var(--gold-deep)!important;font-size:1.5rem;font-weight:300;transform:none!important;transition:transform .25s}
+html.fp .expertise-accordion article.open button .chevron{transform:rotate(45deg)!important}
+html.fp [data-page="equipe"] main>section:nth-of-type(2) .portrait,
+html.fp [data-page="equipe"] main>section:nth-of-type(3) .portrait{height:210px}
+html.fp [data-page="equipe"] main>section:nth-of-type(4) .team-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px 10px}
+html.fp [data-page="equipe"] main>section:nth-of-type(4) .portrait{height:104px}
+html.fp [data-page="equipe"] main>section:nth-of-type(4) .person-card h3{font-size:.95rem}
+
+/* secteurs : photo pleine largeur en tête de fiche */
+html.fp .sector-slide .sector-slide-grid .sector-photo{order:-1!important;width:auto!important;max-width:none!important;align-self:stretch;height:190px;margin:0 calc(var(--m) * -1)!important;outline:0}
+html.fp .sector-slide .sector-slide-grid>div:not(.sector-photo){order:0}
+/* contact : formulaire à plat, sans cadre */
+html.fp .contact-form{outline:0;background:none;padding:0}
+
+/* zones tactiles confortables (≥ 44 px) */
+html.fp .topbar{padding:0}
+html.fp .topbar-inner>a:first-child{padding:11px 0}
+html.fp .brand{min-height:44px;display:flex;align-items:center}
+html.fp .text-link{min-height:44px;display:inline-flex;align-items:center;padding-bottom:0;border-bottom:0;position:relative}
+html.fp .text-link::after{content:"";position:absolute;left:0;right:0;bottom:9px;height:1px;background:var(--gold)}
+html.fp .service-card .text-link::after{display:none}
+html.fp .site-footer li a,html.fp .footer-bottom a,html.fp .footer-bottom .link-button{display:inline-block;padding:9px 0}
+html.fp .site-footer .footer-phone{display:inline-block;padding:6px 0}
+html.fp .resource-filter button{min-height:44px}
+html.fp .panel-links{gap:0 24px}
+html.fp .footer-bottom a,html.fp .footer-bottom .link-button{padding:13px 0}
+html.fp .contact-method a{display:inline-block;padding:10px 0}
