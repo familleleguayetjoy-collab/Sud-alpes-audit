@@ -47,49 +47,29 @@
 </div>
 </header>
 <main id="main">
-
-<section class="section section-soft contact-screen">
-<div class="container">
-<div class="contact-layout">
-<div class="contact-sidebar reveal">
-<div class="contact-intro">
-<span class="eyebrow">Parlons de votre entreprise</span>
-<h1>Un premier échange pour comprendre vos enjeux.</h1>
-<p><a href="creation.html">Création</a>, <a href="changer-de-cabinet.html">changement de cabinet</a>, développement, difficultés ou <a href="transmission.html">transmission</a>&nbsp;: décrivez-nous votre situation, nous revenons vers vous rapidement.</p>
-</div>
-<div class="contact-method">
-<span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"></path></svg></span>
-<div><span>Téléphone</span><strong><a href="tel:+33497031530">04 97 03 15 30</a></strong><small>Lun–Ven, 9h–12h30 &amp; 14h–17h30</small></div>
-</div>
-<div class="contact-method">
-<span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"></path><path d="m3 7 9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"></path></svg></span>
-<div><span>Courriel</span><strong><a href="mailto:contact@sudalpesaudit.com">contact@sudalpesaudit.com</a></strong><small>Réponse sous 48h ouvrées</small></div>
-</div>
-<div class="contact-method">
-<span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
-<div><span>Siège social — Nice</span><strong>212 avenue de la Californie</strong><small>Immeuble Cap Californie, entrée C · 06200 Nice</small></div>
-</div>
-<div class="contact-method">
-<span class="icon-box"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
-<div><span>Bureau secondaire — Allos</span><strong>Grande rue</strong><small>04260 Allos</small></div>
-</div>
-<div class="response-note">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="9"></circle></svg>
-<p>Pour toute urgence liée à une échéance déclarative, privilégiez un appel direct au cabinet.</p>
+<section class="contact-screen">
+<div class="contact-split">
+<div class="contact-panel">
+<div class="contact-panel-in">
+<span class="eyebrow">Contact</span>
+<h1>Parlons de votre projet.</h1>
+<p class="contact-lead">Quelques lignes suffisent. Nous revenons vers vous sous 48&nbsp;h ouvrées, dans la plus stricte confidentialité.</p>
+<ul class="contact-lines">
+<li><span>Téléphone</span><a class="contact-big" href="tel:+33497031530">04 97 03 15 30</a><small>Du lundi au vendredi · 9h–12h30 et 14h–17h30</small></li>
+<li><span>Courriel</span><a class="contact-mail" href="mailto:contact@sudalpesaudit.com">contact@sudalpesaudit.com</a></li>
+<li class="contact-places"><div><span>Nice · siège</span><address>212 avenue de la Californie<br/>06200 Nice</address></div><div><span>Allos</span><address>Grande rue<br/>04260 Allos</address></div></li>
+</ul>
 </div>
 </div>
-
-<form class="contact-form reveal" name="contact" method="post" action="merci.html" data-netlify="true" netlify-honeypot="site_web">
+<form class="contact-form" name="contact" method="post" action="merci.html" data-netlify="true" netlify-honeypot="site_web">
+<div class="contact-form-in">
 <input type="hidden" name="form-name" value="contact"/>
-<div class="form-row">
-<label>Prénom<input autocomplete="given-name" name="prenom" required="" type="text"/></label>
-<label>Nom<input autocomplete="family-name" name="nom" required="" type="text"/></label>
-</div>
+<h2>Écrivez-nous</h2>
+<label>Nom et prénom<input autocomplete="name" name="nom" required="" type="text"/></label>
 <div class="form-row">
 <label>Courriel<input autocomplete="email" name="email" required="" type="email"/></label>
-<label>Téléphone<input autocomplete="tel" name="telephone" type="tel"/></label>
+<label>Téléphone <em>(facultatif)</em><input autocomplete="tel" name="telephone" type="tel"/></label>
 </div>
-<label>Votre entreprise<input name="entreprise" type="text"/></label>
 <label>Votre demande
 <select name="sujet">
 <option value="creation">Création d’entreprise</option>
@@ -101,16 +81,15 @@
 <option value="autre">Autre demande</option>
 </select>
 </label>
-<label>Message<textarea name="message" rows="5" required=""></textarea></label>
+<label>Quelques mots sur votre situation<textarea name="message" rows="3" required="" placeholder="Votre entreprise, votre besoin, vos échéances…"></textarea></label>
 <input class="honeypot" name="site_web" tabindex="-1" autocomplete="off" type="text"/>
-<label class="checkbox"><input required="" type="checkbox"/><span>J’accepte que mes données soient utilisées pour traiter ma demande, conformément à la politique de confidentialité du cabinet.</span></label>
-<button class="btn btn-primary" type="submit">Envoyer ma demande</button>
-<small>Vos données sont destinées exclusivement à S2A — Sud Alpes Audit et ne sont jamais cédées à des tiers.</small>
+<label class="checkbox"><input required="" type="checkbox"/><span>J’accepte que mes données soient utilisées pour traiter ma demande (<a href="mentions-legales.html#rgpd">confidentialité</a>).</span></label>
+<button class="btn btn-primary" type="submit">Envoyer ma demande <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></button>
+<ul class="reassure"><li>Réponse sous 48&nbsp;h ouvrées</li><li>Échange confidentiel</li><li>Un interlocuteur dédié</li></ul>
+</div>
 </form>
 </div>
-</div>
 </section>
-
 </main>
 <footer class="site-footer">
 <div class="container footer-grid">
