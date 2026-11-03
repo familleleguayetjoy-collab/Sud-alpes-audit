@@ -324,3 +324,32 @@ html.fp .hero-home .hero-photo img{object-position:56% 40%}
 @media (min-width:921px){
   html.fp .page-hero .page-photo,html.fp .contact-top .page-photo{height:100%!important;bottom:auto!important}
 }
+
+/* ==========================================================================
+   Retours du 4 novembre : formulaire mis en valeur, échéances sans cadre sombre
+   ========================================================================== */
+html.fp main>section.contact-form-section{background:linear-gradient(180deg,#EDF2F7,#DFE8F1)!important}
+html.fp .contact-form{background:#fff!important;border-top:4px solid var(--gold)!important;box-shadow:0 28px 64px -26px rgba(15,30,46,.4),0 2px 8px rgba(15,30,46,.07)!important;padding:clamp(22px,3.4vh,40px) clamp(22px,2.6vw,40px)!important}
+html.fp .contact-form label{font-size:.66rem!important;letter-spacing:.16em!important;color:var(--ink)}
+html.fp .contact-form input:not([type=checkbox]),html.fp .contact-form select,html.fp .contact-form textarea{background:#F5F8FB!important;border:1px solid #B4C3D2!important;border-bottom:2px solid #8FA2B5!important;padding:12px 14px!important;margin-top:4px;font-size:1rem}
+html.fp .contact-form input:not([type=checkbox]):focus,html.fp .contact-form select:focus,html.fp .contact-form textarea:focus{background:#fff!important;border-color:var(--gold)!important;border-bottom-color:var(--gold-deep)!important;outline:0;box-shadow:0 0 0 3px rgba(200,165,122,.28)}
+html.fp .contact-form .btn.btn-primary{background:var(--gold);border-color:var(--gold);color:var(--navy);justify-self:stretch;width:100%;justify-content:center}
+html.fp .contact-form .btn.btn-primary:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+html.fp .contact-form-grid h2 em{color:var(--gold-deep)}
+
+/* échéances : plus de rectangle sombre, deux dates côte à côte */
+html.fp .deadline-card,html.fp .deadline-callout{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,4vw,72px);background:none!important;outline:0!important;color:var(--ink);padding:18px 0 0!important;border:0;border-top:3px solid var(--gold);box-shadow:none}
+html.fp .deadline-card>span{grid-column:1/-1;color:var(--gold-deep);margin-bottom:14px}
+html.fp .deadline-card>div,html.fp .deadline-card>div.deadline-last{border:0;padding:0 0 6px;position:relative}
+html.fp .deadline-card>div+div{border-left:1px solid #B4C3D2;padding-left:clamp(20px,3vw,48px)}
+html.fp .deadline-card strong{display:block;color:var(--navy);font-size:clamp(2rem,1.2vw + 3vh,3.1rem);line-height:1.05}
+html.fp .deadline-card p{color:var(--text,#2E4155);font-size:.95rem;line-height:1.6;max-width:42ch}
+html.fp .deadline-card small{grid-column:1/-1;margin-top:14px;color:#566A7D}
+@media (max-width:920px){
+  html.fp body .deadline-card,html.fp body .deadline-callout{display:block;padding:16px 0 0!important}
+  html.fp body .deadline-card>div+div{border-left:0;padding-left:0}
+  html.fp body .deadline-card strong{font-size:2rem}
+  html.fp body .contact-form{padding:24px 18px 26px!important;margin:0}
+  html.fp body main>section.contact-form-section{padding-top:34px;padding-bottom:40px}
+}
+html.fp .contact-form label.checkbox{letter-spacing:0!important;text-transform:none!important;font:450 .8rem/1.5 var(--sans)!important;color:var(--ink)}

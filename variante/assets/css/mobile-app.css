@@ -333,7 +333,7 @@ html.fp body .value-card p{display:none}
 html.fp body .section-navy .section-heading>p{display:none}
 html.fp body .split-heading{display:block}
 html.fp body .split-heading .large-copy{display:none}
-html.fp body .deadline-card{padding:22px 20px;margin-top:18px;outline:0}
+html.fp body .deadline-card p{font-size:.92rem;line-height:1.5}
 html.fp body .deadline-card p{font-size:.9rem;line-height:1.5}
 html.fp body .deadline-card small{display:none}
 
@@ -414,5 +414,9 @@ html.fp body .cta-section .eyebrow{display:none}
 
 html.fp body[data-page="cabinet"] .facts-line{grid-template-columns:auto auto auto;justify-content:space-between;column-gap:14px}
 html.fp body[data-page="cabinet"] .facts-line dd{letter-spacing:.02em!important}
+
+/* accueil : la photo de groupe occupe le haut, le texte reste sous les visages */
+html.fp body[data-page="home"] .hero-home .hero-photo{inset:0 0 auto 0;height:74%;-webkit-mask-image:linear-gradient(180deg,#000 68%,transparent 100%);mask-image:linear-gradient(180deg,#000 68%,transparent 100%)}
+html.fp body[data-page="home"] .hero-home .hero-photo img{object-position:64% 50%}
 
 }
