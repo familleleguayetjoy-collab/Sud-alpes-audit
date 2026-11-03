@@ -110,13 +110,16 @@
         history.replaceState(null, '', `#${id}`);
       });
     });
-    const initialId = location.hash ? location.hash.slice(1) : articles[0]?.id;
+    const isPhone = window.matchMedia('(max-width: 920px)').matches;
+    const initialId = location.hash ? location.hash.slice(1) : (isPhone ? '' : articles[0]?.id);
     if (articles.some((article) => article.id === initialId)) {
       openArticle(initialId);
       if (location.hash) {
         // onglet demandé par un lien (ex. depuis l'accueil) : on affiche directement son écran
-        requestAnimationFrame(() => expertiseAccordion.closest('section')?.scrollIntoView({ behavior: 'auto', block: 'start' }));
+        requestAnimationFrame(() => (isPhone ? document.getElementById(initialId) : expertiseAccordion.closest('section'))?.scrollIntoView({ behavior: 'auto', block: 'start' }));
       }
+    } else if (isPhone) {
+      openArticle('');
     }
   }
 
@@ -202,6 +205,37 @@
     document.querySelectorAll('.article-grid-large article').forEach((card) => {
       card.addEventListener('click', () => card.classList.toggle('expanded'));
     });
+
+    /* Détails à la demande : on touche le titre pour déplier (aucune information supprimée). */
+    document.querySelectorAll('.values-grid.pillars article, .steps li, .duo-side, .sector-slide').forEach((el, i) => {
+      el.classList.add('m-acc');
+      const head = el.querySelector('h3, h2');
+      if (head) {
+        head.setAttribute('role', 'button');
+        head.tabIndex = 0;
+        head.setAttribute('aria-expanded', 'false');
+      }
+      const toggle = (e) => {
+        if (e.target.closest('a')) return;
+        const open = el.classList.toggle('m-open');
+        if (head) head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      el.addEventListener('click', toggle);
+      if (head) head.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+      });
+    });
+    /* lien direct vers un secteur ou une étape : on ouvre l'élément visé */
+    const openFromHash = () => {
+      const target = location.hash && document.getElementById(location.hash.slice(1));
+      if (target && target.classList.contains('m-acc')) {
+        target.classList.add('m-open');
+        target.querySelector('h2, h3')?.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+      }
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
   }
 
   /* Contact : présélection de la demande depuis un lien (?sujet=transmission…) */

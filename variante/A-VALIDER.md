@@ -102,3 +102,8 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 - [ ] 🟠 Accueil : les chiffres 1998 / 19 / 2 ne figurent plus en page d'accueil (ils restent sur la page Cabinet).
 - [ ] 🟠 **Photos des secteurs** (santé, restauration, BTP, immobilier) : visuels générés fournis par le cabinet, intégrés tels quels ; l'image du **port de plaisance** (`port-plaisance.webp`) est stockée mais non utilisée (secteur « nautisme » retiré). Photo « Commerce de proximité » toujours provisoire. Tuiles de la page d'accueil : seulement le nom du secteur.
 - [ ] 🟠 Photos intégrées (fournies par le cabinet) : hero accueil, exemples restaurant / pharmacie / trésorerie, secteurs santé / restauration / commerce / BTP / immobilier / start-up, slide équipe de l'accueil. Les pages Créer son entreprise et Transmettre reprennent les visuels restaurant et pharmacie ; les autres pages gardent leurs anciennes images (à remplacer par les photos du photographe).
+
+### Version téléphone (refonte du 4 novembre)
+- [ ] 🟠 Mobile entièrement repensé (≤ 920 px), le bureau n'est pas modifié : accueil en 5 écrans (au lieu de 7), pages intérieures 3 à 4 écrans ; héros photo + coupe diagonale ; listes numérotées ; détails au toucher (cadre professionnel, étapes, secteurs, expertises, ressources).
+- [ ] 🟠 Sur téléphone, certaines phrases d'introduction sont raccourcies (partie masquée, toujours présente sur ordinateur) et la bannière « À la une » est masquée.
+- [ ] 🟠 Équipe sur téléphone : portraits des deux associés et des deux cheffes de mission seulement ; les collaboratrices sont listées sans photo.
