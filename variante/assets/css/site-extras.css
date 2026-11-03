@@ -353,3 +353,8 @@ html.fp .deadline-card small{grid-column:1/-1;margin-top:14px;color:#566A7D}
   html.fp body main>section.contact-form-section{padding-top:34px;padding-bottom:40px}
 }
 html.fp .contact-form label.checkbox{letter-spacing:0!important;text-transform:none!important;font:450 .8rem/1.5 var(--sans)!important;color:var(--ink)}
+
+/* visuels de première slide (équipe, expertises, secteurs) : cadrage sur les visages */
+html.fp body[data-page="equipe"] .page-hero .page-photo img{object-position:50% 36%}
+html.fp body[data-page="expertises"] .page-hero .page-photo img{object-position:50% 34%}
+html.fp body[data-page="secteurs"] .page-hero .page-photo img{object-position:50% 40%}
