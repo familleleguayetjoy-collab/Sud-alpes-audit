@@ -294,3 +294,33 @@ html.fp .sector-tile .sector-tile-in{padding:clamp(16px,2vw,28px)}
 /* hero : image verticale, conseiller centré */
 html.fp .hero-home .hero-photo img{object-position:56% 40%}
 @media (max-width:920px){html.fp .hero-home .hero-photo img{object-position:50% 38%}}
+
+/* ==========================================================================
+   PREMIÈRES SLIDES : grand visuel plein bord à droite, coupé en diagonale
+   (même présentation que l'accueil, sur toutes les pages)
+   ========================================================================== */
+@media (min-width:921px){
+  html.fp main>section.page-hero,html.fp main>section.contact-top{position:relative;overflow:hidden}
+  html.fp .page-hero>.container,html.fp .page-hero .page-hero-grid,html.fp .contact-top>.container{position:static!important}
+  html.fp .page-hero .page-hero-grid{display:block}
+  html.fp .page-hero .page-hero-grid>.reveal:first-child{max-width:min(620px,50%)}
+  html.fp .contact-top .contact-top-grid{display:block;max-width:none}
+  html.fp .contact-top .contact-top-grid>.reveal:first-child{max-width:min(620px,50%)}
+  html.fp .contact-top .contact-lines{max-width:min(520px,50%);margin-top:clamp(14px,3vh,28px)}
+
+  html.fp .page-hero .page-photo,html.fp .contact-top .page-photo{
+    position:absolute!important;right:0;top:0;bottom:0;left:auto;width:47%;height:auto!important;min-height:0!important;max-height:none!important;
+    margin:0!important;border:0!important;outline:0!important;box-shadow:none!important;transform:none!important;aspect-ratio:auto!important;
+    clip-path:polygon(17% 0,100% 0,100% 100%,0 100%);background:#0D2033;z-index:1}
+  html.fp .page-hero .page-photo img,html.fp .contact-top .page-photo img,html.fp .page-hero .page-photo .site-photo{
+    position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:55% 50%;border-radius:0;transform:none!important;filter:saturate(.95) contrast(1.04)}
+  html.fp .page-hero .page-photo::after,html.fp .contact-top .page-photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(7,17,27,.55) 0%,rgba(7,17,27,.05) 34%,rgba(7,17,27,.05) 62%,rgba(7,17,27,.55) 100%)}
+  html.fp .page-hero .page-photo::before,html.fp .contact-top .page-photo::before{content:none!important;display:none!important}
+}
+@media (max-width:920px){
+  html.fp .contact-top .page-photo{display:none}
+}
+@media (min-width:921px){
+  html.fp .page-hero .page-photo,html.fp .contact-top .page-photo{height:100%!important;bottom:auto!important}
+}
