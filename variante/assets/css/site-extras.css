@@ -358,3 +358,26 @@ html.fp .contact-form label.checkbox{letter-spacing:0!important;text-transform:n
 html.fp body[data-page="equipe"] .page-hero .page-photo img{object-position:50% 36%}
 html.fp body[data-page="expertises"] .page-hero .page-photo img{object-position:50% 34%}
 html.fp body[data-page="secteurs"] .page-hero .page-photo img{object-position:50% 40%}
+
+/* ---- retours (suite) ---- */
+/* portraits : plus de liseré blanc */
+html.fp .portrait,html.fp .team-preview .portrait{border:0!important}
+/* aperçu expertises (accueil) : on garde l'écran et la personne qui présente dans le cadre */
+html.fp .exp-figure img{object-position:80% 50%}
+/* échéances : section plus claire, texte plus contrasté */
+html.fp main>section:has(.deadline-card){background:#F8FAFC!important}
+html.fp main>section:has(.deadline-card)::before,html.fp main>section:has(.deadline-card)::after{display:none!important}
+html.fp main>section:has(.deadline-card) .large-copy{color:#1B2A3A}
+html.fp .deadline-card{border-top:2px solid #C9D5E1}
+html.fp .deadline-card p{color:#1B2A3A}
+html.fp .deadline-card>span{color:#415466}
+/* formulaire : moins de doré (bleu-gris et marine) */
+html.fp .contact-form{border-top:4px solid var(--navy)!important}
+html.fp .contact-form .btn.btn-primary{background:var(--navy);border-color:var(--navy);color:#fff}
+html.fp .contact-form .btn.btn-primary:hover{background:#1E3A52;border-color:#1E3A52}
+html.fp .contact-form input:not([type=checkbox]):focus,html.fp .contact-form select:focus,html.fp .contact-form textarea:focus{border-color:#415466!important;border-bottom-color:var(--navy)!important;box-shadow:0 0 0 3px rgba(65,84,102,.22)}
+html.fp .contact-form-grid h2 em{color:#415466}
+html.fp .contact-form-grid .eyebrow{color:#415466}
+html.fp .contact-form-grid .eyebrow::before{background:#8FA2B5}
+html.fp .contact-form input[type=checkbox]{accent-color:var(--navy)}
+html.fp main>section.contact-form-section{background:linear-gradient(180deg,#F3F6FA,#E8EEF4)!important}
