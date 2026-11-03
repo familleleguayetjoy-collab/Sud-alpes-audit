@@ -379,4 +379,40 @@ html.fp body .footer-grid>div:nth-child(3) li:nth-child(n+5){display:none}
 @media (max-height:640px){html.fp body[data-page="home"] .hero-actions .btn-secondary{display:none}}
 @media (max-height:520px){html.fp body .primary-nav{padding-top:calc(var(--hdr) + 8px)}html.fp body .primary-nav ul{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}html.fp body .primary-nav ul li:nth-last-child(2){border-bottom:1px solid rgba(255,255,255,.14)}html.fp body .primary-nav ul a{min-height:48px;font-size:1.25rem}html.fp body .primary-nav .btn{margin-top:16px}}
 
+/* ======================= ALLÈGEMENT (2e passe) : moins d'information d'emblée ======================= */
+/* introductions de héros : le titre suffit sur les pages de présentation */
+html.fp body:is([data-page="cabinet"],[data-page="equipe"],[data-page="ressources"],[data-page="secteurs"],[data-page="expertises"]) .page-hero .page-hero-grid>div:first-child>p{display:none}
+html.fp body:is([data-page="cabinet"],[data-page="equipe"],[data-page="ressources"],[data-page="secteurs"],[data-page="expertises"]) .page-hero h1{margin-bottom:0}
+html.fp body main>section.page-hero{padding-bottom:30px}
+/* accueil : on retire les portraits (lien vers la page Équipe conservé) */
+html.fp body[data-page="home"] .team-preview .team-grid{display:none}
+html.fp body[data-page="home"] .team-preview{padding-bottom:30px}
+/* cabinet : méthode en grille 2×2 de titres, rejoindre sans pastilles */
+html.fp body[data-page="cabinet"] .methode-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+html.fp body[data-page="cabinet"] .methode-list li{display:block;min-height:96px;padding:14px 12px;border:1px solid var(--rule-strong);border-top:3px solid var(--gold)}
+html.fp body[data-page="cabinet"] .methode-list li:last-child{border-bottom:1px solid var(--rule-strong)}
+html.fp body[data-page="cabinet"] .methode-list b{display:block;margin-bottom:8px}
+html.fp body[data-page="cabinet"] .methode-list h3{font-size:1.02rem;line-height:1.25}
+html.fp body .join-new .chips{display:none}
+/* équipe : collaboratrices repliées, bloc « rejoindre » retiré (présent sur la page Cabinet) */
+html.fp body .m-more{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin:0 0 4px;background:none;border:1px solid var(--navy);color:var(--navy);font:600 .78rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .team-grid{display:none}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4).m-open .team-grid{display:grid;margin-top:14px}
+html.fp body[data-page="equipe"] main>section:nth-of-type(5){display:none}
+html.fp body[data-page="equipe"] .person-card .xp{display:none}
+/* expertises : engagements en 2×2, échéances resserrées */
+html.fp body .value-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+html.fp body .value-card{padding:14px 12px;border:1px solid rgba(255,255,255,.22);border-top:3px solid var(--gold)}
+html.fp body .value-card:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+html.fp body .value-card>span{display:none}
+html.fp body .value-card h3{font-size:1.02rem;margin:0}
+html.fp body .deadline-card .deadline-last{display:none}
+/* ressources : quatre articles, pas besoin de filtres */
+html.fp body .resource-filter{display:none}
+/* appels à l'action : le titre et deux gestes */
+html.fp body .cta-section .eyebrow{display:none}
+
+html.fp body[data-page="cabinet"] .facts-line{grid-template-columns:auto auto auto;justify-content:space-between;column-gap:14px}
+html.fp body[data-page="cabinet"] .facts-line dd{letter-spacing:.02em!important}
+
 }
