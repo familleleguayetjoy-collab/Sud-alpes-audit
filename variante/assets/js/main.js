@@ -225,6 +225,24 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
       });
     });
+    /* Équipe : la liste des collaboratrices est repliée par défaut */
+    const collab = document.querySelector('body[data-page="equipe"] main > section:nth-of-type(4)');
+    const collabGrid = collab && collab.querySelector('.team-grid');
+    if (collabGrid) {
+      const n = collabGrid.querySelectorAll('.person-card').length;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'm-more';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = 'Voir les ' + n + ' collaboratrices';
+      collabGrid.before(btn);
+      btn.addEventListener('click', () => {
+        const open = collab.classList.toggle('m-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? 'Masquer la liste' : 'Voir les ' + n + ' collaboratrices';
+      });
+    }
+
     /* lien direct vers un secteur ou une étape : on ouvre l'élément visé */
     const openFromHash = () => {
       const target = location.hash && document.getElementById(location.hash.slice(1));
