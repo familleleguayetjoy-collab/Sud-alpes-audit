@@ -290,3 +290,7 @@ html.fp .sector-tile .sector-tile-in{padding:clamp(16px,2vw,28px)}
   html.fp .sector-tile h3,html.fp .sector-tile h3 a{font-size:1.45rem}
 }
 @media (max-width:920px){html.fp .sector-grid,html.fp .case-grid{scroll-padding-left:22px}}
+
+/* hero : image verticale, conseiller centré */
+html.fp .hero-home .hero-photo img{object-position:56% 40%}
+@media (max-width:920px){html.fp .hero-home .hero-photo img{object-position:50% 38%}}
