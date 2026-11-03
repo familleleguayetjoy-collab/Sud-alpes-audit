@@ -275,3 +275,18 @@ html.fp .sector-tile p{color:#E3EAF1}
 html.fp .sector-tile .sector-cta{display:inline-flex;flex-wrap:nowrap;white-space:nowrap;align-items:center;gap:8px;width:fit-content}
 html.fp .sector-tile .sector-cta svg{flex:0 0 auto;width:14px;height:14px}
 html.fp .methode-intro h2 em,html.fp .methode-intro .eyebrow{color:var(--gold-soft,#E4C79C)!important}
+
+/* tuiles de secteurs : seulement le nom */
+html.fp .sector-tile .sector-tile-in{padding:clamp(16px,2vw,28px)}
+@media (min-width:921px){
+  html.fp .sector-tile{min-height:clamp(170px,28vh,270px);align-items:flex-end}
+  html.fp .sector-tile h3,html.fp .sector-tile h3 a{font-size:clamp(1.5rem,.7vw + 2vh,2.1rem);line-height:1.1}
+  html.fp .sector-tile h3 a{display:block;position:relative;padding-bottom:12px}
+  html.fp .sector-tile h3 a::after{content:"";position:absolute;left:0;bottom:0;width:44px;height:1px;background:var(--gold,#C8A57A);transition:width .35s}
+  html.fp .sector-tile:hover h3 a::after{width:96px}
+}
+@media (max-width:920px){
+  html.fp .sector-tile{min-height:240px}
+  html.fp .sector-tile h3,html.fp .sector-tile h3 a{font-size:1.45rem}
+}
+@media (max-width:920px){html.fp .sector-grid,html.fp .case-grid{scroll-padding-left:22px}}
