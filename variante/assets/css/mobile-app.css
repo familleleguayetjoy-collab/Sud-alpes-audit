@@ -793,3 +793,6 @@ html.fp body[data-page="home"] .team-preview .person-card,html.fp body[data-page
 html.fp body[data-page="home"] .team-preview .person-card:nth-child(3){aspect-ratio:16/9}
 
 }
+@media (max-width:920px){
+html.fp body[data-page="contact"] .contact-top .page-photo img{object-position:46% 50%}
+}
