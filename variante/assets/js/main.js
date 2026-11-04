@@ -261,6 +261,12 @@
   const subjectSelect = document.querySelector('select[name="sujet"]');
   if (subjectParam && subjectSelect && Array.from(subjectSelect.options).some((o) => o.value === subjectParam)) subjectSelect.value = subjectParam;
 
+  /* Téléphone : hauteur réelle de la fenêtre (la barre d'adresse du navigateur change la hauteur visible) */
+  const setAppH = () => document.documentElement.style.setProperty('--app-h', window.innerHeight + 'px');
+  setAppH();
+  window.addEventListener('resize', setAppH);
+  window.addEventListener('orientationchange', setAppH);
+
   /* Hauteur du pied de page : la dernière section + le pied tiennent dans un écran. */
   const footerEl = document.querySelector('.site-footer');
   if (footerEl) {

@@ -264,8 +264,8 @@ html.fp body .contact-form input[type=checkbox]{flex:0 0 24px;width:24px;height:
    V3 — comme sur ordinateur : chaque section est un « écran » qui s'ouvre en
    descendant (défilement calé), formes sobres, pas de cases géométriques.
    ========================================================================== */
-html.fp{--bar:48px;--slide:calc(100svh - var(--hdr) - var(--bar))}
-html.fp:has(body[data-page="contact"]){--slide:calc(100svh - var(--hdr))}
+html.fp{--bar:48px;--slide:calc(var(--app-h,100dvh) - var(--hdr) - var(--bar))}
+html.fp:has(body[data-page="contact"]){--slide:calc(var(--app-h,100dvh) - var(--hdr))}
 @media (prefers-reduced-motion:no-preference){
   html.fp{scroll-snap-type:y mandatory!important;scroll-padding-top:var(--hdr)}
   html.fp body main>section,html.fp body .site-footer{scroll-snap-align:start;scroll-snap-stop:normal}
@@ -765,5 +765,31 @@ html.fp body .values-grid.pillars h3{font-size:1.15rem}
 
 html.fp body[data-page="equipe"] main>section:nth-of-type(4) .team-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 html.fp body .article-grid-large article::before{display:block!important;background:none!important;width:auto!important;height:auto!important;position:absolute!important;content:counter(res,decimal-leading-zero)!important;color:var(--gold-deep)!important;opacity:1!important;clip-path:none}
+
+/* ==== V7 : animations douces (fondu lent, quasi pas de mouvement), équipe en vignettes ==== */
+html.js .reveal{transform:translateY(8px)!important;transition:opacity 1.4s cubic-bezier(.25,.1,.25,1),transform 1.4s cubic-bezier(.25,.1,.25,1)!important}
+html.js .reveal.visible{transform:none!important}
+@media (prefers-reduced-motion:no-preference){
+  html.fp body .hero-photo img,html.fp body .page-photo img{animation:s2a-zoom 4s cubic-bezier(.25,.1,.25,1) both}
+  @keyframes s2a-zoom{from{transform:scale(1.025);opacity:.6}to{transform:scale(1);opacity:1}}
+  @keyframes s2a-up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  html.fp body .hero-copy>*,html.fp body .page-hero .page-hero-grid>div:first-child>*,html.fp body .contact-top-grid>div:first-child>*{animation:s2a-up 1.6s cubic-bezier(.25,.1,.25,1) both}
+  html.fp body .hero-copy>*:nth-child(2),html.fp body .page-hero .page-hero-grid>div:first-child>*:nth-child(2){animation-delay:.2s}
+  html.fp body .hero-copy>*:nth-child(3),html.fp body .page-hero .page-hero-grid>div:first-child>*:nth-child(3){animation-delay:.4s}
+  html.fp body .hero-copy>*:nth-child(4){animation-delay:.6s}
+}
+html.fp body{scroll-behavior:smooth}
+
+/* équipe : vignettes plus larges que hautes, 3 par ligne */
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .team-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px 10px;align-content:center}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .portrait{aspect-ratio:1/1}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .portrait img{object-position:50% 30%}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .person-card h3{font-size:.92rem}
+html.fp body[data-page="equipe"] main>section:nth-of-type(2) .team-grid,html.fp body[data-page="equipe"] main>section:nth-of-type(3) .team-grid{flex:0 0 auto;max-height:none;align-content:center}
+html.fp body[data-page="equipe"] main>section:nth-of-type(2)>.container,html.fp body[data-page="equipe"] main>section:nth-of-type(3)>.container{justify-content:center}
+html.fp body[data-page="equipe"] main>section:nth-of-type(2) .portrait,html.fp body[data-page="equipe"] main>section:nth-of-type(3) .portrait{flex:0 0 auto;aspect-ratio:1/1}
+html.fp body[data-page="equipe"] .person-card .portrait img{object-position:50% 28%}
+html.fp body[data-page="home"] .team-preview .person-card,html.fp body[data-page="cabinet"] .team-preview .person-card{aspect-ratio:1/1}
+html.fp body[data-page="home"] .team-preview .person-card:nth-child(3){aspect-ratio:16/9}
 
 }
