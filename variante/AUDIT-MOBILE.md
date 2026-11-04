@@ -4,6 +4,12 @@ Méthode : captures écran par écran à 412×780, 390×664 et 360×640, test du
 (débordement, zones tactiles, tailles, contraste). Pour chaque page : 10 critiques, et ce qui a été corrigé.
 Le site ordinateur n'est pas modifié (règles limitées aux écrans ≤ 920 px ; photos téléphone via `<picture>`).
 
+## Retours du 5 novembre
+- Accueil : le texte du héros était masqué derrière la photo (superposition) → corrigé, dégradé sous le texte.
+- Chaque écran a exactement la hauteur visible du téléphone (plus de section qui déborde sur la suivante), même sur 734 px de haut.
+- Collaboratrices : petits portraits (4 par ligne) au lieu d une liste de texte. Ressources : titres numérotés, résumé au toucher.
+- Animation plus lente et douce (1 s, courbe adoucie, léger décalage).
+
 ## Critiques communes (toutes pages)
 1. Photos d'ouverture mal cadrées (visages coupés) → recadrages dédiés au téléphone (`m-*.webp`) servis seulement ≤ 920 px.
 2. Animation « après coup » : texte qui apparaît longtemps après le calage → apparition 0,45 s, sans retard échelonné, zoom des photos réduit.
