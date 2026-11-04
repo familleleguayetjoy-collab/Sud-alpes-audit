@@ -207,7 +207,7 @@
     });
 
     /* Détails à la demande : on touche le titre pour déplier (aucune information supprimée). */
-    document.querySelectorAll('.values-grid.pillars article, .steps li, .duo-side, .sector-slide').forEach((el, i) => {
+    document.querySelectorAll('.values-grid.pillars article').forEach((el, i) => {
       el.classList.add('m-acc');
       const head = el.querySelector('h3, h2');
       if (head) {

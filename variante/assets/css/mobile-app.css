@@ -364,4 +364,121 @@ html.fp body[data-page="home"] .sector-tile h3 a{display:flex;align-items:flex-e
 html.fp body .contact-form label{font-size:.75rem!important;letter-spacing:.1em!important}
 html.fp body .contact-form input[type=checkbox]{flex:0 0 24px;width:24px;height:24px}
 
+/* ==========================================================================
+   V3 — comme sur ordinateur : chaque section est un « écran » qui s'ouvre en
+   descendant (défilement calé), formes sobres, pas de cases géométriques.
+   ========================================================================== */
+html.fp{--bar:48px;--slide:calc(100svh - var(--hdr) - var(--bar))}
+html.fp:has(body[data-page="contact"]){--slide:calc(100svh - var(--hdr))}
+@media (prefers-reduced-motion:no-preference){
+  html.fp{scroll-snap-type:y mandatory;scroll-padding-top:var(--hdr)}
+  html.fp body main>section,html.fp body .site-footer{scroll-snap-align:start;scroll-snap-stop:normal}
+  html.fp body .site-footer{scroll-snap-align:end}
+}
+html.fp body main>section{min-height:var(--slide);display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
+html.fp body main>section>.container{width:calc(100% - (var(--m) * 2))}
+html.fp body main>section:last-of-type.cta-section{min-height:max(calc(var(--slide) - var(--footer-h,300px)),240px)}
+html.fp body main>section.section,html.fp body main>section.cta-section,html.fp body main>section.contact-form-section{padding-top:24px;padding-bottom:24px}
+
+/* en-tête de page : la photo remplit l'écran au-dessus du titre */
+html.fp body main>section.page-hero{padding:0 0 24px;justify-content:flex-start}
+html.fp body .page-hero>.container{flex:1;display:flex;flex-direction:column}
+html.fp body .page-hero .page-hero-grid{flex:1}
+html.fp body .page-hero .page-photo{flex:1 1 auto;height:auto!important;min-height:200px}
+html.fp body .page-hero .page-hero-grid>div:first-child{flex:0 0 auto}
+/* accueil : la photo remplit l'écran au-dessus du texte */
+html.fp body[data-page="home"] main>section.hero-home{justify-content:flex-start}
+html.fp body[data-page="home"] .hero-home .hero-grid{flex:1}
+html.fp body[data-page="home"] .hero-home .hero-visual{flex:1 1 auto;height:auto!important;min-height:200px}
+html.fp body[data-page="home"] .hero-copy{flex:0 0 auto}
+
+/* plus de cases : listes et filets */
+html.fp body[data-page="home"] .sector-grid{display:block;border:0;border-top:2px solid var(--navy)}
+html.fp body[data-page="home"] .sector-tile{display:block;aspect-ratio:auto;border:0;border-bottom:1px solid var(--line);position:relative;min-height:52px}
+html.fp body[data-page="home"] .sector-tile-in{padding:0;display:block}
+html.fp body[data-page="home"] .sector-tile h3 a{display:flex;align-items:center;min-height:52px;font:500 1.05rem/1.25 var(--serif);padding:0}
+html.fp body[data-page="home"] .sector-tile h3 a::before{content:"";width:0}
+html.fp body[data-page="home"] .sector-tile h3{position:relative}
+html.fp body[data-page="home"] .sector-tile h3::after{content:"→";position:absolute;right:0;top:50%;transform:translateY(-50%);font:400 1rem/1 var(--sans);color:var(--navy)}
+html.fp body[data-page="cabinet"] .facts-line{border:0;border-top:2px solid var(--navy)}
+html.fp body[data-page="cabinet"] .facts-line>div{border:0;border-right:1px solid var(--line);padding:16px 12px 0 0;margin-right:12px}
+html.fp body[data-page="cabinet"] .facts-line>div:last-child{border-right:0}
+html.fp body[data-page="cabinet"] .methode-list{display:block;border:0;border-top:2px solid var(--navy)}
+html.fp body[data-page="cabinet"] .methode-list li{display:grid;grid-template-columns:40px minmax(0,1fr);align-items:center;aspect-ratio:auto;min-height:56px;padding:0;border:0;border-bottom:1px solid var(--line)}
+html.fp body[data-page="cabinet"] .methode-list b{margin:0}
+
+/* expertises : engagements en liste */
+html.fp body[data-page="expertises"] main>section.section-navy{display:flex}
+html.fp body .value-grid{display:block;border-top:1px solid rgba(255,255,255,.3)}
+html.fp body .value-card{display:block;padding:14px 0;border:0;border-bottom:1px solid rgba(255,255,255,.3);background:none}
+html.fp body .value-card>span{display:none}
+html.fp body .value-card h3{font:500 1.1rem/1.25 var(--serif);color:#fff;margin:0}
+html.fp body .value-card p{display:none}
+
+/* secteurs : un écran par secteur, comme sur ordinateur */
+html.fp body main>section.sector-slide{padding:0;justify-content:flex-start;border:0;min-height:var(--slide)}
+html.fp body .sector-slide-grid{display:flex;flex-direction:column;flex:1;padding:0;width:100%;max-width:none}
+html.fp body .sector-slide-grid>span{display:block;order:1;padding:18px var(--m) 0;font:600 .75rem/1 var(--sans);letter-spacing:.14em;color:var(--mut)}
+html.fp body .sector-slide .sector-slide-grid .sector-photo{order:0;flex:1 1 auto;width:100%!important;max-width:none!important;height:auto!important;min-height:180px;margin:0!important;grid-area:auto}
+html.fp body .sector-slide-grid>div:not(.sector-photo){order:2;display:block;padding:8px var(--m) 24px}
+html.fp body .sector-slide h2{display:block;min-height:0;font:500 1.45rem/1.15 var(--serif);margin:0 0 12px;padding:0}
+html.fp body .sector-slide.m-acc h2::after{display:none}
+html.fp body .sector-slide .large-copy{display:none!important}
+html.fp body .sector-slide .check-list{display:block!important;margin:0;padding:0;border-top:1px solid var(--line)}
+html.fp body .sector-slide .check-list li{font-size:.9rem;padding:9px 0 9px 20px;border-bottom:1px solid var(--line)}
+
+/* étapes : tout visible (quatre lignes) */
+html.fp body .steps p{display:block!important}
+html.fp body .steps li{align-items:start;padding:12px 0}
+html.fp body .steps h3{min-height:0;display:block;margin:0 0 4px}
+html.fp body .steps .step-n{padding-top:4px}
+html.fp body .steps li.m-acc h3::after{display:none}
+html.fp body .duo-side>ul{display:block!important}
+html.fp body .duo-side.m-acc h3::after{display:none}
+html.fp body .duo-side h3{min-height:0;padding:14px 0 6px}
+html.fp body .duo .check-list li:nth-child(n+4){display:block}
+
+/* équipe : la liste des collaboratrices est visible */
+html.fp body .m-more{display:none!important}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .team-grid{display:grid!important;margin-top:4px}
+html.fp body[data-page="equipe"] main>section:nth-of-type(4) .person-card .xp{display:none}
+
+/* ressources : quatre articles repliés d'un cran */
+html.fp body .article-grid-large article p{-webkit-line-clamp:2}
+
+/* échelle d'un écran plein : titres et lignes un cran plus grands */
+html.fp body h2{font-size:1.75rem;line-height:1.12;margin-bottom:20px}
+html.fp body .section-heading{margin-bottom:20px}
+html.fp body[data-page="home"] .exp-list a,html.fp body .expertise-accordion button,html.fp body .values-grid.pillars article,html.fp body[data-page="cabinet"] .methode-list li,html.fp body[data-page="home"] .sector-tile{min-height:60px}
+html.fp body[data-page="home"] .exp-list .exp-t,html.fp body .expertise-accordion button h2,html.fp body .values-grid.pillars h3,html.fp body[data-page="cabinet"] .methode-list h3,html.fp body[data-page="home"] .sector-tile h3 a{font-size:1.2rem;min-height:60px}
+html.fp body[data-page="home"] .sector-tile h3 a{text-align:left;justify-content:flex-start}
+html.fp body[data-page="home"] .sector-tile h3{text-align:left}
+html.fp body[data-page="cabinet"] .facts-line dt{font-size:2.5rem}
+html.fp body .page-hero h1,html.fp body .contact-top h1{font-size:2.1rem}
+html.fp body[data-page="home"] .hero-copy h1{font-size:2.4rem}
+html.fp body .cta-section h2{font-size:1.7rem}
+html.fp body .team-preview .portrait{aspect-ratio:4/5}
+
+/* corrections V3 */
+html.fp body .sector-slide-grid>span{order:1!important}
+html.fp body .sector-slide-grid>div:not(.sector-photo){order:2!important}
+html.fp body main>section>.container,html.fp body .team-grid,html.fp body .team-grid>*{min-width:0;max-width:100%}
+html.fp body[data-page="equipe"] main>section:nth-of-type(3) .portrait{display:block}
+html.fp body[data-page="equipe"] main>section:nth-of-type(3) .person-card{border-top:0;padding:0}
+html.fp body[data-page="equipe"] main>section:nth-of-type(3) .team-grid{gap:14px}
+html.fp body[data-page="equipe"] main>section:nth-of-type(3) .person-card .xp{display:none}
+
+/* alignement vertical des lignes */
+html.fp body[data-page="home"] .exp-list .exp-t,html.fp body .expertise-accordion button h2{display:flex;align-items:center;min-height:60px}
+html.fp body[data-page="home"] .exp-list b,html.fp body[data-page="home"] .exp-list svg{align-self:center}
+html.fp body[data-page="home"] .sector-tile{background:none!important;display:block}
+html.fp body[data-page="home"] .sector-tile h3 a{justify-content:flex-start!important;text-align:left!important;width:100%}
+html.fp body[data-page="home"] .sector-tile-in{text-align:left}
+html.fp body .expertise-accordion button h2 .num{left:0}
+html.fp body[data-page="cabinet"] .methode-list h3{display:flex;align-items:center;min-height:56px}
+
+html.fp body[data-page="home"] .sector-tile h3 a{display:block!important;line-height:60px;min-height:60px;padding:0!important;text-align:left!important;margin:0!important}
+html.fp body[data-page="home"] .sector-tile h3 a::before{display:none!important}
+html.fp body[data-page="home"] .sector-tile h3::after{z-index:1;color:var(--navy);content:"→"}
+
 }
