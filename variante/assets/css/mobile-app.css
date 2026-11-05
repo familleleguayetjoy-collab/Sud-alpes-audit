@@ -268,7 +268,7 @@ html.fp{--bar:48px;--slide:calc(var(--app-h,100dvh) - var(--hdr) - var(--bar))}
 html.fp:has(body[data-page="contact"]){--slide:calc(var(--app-h,100dvh) - var(--hdr))}
 @media (prefers-reduced-motion:no-preference){
   html.fp{scroll-snap-type:y mandatory!important;scroll-padding-top:var(--hdr)}
-  html.fp body main>section,html.fp body .site-footer{scroll-snap-align:start;scroll-snap-stop:normal}
+  html.fp body main>section,html.fp body .site-footer{scroll-snap-align:start;scroll-snap-stop:always}
   html.fp body .site-footer{scroll-snap-align:end}
 }
 html.fp body main>section{min-height:var(--slide);display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
@@ -778,7 +778,6 @@ html.js .reveal.visible{transform:none!important}
   html.fp body .hero-copy>*:nth-child(3),html.fp body .page-hero .page-hero-grid>div:first-child>*:nth-child(3){animation-delay:.4s}
   html.fp body .hero-copy>*:nth-child(4){animation-delay:.6s}
 }
-html.fp body{scroll-behavior:smooth}
 
 /* équipe : vignettes plus larges que hautes, 3 par ligne */
 html.fp body[data-page="equipe"] main>section:nth-of-type(4) .team-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px 10px;align-content:center}
@@ -795,4 +794,33 @@ html.fp body[data-page="home"] .team-preview .person-card:nth-child(3){aspect-ra
 }
 @media (max-width:920px){
 html.fp body[data-page="contact"] .contact-top .page-photo img{object-position:46% 50%}
+/* ==== V8 : défilement net (un geste = une slide), contenu qui apparaît une fois la slide arrêtée ==== */
+/* plus d'animation individuelle pendant le glissé : fondu de l'ensemble de la slide, une fois arrêtée */
+html.js-slides body .reveal,html.js-slides body .js .reveal{opacity:1!important;transform:none!important;transition:none!important}
+html.js-slides body main>section:not(.hero-home):not(.page-hero):not(.contact-top)>.container{opacity:0;transition:opacity .9s cubic-bezier(.25,.1,.25,1)}
+html.js-slides body main>section:not(.hero-home):not(.page-hero):not(.contact-top).is-active>.container{opacity:1}
+html.js-slides body main>section.sector-slide>.container{opacity:0}
+html.js-slides body main>section.sector-slide.is-active>.container{opacity:1}
+html.js-slides body main>section.cta-section>.container{opacity:0}
+html.js-slides body main>section.cta-section.is-active>.container{opacity:1}
+/* images d'ouverture : fondu seul, pas de zoom */
+@media (prefers-reduced-motion:no-preference){
+  html.fp body .hero-photo img,html.fp body .page-photo img{animation:s2a-fade 1.6s ease-out both}
+  @keyframes s2a-fade{from{opacity:.55}to{opacity:1}}
+}
+
+/* ==== Ressources : liste claire (numéro · catégorie · titre · +) ==== */
+html.fp body[data-page="ressources"] main>section.section-soft{background-image:none!important;background-color:#fff!important}
+html.fp body[data-page="ressources"] main>section.section-soft::before,html.fp body[data-page="ressources"] main>section.section-soft::after{display:none!important}
+html.fp body[data-page="ressources"] .article-grid-large article{display:grid!important;grid-template-columns:44px minmax(0,1fr) 28px;grid-template-areas:"n t x" "n h x" "n p x";align-content:center;align-items:center;column-gap:0;row-gap:2px;padding:0!important;border:0!important;border-bottom:1px solid var(--line)!important;flex:1 1 0}
+html.fp body[data-page="ressources"] .article-grid-large article::before{position:static!important;transform:none!important;grid-area:n;align-self:center;grid-row:1/4;content:counter(res,decimal-leading-zero)!important}
+html.fp body[data-page="ressources"] .article-grid-large article .article-tag{grid-area:t;font:600 .75rem/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin:0}
+html.fp body[data-page="ressources"] .article-grid-large article h2{grid-area:h;font:400 1.12rem/1.25 var(--serif);color:var(--ink);margin:0}
+html.fp body[data-page="ressources"] .article-grid-large article p{grid-area:p;display:none!important;font:400 .88rem/1.45 var(--sans);color:var(--mut);margin:6px 0 0}
+html.fp body[data-page="ressources"] .article-grid-large article.expanded p{display:block!important;-webkit-line-clamp:unset}
+html.fp body[data-page="ressources"] .article-grid-large article::after{content:"+"!important;position:static!important;grid-area:x;grid-row:1/4;align-self:center;justify-self:end;margin:0!important;font:300 1.6rem/1 var(--sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--navy)!important}
+html.fp body[data-page="ressources"] .article-grid-large article.expanded::after{content:"\2212"!important}
+html.fp body[data-page="ressources"] .article-grid-large article.expanded{flex:3 1 0}
+html.fp body[data-page="ressources"] .article-grid-large{border-top:2px solid var(--navy)!important}
+
 }
