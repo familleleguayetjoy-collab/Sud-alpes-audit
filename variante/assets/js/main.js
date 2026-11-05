@@ -256,6 +256,22 @@
     window.addEventListener('hashchange', openFromHash);
   }
 
+  /* Téléphone : chaque section « s'allume » une fois le défilement arrêté dessus (fondu doux, aucun mouvement pendant le glissé) */
+  if (mqMobile.matches && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const secs = document.querySelectorAll('main > section');
+    document.documentElement.classList.add('js-slides');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const need = Math.min(en.boundingClientRect.height * 0.55, window.innerHeight * 0.5);
+        if (en.isIntersecting && en.intersectionRect.height >= need) {
+          window.setTimeout(() => en.target.classList.add('is-active'), 120);
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: [0, 0.2, 0.4, 0.55, 0.7, 0.85, 1] });
+    secs.forEach((sec, i) => { if (i === 0) sec.classList.add('is-active'); else io.observe(sec); });
+  }
+
   /* Contact : présélection de la demande depuis un lien (?sujet=transmission…) */
   const subjectParam = new URLSearchParams(location.search).get('sujet');
   const subjectSelect = document.querySelector('select[name="sujet"]');
