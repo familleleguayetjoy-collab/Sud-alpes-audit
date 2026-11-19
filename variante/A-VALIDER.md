@@ -114,3 +114,18 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 - [ ] 🔴 **« Audit de cybersécurité »** remplace l'audit légal et contractuel (accueil, expertises, pied de page). Cinq prestations affichées : diagnostic des accès, sauvegardes, repérage des risques de fraude et d'hameçonnage, sensibilisation, restitution avec plan d'actions. À valider : qui réalise la mission, quelles compétences/qualifications, quelle assurance, et ne pas promettre plus que ce qui sera tenu.
 - [ ] 🔴 **Commissariat aux comptes** : retiré du pied de page, des descriptions du site et du bloc « Cadre professionnel » (puisqu'il n'y a plus d'audit légal). **Encore présent** dans les titres des deux associés (« Expert-comptable · Commissaire aux comptes ») : à confirmer ou retirer.
 - [ ] 🟠 **Secteurs** : services simplifiés, 3 points par secteur, centrés sur la comptabilité, la paie, la trésorerie et les déclarations (plus de levée de fonds, de structuration patrimoniale ni d'optimisation fiscale). À relire secteur par secteur.
+
+### Retours du 19 novembre (21 points) — à valider
+- [ ] 🔴 **Expertise comptable** : promesses réduites (comptabilité à jour, échanges réguliers, information sur les échéances fiscales et leur montant, situations intermédiaires **sur option**, bilan et comptes annuels). Bouton « Changer de cabinet » retiré du panneau.
+- [ ] 🔴 **Social & paie** : bullets dans l'ordre chronologique (embauche, bulletins, déclarations sociales, fin de contrat). Retiré : contrôles Urssaf, veille conventionnelle.
+- [ ] 🔴 **Missions de conseil** (ex « Conseil & pilotage ») : présentées comme missions **indépendantes**, ponctuelles, sur devis. Intitulé changé aussi sur l'accueil et dans le pied de page.
+- [ ] 🔴 **Audit de cybersécurité** : positionné comme un état des lieux **organisationnel**, explicitement « pas un test technique d'intrusion ». À valider : qui le réalise, compétences, assurance.
+- [ ] 🔴 **Création & transmission** : liens « Créer son entreprise / Transmettre son entreprise » retirés du panneau ; texte recentré sur les points comptables, fiscaux et financiers. Les pages `creation.html` et `transmission.html` restent accessibles par le pied de page et l'appel à l'action.
+- [ ] 🔴 **Organisation numérique** : réduite à la facturation électronique, l'échange de pièces et la prise en main des outils du cabinet.
+- [ ] 🔴 **Secteurs** : deux blocs par secteur — « Au quotidien » (2 services courants) et « Sur option » (2 analyses approfondies). À relire secteur par secteur.
+- [ ] 🔴 **Engagements** : formulations adoucies (« délai raisonnable, en général sous 48 h ouvrées », situations intermédiaires « sur option », « échanges simplifiés » au lieu de « portail documentaire »). Idem sur Merci, Contact, Changer de cabinet.
+- [ ] 🟠 Zone géographique : « région Provence-Alpes-Côte d'Azur et reste du sud de la France » (accueil, cabinet, référencement).
+- [ ] 🟠 Cabinet : « Cadre professionnel » **supprimé** (rien à promettre sur la responsabilité) ; phrase « Pas de service ni de pôle… » retirée ; « Rejoignez S2A » ; accompagnement « sur plusieurs sujets » (comptabilité, paie, fiscalité).
+- [ ] 🟠 Accueil : ordre des expertises (Création & transmission en 3), titre « Un interlocuteur qui connaît votre dossier », exemple « reprise » sans mention de pharmacie (la photo reste celle d'une pharmacie : à changer si besoin), exemple trésorerie moins ambitieux.
+- [ ] 🟠 Associés : « Expert-comptable » et « Commissaire aux comptes » sur deux lignes (titre à confirmer).
+- [ ] 🟠 Contact : « E-mail » (et non Courriel) ; champs **Téléphone** et **Secteur d'activité** (texte libre, facultatifs) ajoutés.

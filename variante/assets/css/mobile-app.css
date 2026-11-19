@@ -827,3 +827,11 @@ html.fp body[data-page="ressources"] .article-grid-large{border-top:2px solid va
 @media (max-width:920px){
 html.fp body[data-page="equipe"] .team-grid.team-solo{grid-template-columns:minmax(0,62%)!important;justify-content:center}
 }
+@media (max-width:920px){
+html.fp body .sector-slide .svc-split{display:block;border-top:1px solid var(--line)}
+html.fp body .sector-slide .svc-label{display:block;margin:10px 0 2px;font:700 .75rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+html.fp body .sector-slide .svc-opt .svc-label{color:var(--navy)}
+html.fp body .sector-slide .svc .check-list{border-top:0;margin:0}
+html.fp body .sector-slide .svc-opt .check-list svg{stroke:var(--navy)}
+html.fp body .contact-form label em{font-style:normal;font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--mut)}
+}

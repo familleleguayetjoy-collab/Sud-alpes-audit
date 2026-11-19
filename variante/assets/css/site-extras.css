@@ -414,3 +414,37 @@ html.fp main>section.contact-form-section{background:linear-gradient(180deg,#F3F
 
 /* une seule cheffe de mission : la fiche ne s'étire pas sur deux colonnes */
 html.fp .team-grid.team-solo{grid-template-columns:minmax(0,560px)!important;max-width:none!important;justify-content:start}
+
+/* ==========================================================================
+   Retours du 19 novembre : secteurs « au quotidien / sur option », textes justifiés,
+   orphelins évités, formulaire à 6 champs
+   ========================================================================== */
+html.fp p,html.fp .large-copy{text-wrap:pretty}
+html.fp .join-new h2,html.fp .join-new .join-left>p{text-wrap:balance}
+@media (min-width:921px){
+  /* textes d'explication : alignés à gauche et à droite */
+  html.fp .accordion-body>p:first-child,html.fp .sector-slide .large-copy,html.fp .histoire-text .large-copy,html.fp .locations-section p,html.fp .article-grid-large p{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
+  /* listes à puces : coche alignée sur la première ligne */
+  html.fp .expertise-accordion .check-list li,html.fp .sector-slide .check-list li{display:flex;align-items:flex-start;gap:12px}
+  html.fp .expertise-accordion .check-list li svg,html.fp .sector-slide .check-list li svg{flex:0 0 16px;margin-top:.28em}
+  /* méthode : titre centré dans le bloc */
+  html.fp .methode-intro{justify-content:center}
+  html.fp .methode-intro h2{margin-bottom:0}
+  /* secteurs : deux blocs */
+  html.fp .sector-slide .svc-split{display:grid;grid-template-columns:1fr;gap:clamp(10px,2vh,18px);border-top:1px solid var(--rule);padding-top:clamp(12px,2.4vh,22px)}
+  html.fp .sector-slide .svc-split .check-list{grid-template-columns:1fr;gap:clamp(6px,1.2vh,10px);border:0;padding:0;margin:0}
+  html.fp .sector-slide .svc-label{display:block;margin:0 0 clamp(6px,1.2vh,10px);font:700 .6rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+  html.fp .sector-slide .svc-opt{border-top:1px dashed #B4C3D2;padding-top:clamp(10px,2vh,16px)}
+  html.fp .sector-slide .svc-opt .svc-label{color:var(--navy,#0F1E2E)}
+  html.fp .sector-slide .svc-opt .check-list svg{stroke:var(--navy,#0F1E2E)}
+  html.fp .sector-slide .svc-opt li{color:var(--text)}
+}
+/* formulaire de contact : 6 champs sans dépasser l'écran */
+@media (min-width:921px){
+  html.fp .contact-form{gap:clamp(6px,1.1vh,12px)}
+  html.fp .contact-form label em{font-style:normal;font-weight:500;letter-spacing:.04em;text-transform:none;color:#516478}
+  html.fp .contact-form textarea{height:clamp(46px,8vh,84px)}
+}
+@media (min-width:921px){
+  html.fp .expertise-accordion .check-list.list-1col{grid-template-columns:1fr}
+}
