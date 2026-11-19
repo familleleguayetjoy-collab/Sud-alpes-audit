@@ -824,3 +824,6 @@ html.fp body[data-page="ressources"] .article-grid-large article.expanded{flex:3
 html.fp body[data-page="ressources"] .article-grid-large{border-top:2px solid var(--navy)!important}
 
 }
+@media (max-width:920px){
+html.fp body[data-page="equipe"] .team-grid.team-solo{grid-template-columns:minmax(0,62%)!important;justify-content:center}
+}
