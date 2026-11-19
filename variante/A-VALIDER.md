@@ -107,3 +107,10 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 - [ ] 🟠 Mobile entièrement repensé (≤ 920 px), le bureau n'est pas modifié : accueil en 5 écrans (au lieu de 7), pages intérieures 3 à 4 écrans ; héros photo + coupe diagonale ; listes numérotées ; détails au toucher (cadre professionnel, étapes, secteurs, expertises, ressources).
 - [ ] 🟠 Sur téléphone, certaines phrases d'introduction sont raccourcies (partie masquée, toujours présente sur ordinateur) et la bannière « À la une » est masquée.
 - [ ] 🟠 Équipe sur téléphone : portraits des deux associés et des deux cheffes de mission seulement ; les collaboratrices sont listées sans photo.
+
+### Personnalisation S2A (19 novembre)
+- [ ] 🔴 **Effectif : 16 collaborateurs** (compris comme 16 personnes au total, associés compris). Affiché sur Cabinet, Équipe et dans les titres. Si c'est 16 hors associés, à corriger. **Seuls 11 portraits sont affichés** (2 associés, 1 cheffe, 8 collaboratrices) : il manque 5 personnes (noms, fonctions, photos).
+- [ ] 🔴 **Une seule cheffe de mission** : la fiche conservée est **Nathalie Perrin** (nom et années d'expérience provisoires, comme les autres).
+- [ ] 🔴 **« Audit de cybersécurité »** remplace l'audit légal et contractuel (accueil, expertises, pied de page). Cinq prestations affichées : diagnostic des accès, sauvegardes, repérage des risques de fraude et d'hameçonnage, sensibilisation, restitution avec plan d'actions. À valider : qui réalise la mission, quelles compétences/qualifications, quelle assurance, et ne pas promettre plus que ce qui sera tenu.
+- [ ] 🔴 **Commissariat aux comptes** : retiré du pied de page, des descriptions du site et du bloc « Cadre professionnel » (puisqu'il n'y a plus d'audit légal). **Encore présent** dans les titres des deux associés (« Expert-comptable · Commissaire aux comptes ») : à confirmer ou retirer.
+- [ ] 🟠 **Secteurs** : services simplifiés, 3 points par secteur, centrés sur la comptabilité, la paie, la trésorerie et les déclarations (plus de levée de fonds, de structuration patrimoniale ni d'optimisation fiscale). À relire secteur par secteur.
