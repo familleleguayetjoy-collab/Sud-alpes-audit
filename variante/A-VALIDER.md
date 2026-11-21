@@ -129,3 +129,9 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 - [ ] 🟠 Accueil : ordre des expertises (Création & transmission en 3), titre « Un interlocuteur qui connaît votre dossier », exemple « reprise » sans mention de pharmacie (la photo reste celle d'une pharmacie : à changer si besoin), exemple trésorerie moins ambitieux.
 - [ ] 🟠 Associés : « Expert-comptable » et « Commissaire aux comptes » sur deux lignes (titre à confirmer).
 - [ ] 🟠 Contact : « E-mail » (et non Courriel) ; champs **Téléphone** et **Secteur d'activité** (texte libre, facultatifs) ajoutés.
+
+### Retours du 21 novembre (17 points) — à valider
+- [ ] 🔴 **Secteurs** : le second bloc s'appelle « Pour aller plus loin » (plus de « sur option »). Contenu par secteur recentré sur ce qui compte : santé (optimisation de la rémunération, structure d'exercice et fiscalité, anticipation de la trésorerie et des impôts), CHR, commerce, BTP, immobilier, services/start-up. **Volontairement absents** : « placements » et « montages fiscaux » (le conseil en placement est une activité réglementée, à ne pas promettre sans agrément ; les « montages fiscaux » sont à manier avec prudence). À valider avec les associés.
+- [ ] 🔴 « Organisation numérique » devient **« Digitalisation des process »** (facturation électronique, collecte des pièces, circuits de validation et contrôle interne, prise en main des outils). Plus de délai chiffré (« 48 h ») dans les engagements ni sur la page Merci.
+- [ ] 🟠 Expertises : ordre aligné sur l'accueil (comptable, conseil, création & transmission, social & paie, audit de cybersécurité, digitalisation), panneaux centrés, introduction « Pourquoi S2A » supprimée, textes de la facturation électronique réduits.
+- [ ] 🟠 Textes retirés : « Depuis 1998 à Nice », « 16 personnes, un seul objectif », la phrase d'intro de l'équipe, « Six domaines, une seule équipe », « Vos enjeux, notre expérience », « double exigence de la rigueur… ».
