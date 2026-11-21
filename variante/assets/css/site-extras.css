@@ -448,3 +448,24 @@ html.fp .join-new h2,html.fp .join-new .join-left>p{text-wrap:balance}
 @media (min-width:921px){
   html.fp .expertise-accordion .check-list.list-1col{grid-template-columns:1fr}
 }
+
+/* ==========================================================================
+   Retours du 21 novembre : panneaux d'expertises centrés (horizontal et vertical),
+   textes de la facturation électronique plus petits
+   ========================================================================== */
+@media (min-width:921px){
+  html.fp .expertise-faq .expertise-accordion>article.open{justify-content:center;text-align:center}
+  html.fp .expertise-faq .expertise-accordion>article>button{justify-content:center;text-align:center}
+  html.fp .expertise-faq .expertise-accordion>article>button h2{justify-content:center;text-align:center}
+  html.fp .expertise-faq .expertise-accordion>article.open>div{flex:0 0 auto}
+  html.fp .expertise-faq .expertise-accordion>article.open>div>.accordion-body{flex:0 0 auto;align-items:center}
+  html.fp .expertise-faq .accordion-body>p:first-child{text-align:center;hyphens:none;-webkit-hyphens:none;margin-left:auto;margin-right:auto;max-width:56ch}
+  html.fp .expertise-faq .accordion-body .check-list{grid-template-columns:1fr;justify-items:center;width:100%;border-top:1px solid var(--rule);padding-top:clamp(12px,2.2vh,22px)}
+  html.fp .expertise-faq .accordion-body .check-list li{justify-content:center;text-align:center;align-items:flex-start}
+  html.fp .split-heading .large-copy{font-size:clamp(.95rem,.2vw + 1.2vh,1.08rem);line-height:1.6}
+  html.fp .deadline-card p{font-size:.82rem;line-height:1.55}
+  html.fp .deadline-card small{font-size:.7rem}
+}
+@media (min-width:921px){
+  html.fp .expertise-faq .expertise-accordion>article{padding-top:clamp(20px,3.6vh,42px);padding-bottom:clamp(20px,3.6vh,42px)}
+}
