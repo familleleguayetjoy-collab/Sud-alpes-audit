@@ -137,3 +137,7 @@ Légende : 🔴 à remplacer/confirmer impérativement · 🟠 à relire · 🟢
 - [ ] 🟠 Textes retirés : « Depuis 1998 à Nice », « 16 personnes, un seul objectif », la phrase d'intro de l'équipe, « Six domaines, une seule équipe », « Vos enjeux, notre expérience », « double exigence de la rigueur… ».
 - [ ] 🟠 « Digitalisation des process » reformulée en bénéfices (moins de saisie, moins d'erreurs, circuits de validation, autonomie) à la place d'une liste de tâches ; à confirmer.
 - [ ] 🔴 « Digitalisation des process » **remplacée** par **« Conseil & contrôle de gestion »** (tableaux de bord, suivi de rentabilité et des marges, comparaison avec le prévisionnel, points de suivi réguliers). « Missions de conseil » est recentrée sur les prévisionnels, dossiers de financement et conseil ponctuel pour éviter le doublon. La facturation électronique n'apparaît plus que dans la section « calendrier » : à confirmer.
+
+### Dossier à fournir (28 novembre)
+- `variante/DOSSIER-A-FOURNIR-S2A.pdf` : PDF à champs modifiables (mentions légales, Ordre, assurance, contact, 16 personnes, logo/photos/documents types, choix techniques). À renvoyer lundi 30 novembre.
+- Déclarant et correspondant TRACFIN : **non demandés** et à ne pas publier sur le site (à confirmer avec le référent LCB-FT).
